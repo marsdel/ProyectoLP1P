@@ -1,5 +1,8 @@
 from typing import DefaultDict
 import ply.lex as lex
+
+#Autor: Marco Del Rosario
+#Ingreso de palabras reservadas
 # List of token names.   This is always required
 reserved = {
     'alias' : 'ALIAS', 'and' : 'AND',
@@ -21,6 +24,7 @@ reserved = {
     'yield' : 'YIELD',
     '_FILE_' : '_FILE_', '_LINE_' : '_LINE_'
 }
+
 tokens = (
     'NUMBER',
     'PLUS',
@@ -38,7 +42,7 @@ tokens = (
     'VAR_SYSTEM',
     # Hector Rizzo
 
-) + tuple(reserved.values())
+) + tuple(reserved.values()) #transformacion a tupla del diccionario +Marco Del Rosario
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
 t_LPAREN = r'\('
