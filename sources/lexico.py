@@ -6,8 +6,8 @@ import ply.lex as lex
 # List of token names.   This is always required
 reserved = {
     'alias' : 'ALIAS', 'and' : 'AND',
-    'break' : 'BREAK',
-    'case' : 'CASE',
+    'break' : 'BREAK', 'begin' : 'begin',
+    'case' : 'CASE', 'class' : 'CLASS',
     'def' : 'DEF', 'defined' : 'DEFINED', 'do' : 'DO',
     'else' : 'ELSE', 'elsif' : 'ELSIF', 'end' : 'END', 'ensure' : 'ENSURE',
     'false' : 'FALSE', 'true' : 'TRUE',
@@ -16,6 +16,7 @@ reserved = {
     'module' : 'MODULE',
     'next' : 'NEXT', 'nil' : 'NIL', 'not' : 'NOT',
     'or' : 'OR',
+    'puts' : 'PUTS',
     'redo' : 'REDO', 'rescue' : 'RESCUE', 'retry' : 'RETRY', 'return' : 'RETURN',
     'self' : 'SELF', 'super' : 'SUPER',
     'then' : 'THEN',
