@@ -42,6 +42,8 @@ tokens = (
     'VAR_LOCAL',
     'VAR_SYSTEM',
     # Hector Rizzo
+    #Simbolo Jhossias Calderon
+    'SYMBOL',
 
 ) + tuple(reserved.values()) #transformacion a tupla del diccionario +Marco Del Rosario
 t_TIMES = r'\*'
@@ -49,6 +51,8 @@ t_DIVIDE = r'/'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_MOD = r'\%'
+#Simbolo Jhossias Calderon
+t_SYMBOL = r':\w+'
 
 #variables +Hector Rizzo
 t_VAR_GLOBAL = r'\$\w+'
@@ -62,8 +66,6 @@ def t_VAR_LOCAL(t):
     return t
 
 # +Hector Rizzo
-
-
 # A regular expression rule with some action code
 def t_NUMBER(t):
     r'\d+'
