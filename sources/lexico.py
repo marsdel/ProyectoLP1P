@@ -44,13 +44,28 @@ tokens = (
     # Hector Rizzo
     #Simbolo Jhossias Calderon
     'SYMBOL',
-
+    'EQUAL',
+    'NOTEQUAL',
+    'GREATERTHAN',
+    'GREATERTHANEQUAL',
+    'LESSERTHAN',
+    'LESSERTHANEQUAL'
 ) + tuple(reserved.values()) #transformacion a tupla del diccionario +Marco Del Rosario
+t_PLUS = r'\+'
+t_MINUS = r'\-'
 t_TIMES = r'\*'
 t_DIVIDE = r'/'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_MOD = r'\%'
+t_EQUAL = r'\=\='
+t_NOTEQUAL = r'\!\='
+t_GREATERTHAN = r'\>'
+t_GREATERTHANEQUAL = r'\>\='
+t_LESSERTHAN = r'\<'
+t_LESSERTHANEQUAL = r'\<\='
+
+
 #Simbolo Jhossias Calderon
 t_SYMBOL = r':\w+'
 
