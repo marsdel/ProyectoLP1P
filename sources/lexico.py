@@ -112,6 +112,7 @@ def getTokens(lexer):
 # Build the lexer
 lexer = lex.lex()
 
+"""
 linea=" "
 while linea!="":
     linea=input(">>")
@@ -119,3 +120,4 @@ while linea!="":
     getTokens(lexer)
 # Tokenize
 print("Succesfull")
+"""
