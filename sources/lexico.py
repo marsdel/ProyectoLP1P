@@ -44,6 +44,14 @@ tokens = (
     'STRING',
     'TERM',
     # Hector Rizzo
+    'UNARY_OP',
+    'LBRACKET',
+    'RBRACKET',
+    'LKEY',
+    'RKEY',
+    'COMMA',
+    'DOT',
+    'OR_SYMBOL',
     #Simbolo Jhossias Calderon
     'SYMBOL',
     'EQUAL',
@@ -66,6 +74,15 @@ t_GREATERTHAN = r'\>'
 t_GREATERTHANEQUAL = r'\>\='
 t_LESSERTHAN = r'\<'
 t_LESSERTHANEQUAL = r'\<\='
+#Hector Rizzo
+t_UNARY_OP = r'::'
+t_LBRACKET = r'\['
+t_RBRACKET = r']'
+t_LKEY = r'{'
+t_RKEY = r'}'
+t_COMMA = r','
+t_DOT = r'.'
+t_OR_SYMBOL = r'\|'
 
 
 #Simbolo Jhossias Calderon
