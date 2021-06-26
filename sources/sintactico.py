@@ -3,7 +3,36 @@
 import ply.yacc as yacc
 from lexico import tokens 
  # Get the token map from the lexer.  This is required.from calclex import tokens
- 
+
+# start Hector Rizzo 
+def p_sentence(p):
+    '''sentence : assignment
+                | expression
+                | loop'''
+
+def p_assignment(p):
+    ''' assignment: variable 
+    '''
+
+def p_variable(p):
+    '''variable: VAR_GLOBAL
+                |VAR_LOCAL
+                |VAR_INSTANCE
+                |VAR_CLASS'''
+    
+def p_loop_while(p):
+    'loop : WHILE expression do expression END'
+
+def p_do(p):
+    '''do : term
+        | DO
+		| term DO'''
+def p_term(p):
+    'term : TERM'
+
+
+# End Hector Rizzo 
+
 def p_expression_plus(p):
      'expression : expression PLUS term'
      p[0] = p[1] + p[3]

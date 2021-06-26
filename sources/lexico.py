@@ -41,6 +41,8 @@ tokens = (
     'VAR_CLASS',
     'VAR_LOCAL',
     'VAR_SYSTEM',
+    'STRING',
+    'TERM',
     # Hector Rizzo
     #Simbolo Jhossias Calderon
     'SYMBOL',
@@ -74,6 +76,8 @@ t_VAR_GLOBAL = r'\$\w+'
 t_VAR_INSTANCE = r'\@\w+'
 t_VAR_CLASS = r'\@\@\w+'
 t_VAR_SYSTEM = r'\$[!|@|_|.|&|~|n|=|/|\\|0|*|$|?]'
+t_STRING = r'"\w+"|\'\w+\'|´\w+´'
+t_TERM= r';|\n'
 
 def t_VAR_LOCAL(t):
     r'((_\w+)|[a-z])\w*'
