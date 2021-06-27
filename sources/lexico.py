@@ -6,7 +6,7 @@ import ply.lex as lex
 # List of token names.   This is always required
 reserved = {
     'alias' : 'ALIAS', 'and' : 'AND',
-    'break' : 'BREAK', 'begin' : 'begin',
+    'break' : 'BREAK', 'begin' : 'BEGIN',
     'case' : 'CASE', 'class' : 'CLASS',
     'def' : 'DEF', 'defined' : 'DEFINED', 'do' : 'DO',
     'else' : 'ELSE', 'elsif' : 'ELSIF', 'end' : 'END', 'ensure' : 'ENSURE',
@@ -35,6 +35,7 @@ tokens = (
     'LPAREN',
     'RPAREN',
     'MOD',
+    'POW',
     #variables +Hector Rizzo
     'VAR_GLOBAL',
     'VAR_INSTANCE',
@@ -68,6 +69,7 @@ t_DIVIDE = r'/'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_MOD = r'\%'
+t_POW = r'\*\*'
 t_EQUAL = r'\=\='
 t_NOTEQUAL = r'\!\='
 t_GREATERTHAN = r'\>'

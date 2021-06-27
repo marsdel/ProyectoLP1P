@@ -4,6 +4,98 @@ import ply.yacc as yacc
 from lexico import tokens 
  # Get the token map from the lexer.  This is required.from calclex import tokens
 
+#start Marco Del Rosario
+def p_program(p):
+    'program : compstmt'
+
+def p_compstmt(p):
+    'compstmt : stmt LPAREN term expr RPAREN TIMES LBRACKET term RBRACKET'
+
+def p_stmt(p):
+    '''stmt : call do LBRACKET RBRACKET
+            | LBRACKET block_var RBRACKET
+            | LBRACKET OR_SYMBOL block_var OR_SYMBOL RBRACKET compstmt END
+            | UNDEF fname
+            | ALIAS fname fname
+            | stmt IF expr
+            | stmt WHILE expr
+            | stmt UNLESS expr
+            | stmt UNTIL expr
+            | BEGIN LKEY compstmt RKEY
+            | END LKEY compstmt RKEY
+            | lhs '=' command LBRACKET do LBRACKET OR_SYMBOL block_var OR_SYMBOL RBRACKET compstmt END RBRACKET
+            | expr'''
+
+def p_expr(p):
+    '''expr : mlhs '=' mrhs
+            | RETURN call_args
+            | YIELD call_args
+            | expr AND expr
+            | expr OR expr
+            | NOT expr
+            | command
+            | '!' command
+            | ARG'''
+
+def p_call(p):
+    'call : function | command'
+
+def p_command(p):
+    '''command : operation call_args
+            | primary DOT operation call_args
+            | primary UNARY_OP operation call_args
+            | SUPER call_args'''
+
+def p_function(p):
+    '''function : operation LBRACKET LPAREN LBRACKET call_args RBRACKET RPAREN RBRACKET
+                | primary DOT operation LPAREN RPAREN
+                | primary DOT operation LPAREN LBRACKET RBRACKET RPAREN
+                | primary DOT operation LPAREN LBRACKET call_args RBRACKET RPAREN
+                | primary UNARY_OP operation LPAREN RPAREN
+                | primary UNARY_OP operation LPAREN LBRACKET RBRACKET RPAREN
+                | primary UNARY_OP operation LPAREN LBRACKET call_args RBRACKET RPAREN
+                | primary DOT operation
+                | primary UNARY_OP operation
+                | SUPER LPAREN LBRACKET call_args RBRACKET RPAREN
+                | SUPER'''
+
+def p_arg(p):
+    '''arg : lhs '=' arg
+            | lhs op_asgn arg
+            | arg '..' arg
+            | arg '...' arg
+            | arg PLUS arg
+            | arg MINUS arg
+            | arg TIMES arg
+            | arg DIV arg
+            | arg MOD arg
+            | arg POW arg
+            | PLUS arg
+            | MINUS arg
+            | arg '|' arg
+            | arg '^' arg
+            | arg '&' arg
+            | arg '<=>' arg
+            | arg GREATERTHAN arg
+            | arg GREATERTHANEQUAL arg
+            | arg LESSERTHAN arg
+            | arg LESSERTHANEQUAL arg
+            | arg EQUAL arg
+            | arg '===' arg
+            | arg NOTEQUAL arg
+            | arg '=~' arg
+            | arg '!~' arg
+            | '!' arg
+            | '~' arg
+            | arg '<<' arg
+            | arg '>>' arg
+            | arg AND arg
+            | arg OR arg
+            | DEFINED '?' arg
+            | primary'''
+
+#end Marco Del Rosario
+
 # start Hector Rizzo 
 def p_sentence(p):
     '''sentence : assignment
@@ -98,7 +190,7 @@ def p_term(p):
     'term : TERM'
 
 
-# End Hector Rizzo 
+# End Hector Rizzo
 
 def p_expression_plus(p):
      'expression : expression PLUS term'

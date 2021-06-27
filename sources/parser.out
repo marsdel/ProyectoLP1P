@@ -1,0 +1,219 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ALIAS
+    AND
+    BREAK
+    EQUAL
+    FALSE
+    GREATERTHAN
+    GREATERTHANEQUAL
+    LESSERTHANEQUAL
+    MOD
+    NEXT
+    NIL
+    NOT
+    NOTEQUAL
+    OR
+    PUTS
+    REDO
+    RETRY
+    SELF
+    STRING
+    SUPER
+    SYMBOL
+    TRUE
+    UNDEF
+    VAR_SYSTEM
+    _FILE_
+    _LINE_
+    begin
+
+Grammar
+
+Rule 0     S' -> sentence
+Rule 1     sentence -> assignment
+Rule 2     sentence -> expression
+Rule 3     sentence -> loop
+Rule 4     variable -> VAR_GLOBAL
+Rule 5     variable -> VAR_LOCAL
+Rule 6     variable -> VAR_INSTANCE
+Rule 7     variable -> VAR_CLASS
+Rule 8     primary -> LPAREN compstmt RPAREN
+Rule 9     primary -> literal
+Rule 10    primary -> variable
+Rule 11    primary -> primary UNARY_OP identifier
+Rule 12    primary -> UNARY_OP identifier
+Rule 13    primary -> primary LBRACKET RBRACKET
+Rule 14    primary -> primary LBRACKET args RBRACKET
+Rule 15    primary -> LBRACKET RBRACKET
+Rule 16    primary -> LBRACKET args RBRACKET
+Rule 17    primary -> LBRACKET args COMMA RBRACKET
+Rule 18    primary -> LKEY RKEY
+Rule 19    primary -> LKEY args RKEY
+Rule 20    primary -> LKEY assocs RKEY
+Rule 21    primary -> LKEY args COMMA RKEY
+Rule 22    primary -> LKEY assocs COMMA RKEY
+Rule 23    primary -> RETURN
+Rule 24    primary -> RETURN LPAREN RPAREN
+Rule 25    primary -> RETURN LPAREN call_args RPAREN
+Rule 26    primary -> YIELD
+Rule 27    primary -> YIELD LPAREN RPAREN
+Rule 28    primary -> YIELD LPAREN call_args RPAREN
+Rule 29    primary -> DEFINED ? LPAREN arg LPAREN
+Rule 30    primary -> function
+Rule 31    primary -> function LKEY compstmt LKEY
+Rule 32    primary -> function LKEY OR_SYMBOL OR_SYMBOL compstmt LKEY
+Rule 33    primary -> function LKEY OR_SYMBOL block_var OR_SYMBOL compstmt LKEY
+Rule 34    primary -> IF expr then compstmt END
+Rule 35    primary -> IF expr then compstmt elsif END
+Rule 36    primary -> IF expr then compstmt elsif ELSE compstmt END
+Rule 37    primary -> UNLESS expr then compstmt END
+Rule 38    primary -> UNLESS expr then compstmt ELSE compstmt END
+Rule 39    primary -> WHILE expr do compstmt END
+Rule 40    primary -> UNTIL expr do compstmt END
+Rule 41    primary -> CASE compstmt when END
+Rule 42    primary -> CASE compstmt when ELSE compstmt END
+Rule 43    primary -> FOR block_var IN expr do compstmt END
+Rule 44    primary -> BEGIN compstmt rescue END
+Rule 45    primary -> BEGIN compstmt rescue ELSE compstmt END
+Rule 46    primary -> BEGIN compstmt rescue ENSURE compstmt END
+Rule 47    primary -> BEGIN compstmt rescue ELSE compstmt ENSURE compstmt END
+Rule 48    primary -> CLASS identifier compstmt END
+Rule 49    primary -> CLASS identifier LESSERTHAN identifier compstmt END
+Rule 50    primary -> MODULE identifier compstmt END
+Rule 51    primary -> DEF fname argdecl compstmt END
+Rule 52    primary -> DEF singleton DOT fname argdecl compstmt end
+Rule 53    primary -> DEF singleton UNARY_OP fname argdecl compstmt end
+Rule 54    elsif -> ELSIF expr then compstmt
+Rule 55    elsif -> ELSIF expr then compstmt elsif
+Rule 56    when -> WHEN when_args then compstmt
+Rule 57    when -> when WHEN when_args then compstmt
+Rule 58    rescue -> RESCUE args do compstmt
+Rule 59    rescue -> RESCUE do compstmt
+Rule 60    rescue -> rescue RESCUE args do compstmt
+Rule 61    rescue -> rescue RESCUE do compstmt
+Rule 62    then -> TERM
+Rule 63    then -> THEN
+Rule 64    then -> TERM THEN
+Rule 65    loop -> WHILE expression do expression END
+Rule 66    do -> term
+Rule 67    do -> DO
+Rule 68    do -> term DO
+Rule 69    term -> TERM
+Rule 70    expression -> expression PLUS term
+Rule 71    expression -> expression MINUS term
+Rule 72    expression -> term
+Rule 73    term -> term TIMES factor
+Rule 74    term -> term DIVIDE factor
+Rule 75    term -> factor
+Rule 76    factor -> NUMBER
+Rule 77    factor -> LPAREN expression RPAREN
+
+Terminals, with rules where they appear
+
+?                    : 29
+ALIAS                : 
+AND                  : 
+BREAK                : 
+CASE                 : 41 42
+CLASS                : 48 49
+COMMA                : 17 21 22
+DEF                  : 51 52 53
+DEFINED              : 29
+DIVIDE               : 74
+DO                   : 67 68
+DOT                  : 52
+ELSE                 : 36 38 42 45 47
+ELSIF                : 54 55
+END                  : 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 65
+ENSURE               : 46 47
+EQUAL                : 
+FALSE                : 
+FOR                  : 43
+GREATERTHAN          : 
+GREATERTHANEQUAL     : 
+IF                   : 34 35 36
+IN                   : 43
+LBRACKET             : 13 14 15 16 17
+LESSERTHAN           : 49
+LESSERTHANEQUAL      : 
+LKEY                 : 18 19 20 21 22 31 31 32 32 33 33
+LPAREN               : 8 24 25 27 28 29 29 77
+MINUS                : 71
+MOD                  : 
+MODULE               : 50
+NEXT                 : 
+NIL                  : 
+NOT                  : 
+NOTEQUAL             : 
+NUMBER               : 76
+OR                   : 
+OR_SYMBOL            : 32 32 33 33
+PLUS                 : 70
+PUTS                 : 
+RBRACKET             : 13 14 15 16 17
+REDO                 : 
+RESCUE               : 58 59 60 61
+RETRY                : 
+RETURN               : 23 24 25
+RKEY                 : 18 19 20 21 22
+RPAREN               : 8 24 25 27 28 77
+SELF                 : 
+STRING               : 
+SUPER                : 
+SYMBOL               : 
+TERM                 : 62 64 69
+THEN                 : 63 64
+TIMES                : 73
+TRUE                 : 
+UNARY_OP             : 11 12 53
+UNDEF                : 
+UNLESS               : 37 38
+UNTIL                : 40
+VAR_CLASS            : 7
+VAR_GLOBAL           : 4
+VAR_INSTANCE         : 6
+VAR_LOCAL            : 5
+VAR_SYSTEM           : 
+WHEN                 : 56 57
+WHILE                : 39 65
+YIELD                : 26 27 28
+_FILE_               : 
+_LINE_               : 
+begin                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+BEGIN                : 44 45 46 47
+arg                  : 29
+argdecl              : 51 52 53
+args                 : 14 16 17 19 21 58 60
+assignment           : 1
+assocs               : 20 22
+block_var            : 33 43
+call_args            : 25 28
+compstmt             : 8 31 32 33 34 35 36 36 37 38 38 39 40 41 42 42 43 44 45 45 46 46 47 47 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61
+do                   : 39 40 43 58 59 60 61 65
+elsif                : 35 36 55
+end                  : 52 53
+expr                 : 34 35 36 37 38 39 40 43 54 55
+expression           : 2 65 65 70 71 77
+factor               : 73 74 75
+fname                : 51 52 53
+function             : 30 31 32 33
+identifier           : 11 12 48 49 49 50
+literal              : 9
+loop                 : 3
+primary              : 11 13 14
+rescue               : 44 45 46 47 60 61
+sentence             : 0
+singleton            : 52 53
+term                 : 66 68 70 71 72 73 74
+then                 : 34 35 36 37 38 54 55 56 57
+variable             : 10
+when                 : 41 42 57
+when_args            : 56 57
+
