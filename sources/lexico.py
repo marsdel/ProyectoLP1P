@@ -42,9 +42,27 @@ tokens = (
     'VAR_CLASS',
     'VAR_LOCAL',
     'VAR_SYSTEM',
+
     'STRING',
     'TERM',
-    # Hector Rizzo
+    'CASE_EQUALITY',
+    'COMBINED_COMPARISON_OP',
+    'EXPONENT_AND',
+    'RANGE_INCLUSIVE',
+    'RANGE_EXCLUSIVE',
+    'BINARY_XOR_OP',
+    'BINARY_AND_OP',
+    'MATCHED_STRINGS_OP',
+    'OPPOSITE_MATCHED_STRINGS_OP',
+    'BINARY_LEFT_SHIFT_OP',
+    'BINARY_RIGHT_SHIFT_OP',
+    'DEFINED_OP',
+    'COMPLEMENT_OP',
+    'OVERLOAD_PLUS',
+    'OVERLOAD_MINUS',
+
+    'HASH_ROCKET',
+    'IDENTIFIER',
     'UNARY_OP',
     'LBRACKET',
     'RBRACKET',
@@ -53,6 +71,11 @@ tokens = (
     'COMMA',
     'DOT',
     'OR_SYMBOL',
+    'NOT_SYMBOL',
+    'EQUAL_SYMBOL',
+    'OPTIONAL_SYMBOL',
+    # END Hector Rizzo
+
     #Simbolo Jhossias Calderon
     'SYMBOL',
     'EQUAL',
@@ -76,15 +99,36 @@ t_GREATERTHAN = r'\>'
 t_GREATERTHANEQUAL = r'\>\='
 t_LESSERTHAN = r'\<'
 t_LESSERTHANEQUAL = r'\<\='
+
+
 #Hector Rizzo
+t_CASE_EQUALITY = r'==='
+t_COMBINED_COMPARISON_OP = r'\<=\>'
+t_EXPONENT_AND = r'\*\*='
+t_BINARY_XOR_OP = r'\^'
+t_BINARY_AND_OP = r'&'
+t_MATCHED_STRINGS_OP = r'=\~'
+t_OPPOSITE_MATCHED_STRINGS_OP = r'\!\~'
+t_OVERLOAD_PLUS = r'\+\@'
+t_OVERLOAD_MINUS = r'-\@'
+t_HASH_ROCKET = r'=>'
+t_RANGE_INCLUSIVE = r'\.\.'
+t_RANGE_EXCLUSIVE = r'\.\.\.'
 t_UNARY_OP = r'::'
 t_LBRACKET = r'\['
 t_RBRACKET = r']'
-t_LKEY = r'{'
-t_RKEY = r'}'
+t_LKEY = r'\{'
+t_RKEY = r'\}'
 t_COMMA = r','
-t_DOT = r'.'
+t_DOT = r'\.'
 t_OR_SYMBOL = r'\|'
+t_NOT_SYMBOL = r'\!'
+t_EQUAL_SYMBOL = r'='
+t_OPTIONAL_SYMBOL = r'\?'
+t_BINARY_LEFT_SHIFT_OP = r'\<\<'
+t_BINARY_RIGHT_SHIFT_OP = r'\>\>'
+t_COMPLEMENT_OP = r'~'
+t_DEFINED_OP = r'defined\?'
 
 
 #Simbolo Jhossias Calderon
@@ -96,11 +140,12 @@ t_VAR_INSTANCE = r'\@\w+'
 t_VAR_CLASS = r'\@\@\w+'
 t_VAR_SYSTEM = r'\$[!|@|_|.|&|~|n|=|/|\\|0|*|$|?]'
 t_STRING = r'"\w+"|\'\w+\'|´\w+´'
+t_VAR_LOCAL =r'((_[a-z]+)|[a-z])\w*'
 t_TERM= r';|\n'
 
-def t_VAR_LOCAL(t):
-    r'((_\w+)|[a-z])\w*'
-    t.type = reserved.get(t.value, 'VAR_LOCAL')  # Check for reserved words
+def t_IDENTIFIER(t):
+    r'[a-zA-Z_][a-zA-Z0-9_]*'
+    t.type = reserved.get(t.value, 'IDENTIFIER')  # Check for reserved words
     return t
 
 # +Hector Rizzo
@@ -135,7 +180,7 @@ def getTokens(lexer):
 # Build the lexer
 lexer = lex.lex()
 
-"""
+'''
 linea=" "
 while linea!="":
     linea=input(">>")
@@ -143,4 +188,4 @@ while linea!="":
     getTokens(lexer)
 # Tokenize
 print("Succesfull")
-"""
+'''

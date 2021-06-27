@@ -8,8 +8,11 @@ from lexico import tokens
 def p_program(p):
     'program : compstmt'
 
+'STMT (TERM EXPR)* [TERM]'
 def p_compstmt(p):
-    'compstmt : stmt LPAREN term expr RPAREN TIMES LBRACKET term RBRACKET'
+    '''compstmt : stmt
+                | stmt term
+                | stmt term expr term'''
 
 def p_stmt(p):
     '''stmt : call do LBRACKET RBRACKET
@@ -34,11 +37,12 @@ def p_expr(p):
             | expr OR expr
             | NOT expr
             | command
-            | '!' command
-            | ARG'''
+            | NOT_SYMBOL command
+            | arg'''
 
 def p_call(p):
-    'call : function | command'
+    '''call : function 
+        | command'''
 
 def p_command(p):
     '''command : operation call_args
@@ -48,60 +52,51 @@ def p_command(p):
 
 def p_function(p):
     '''function : operation LBRACKET LPAREN LBRACKET call_args RBRACKET RPAREN RBRACKET
-                | primary DOT operation LPAREN RPAREN
-                | primary DOT operation LPAREN LBRACKET RBRACKET RPAREN
-                | primary DOT operation LPAREN LBRACKET call_args RBRACKET RPAREN
-                | primary UNARY_OP operation LPAREN RPAREN
-                | primary UNARY_OP operation LPAREN LBRACKET RBRACKET RPAREN
-                | primary UNARY_OP operation LPAREN LBRACKET call_args RBRACKET RPAREN
+                | primary DOT operation LPAREN call_args RPAREN
+                | primary UNARY_OP operation LPAREN call_args RPAREN
                 | primary DOT operation
                 | primary UNARY_OP operation
-                | SUPER LPAREN LBRACKET call_args RBRACKET RPAREN
+                | SUPER LPAREN call_args RPAREN
                 | SUPER'''
 
 def p_arg(p):
     '''arg : lhs '=' arg
             | lhs op_asgn arg
-            | arg '..' arg
-            | arg '...' arg
+            | arg RANGE_INCLUSIVE arg
+            | arg RANGE_EXCLUSIVE arg
             | arg PLUS arg
             | arg MINUS arg
             | arg TIMES arg
-            | arg DIV arg
+            | arg DIVIDE arg
             | arg MOD arg
             | arg POW arg
             | PLUS arg
             | MINUS arg
-            | arg '|' arg
-            | arg '^' arg
-            | arg '&' arg
-            | arg '<=>' arg
+            | arg OR_SYMBOL arg
+            | arg BINARY_XOR_OP arg
+            | arg BINARY_AND_OP arg
+            | arg COMBINED_COMPARISON_OP arg
             | arg GREATERTHAN arg
             | arg GREATERTHANEQUAL arg
             | arg LESSERTHAN arg
             | arg LESSERTHANEQUAL arg
             | arg EQUAL arg
-            | arg '===' arg
+            | arg CASE_EQUALITY arg
             | arg NOTEQUAL arg
-            | arg '=~' arg
-            | arg '!~' arg
-            | '!' arg
-            | '~' arg
-            | arg '<<' arg
-            | arg '>>' arg
+            | arg MATCHED_STRINGS_OP arg
+            | arg OPPOSITE_MATCHED_STRINGS_OP arg
+            | NOT_SYMBOL arg
+            | COMPLEMENT_OP arg
+            | arg BINARY_LEFT_SHIFT_OP arg
+            | arg BINARY_RIGHT_SHIFT_OP arg
             | arg AND arg
             | arg OR arg
-            | DEFINED '?' arg
+            | DEFINED_OP arg
             | primary'''
 
 #end Marco Del Rosario
 
 # start Hector Rizzo 
-def p_sentence(p):
-    '''sentence : assignment
-                | expression
-                | loop'''
-
 
 def p_variable(p):
     '''variable : VAR_GLOBAL
@@ -114,8 +109,8 @@ def p_primary(p):
     '''primary : LPAREN compstmt RPAREN
                 | literal
                 | variable
-                | primary UNARY_OP identifier
-                | UNARY_OP identifier
+                | primary UNARY_OP IDENTIFIER
+                | UNARY_OP IDENTIFIER
                 | primary LBRACKET RBRACKET
                 | primary LBRACKET args RBRACKET
                 | LBRACKET RBRACKET
@@ -132,7 +127,7 @@ def p_primary(p):
                 | YIELD
                 | YIELD LPAREN RPAREN
                 | YIELD LPAREN call_args RPAREN
-                | DEFINED '?' LPAREN arg LPAREN
+                | DEFINED_OP LPAREN arg LPAREN
                 | function
                 | function LKEY compstmt LKEY
                 | function LKEY OR_SYMBOL OR_SYMBOL compstmt LKEY
@@ -151,12 +146,12 @@ def p_primary(p):
                 | BEGIN compstmt rescue ELSE compstmt END
                 | BEGIN compstmt rescue ENSURE compstmt END
                 | BEGIN compstmt rescue ELSE compstmt ENSURE compstmt END
-                | CLASS identifier compstmt END
-                | CLASS identifier LESSERTHAN identifier compstmt END
-                | MODULE identifier compstmt END
+                | CLASS IDENTIFIER compstmt END
+                | CLASS IDENTIFIER LESSERTHAN IDENTIFIER compstmt END
+                | MODULE IDENTIFIER compstmt END
                 | DEF fname argdecl compstmt END
-                | DEF singleton DOT fname argdecl compstmt end
-                | DEF singleton UNARY_OP fname argdecl compstmt end'''
+                | DEF singleton DOT fname argdecl compstmt END
+                | DEF singleton UNARY_OP fname argdecl compstmt END'''
 
     
 def p_elsif(p):
@@ -173,22 +168,93 @@ def p_rescue(p):
               | RESCUE do compstmt
               | rescue RESCUE args do compstmt
               | rescue RESCUE do compstmt'''
+
+def p_when_args(p):
+    '''when_args : args 
+        | args COMMA TIMES arg
+		| TIMES arg'''
+
 def p_then(p):
     '''then	 : TERM
             | THEN
 		    | TERM THEN'''
 
-
-def p_loop_while(p):
-    'loop : WHILE expression do expression END'
-
 def p_do(p):
     '''do : term
         | DO
 		| term DO'''
+
 def p_term(p):
     'term : TERM'
 
+def p_mrhs(p):
+    '''mrhs : args
+        | args COMMA
+        | args TIMES
+        | args arg
+		| TIMES arg'''
+
+def p_lhs(p):
+    '''lhs : variable
+		| primary LBRACKET RBRACKET
+        | primary LBRACKET args RBRACKET
+		| primary DOT IDENTIFIER
+    '''
+
+def p_block_var(p):
+    '''block_var : lhs
+		| mlhs'''
+
+def p_mlhs(p):
+    '''mlhs : mlhs_item COMMA mlhs_item TIMES
+            | mlhs_item COMMA mlhs_item lhs
+            | mlhs_item COMMA mult_mlhs_item TIMES
+            | mlhs_item COMMA mult_mlhs_item lhs
+            | TIMES lhs
+
+    '''
+
+def p_mult_mlhs_item(p):
+    'mult_mlhs_item : COMMA mlhs_item'
+
+def p_mlhs_item(p):
+    '''mlhs_item : lhs
+		| LPAREN mlhs RPAREN'''
+
+def p_args(p):
+    '''args : arg
+            | arg COMMA arg'''
+
+def p_argdecl(p):
+    '''argdecl : LPAREN arglist RPAREN 
+                | arglist term
+    '''
+
+def p_arglist(p):
+    '''arglist : IDENTIFIER 
+                | IDENTIFIER COMMA IDENTIFIER
+                | IDENTIFIER COMMA '&' IDENTIFIER
+    '''
+
+def p_singleton(p):
+    '''singleton : variable 
+                | LPAREN expr RPAREN'''
+
+def p_assocs(p):
+    '''assocs : assoc
+    | assoc COMMA assoc
+    '''
+
+def p_assoc(p):
+    '''assoc : arg HASH_ROCKET arg
+    '''
+
+
+def p_literal(p):
+    '''literal : NUMBER 
+                | SYMBOL 
+                | STRING
+                | IDENTIFIER'''
 
 # End Hector Rizzo
 
@@ -226,7 +292,7 @@ def p_factor_expr(p):
  
 # Error rule for syntax errors
 def p_error(p):
-    print("Syntax error in input!")
+    print("Syntax error in input!", p)
  
 # Build the parser
 parser = yacc.yacc()
