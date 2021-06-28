@@ -214,8 +214,8 @@ Rule 191   literal -> IDENTIFIER
 Rule 192   fname -> IDENTIFIER
 Rule 193   fname -> RANGE_INCLUSIVE
 Rule 194   fname -> OR_SYMBOL
-Rule 195   fname -> BINARY_XOR_OP
-Rule 196   fname -> BINARY_AND_OP
+Rule 195   fname -> BINARY_AND_OP
+Rule 196   fname -> BINARY_XOR_OP
 Rule 197   fname -> COMBINED_COMPARISON_OP
 Rule 198   fname -> EQUAL
 Rule 199   fname -> CASE_EQUALITY
@@ -230,8 +230,8 @@ Rule 207   fname -> TIMES
 Rule 208   fname -> DIVIDE
 Rule 209   fname -> MOD
 Rule 210   fname -> POW
-Rule 211   fname -> BINARY_LEFT_SHIFT_OP
-Rule 212   fname -> BINARY_RIGHT_SHIFT_OP
+Rule 211   fname -> BINARY_RIGHT_SHIFT_OP
+Rule 212   fname -> BINARY_LEFT_SHIFT_OP
 Rule 213   fname -> COMPLEMENT_OP
 Rule 214   fname -> OVERLOAD_PLUS
 Rule 215   fname -> OVERLOAD_MINUS
@@ -270,12 +270,12 @@ ALIAS                : 9
 AND                  : 21 69
 AND_EQUAL            : 232
 BEGIN                : 14 113 114 115 116
-BINARY_AND_OP        : 54 175 177 178 179 182 183 185 186 196
+BINARY_AND_OP        : 54 175 177 178 179 182 183 185 186 195
 BINARY_LEFT_EQUAL    : 230
-BINARY_LEFT_SHIFT_OP : 67 211
+BINARY_LEFT_SHIFT_OP : 67 212
 BINARY_RIGHT_EQUAL   : 231
-BINARY_RIGHT_SHIFT_OP : 68 212
-BINARY_XOR_OP        : 53 195
+BINARY_RIGHT_SHIFT_OP : 68 211
+BINARY_XOR_OP        : 53 196
 BREAK                : 
 CASE                 : 110 111
 CASE_EQUALITY        : 61 199
@@ -886,8 +886,8 @@ state 8
     (192) fname -> . IDENTIFIER
     (193) fname -> . RANGE_INCLUSIVE
     (194) fname -> . OR_SYMBOL
-    (195) fname -> . BINARY_XOR_OP
-    (196) fname -> . BINARY_AND_OP
+    (195) fname -> . BINARY_AND_OP
+    (196) fname -> . BINARY_XOR_OP
     (197) fname -> . COMBINED_COMPARISON_OP
     (198) fname -> . EQUAL
     (199) fname -> . CASE_EQUALITY
@@ -902,8 +902,8 @@ state 8
     (208) fname -> . DIVIDE
     (209) fname -> . MOD
     (210) fname -> . POW
-    (211) fname -> . BINARY_LEFT_SHIFT_OP
-    (212) fname -> . BINARY_RIGHT_SHIFT_OP
+    (211) fname -> . BINARY_RIGHT_SHIFT_OP
+    (212) fname -> . BINARY_LEFT_SHIFT_OP
     (213) fname -> . COMPLEMENT_OP
     (214) fname -> . OVERLOAD_PLUS
     (215) fname -> . OVERLOAD_MINUS
@@ -913,8 +913,8 @@ state 8
     IDENTIFIER      shift and go to state 85
     RANGE_INCLUSIVE shift and go to state 86
     OR_SYMBOL       shift and go to state 87
-    BINARY_XOR_OP   shift and go to state 88
-    BINARY_AND_OP   shift and go to state 89
+    BINARY_AND_OP   shift and go to state 88
+    BINARY_XOR_OP   shift and go to state 89
     COMBINED_COMPARISON_OP shift and go to state 90
     EQUAL           shift and go to state 91
     CASE_EQUALITY   shift and go to state 92
@@ -929,8 +929,8 @@ state 8
     DIVIDE          shift and go to state 101
     MOD             shift and go to state 102
     POW             shift and go to state 103
-    BINARY_LEFT_SHIFT_OP shift and go to state 104
-    BINARY_RIGHT_SHIFT_OP shift and go to state 105
+    BINARY_RIGHT_SHIFT_OP shift and go to state 104
+    BINARY_LEFT_SHIFT_OP shift and go to state 105
     COMPLEMENT_OP   shift and go to state 106
     OVERLOAD_PLUS   shift and go to state 107
     OVERLOAD_MINUS  shift and go to state 108
@@ -944,8 +944,8 @@ state 9
     (192) fname -> . IDENTIFIER
     (193) fname -> . RANGE_INCLUSIVE
     (194) fname -> . OR_SYMBOL
-    (195) fname -> . BINARY_XOR_OP
-    (196) fname -> . BINARY_AND_OP
+    (195) fname -> . BINARY_AND_OP
+    (196) fname -> . BINARY_XOR_OP
     (197) fname -> . COMBINED_COMPARISON_OP
     (198) fname -> . EQUAL
     (199) fname -> . CASE_EQUALITY
@@ -960,8 +960,8 @@ state 9
     (208) fname -> . DIVIDE
     (209) fname -> . MOD
     (210) fname -> . POW
-    (211) fname -> . BINARY_LEFT_SHIFT_OP
-    (212) fname -> . BINARY_RIGHT_SHIFT_OP
+    (211) fname -> . BINARY_RIGHT_SHIFT_OP
+    (212) fname -> . BINARY_LEFT_SHIFT_OP
     (213) fname -> . COMPLEMENT_OP
     (214) fname -> . OVERLOAD_PLUS
     (215) fname -> . OVERLOAD_MINUS
@@ -971,8 +971,8 @@ state 9
     IDENTIFIER      shift and go to state 85
     RANGE_INCLUSIVE shift and go to state 86
     OR_SYMBOL       shift and go to state 87
-    BINARY_XOR_OP   shift and go to state 88
-    BINARY_AND_OP   shift and go to state 89
+    BINARY_AND_OP   shift and go to state 88
+    BINARY_XOR_OP   shift and go to state 89
     COMBINED_COMPARISON_OP shift and go to state 90
     EQUAL           shift and go to state 91
     CASE_EQUALITY   shift and go to state 92
@@ -987,8 +987,8 @@ state 9
     DIVIDE          shift and go to state 101
     MOD             shift and go to state 102
     POW             shift and go to state 103
-    BINARY_LEFT_SHIFT_OP shift and go to state 104
-    BINARY_RIGHT_SHIFT_OP shift and go to state 105
+    BINARY_RIGHT_SHIFT_OP shift and go to state 104
+    BINARY_LEFT_SHIFT_OP shift and go to state 105
     COMPLEMENT_OP   shift and go to state 106
     OVERLOAD_PLUS   shift and go to state 107
     OVERLOAD_MINUS  shift and go to state 108
@@ -4925,8 +4925,8 @@ state 42
     (192) fname -> . IDENTIFIER
     (193) fname -> . RANGE_INCLUSIVE
     (194) fname -> . OR_SYMBOL
-    (195) fname -> . BINARY_XOR_OP
-    (196) fname -> . BINARY_AND_OP
+    (195) fname -> . BINARY_AND_OP
+    (196) fname -> . BINARY_XOR_OP
     (197) fname -> . COMBINED_COMPARISON_OP
     (198) fname -> . EQUAL
     (199) fname -> . CASE_EQUALITY
@@ -4941,8 +4941,8 @@ state 42
     (208) fname -> . DIVIDE
     (209) fname -> . MOD
     (210) fname -> . POW
-    (211) fname -> . BINARY_LEFT_SHIFT_OP
-    (212) fname -> . BINARY_RIGHT_SHIFT_OP
+    (211) fname -> . BINARY_RIGHT_SHIFT_OP
+    (212) fname -> . BINARY_LEFT_SHIFT_OP
     (213) fname -> . COMPLEMENT_OP
     (214) fname -> . OVERLOAD_PLUS
     (215) fname -> . OVERLOAD_MINUS
@@ -4958,8 +4958,8 @@ state 42
     IDENTIFIER      shift and go to state 85
     RANGE_INCLUSIVE shift and go to state 86
     OR_SYMBOL       shift and go to state 87
-    BINARY_XOR_OP   shift and go to state 88
-    BINARY_AND_OP   shift and go to state 89
+    BINARY_AND_OP   shift and go to state 88
+    BINARY_XOR_OP   shift and go to state 89
     COMBINED_COMPARISON_OP shift and go to state 90
     EQUAL           shift and go to state 91
     CASE_EQUALITY   shift and go to state 92
@@ -4974,8 +4974,8 @@ state 42
     DIVIDE          shift and go to state 101
     MOD             shift and go to state 102
     POW             shift and go to state 103
-    BINARY_LEFT_SHIFT_OP shift and go to state 104
-    BINARY_RIGHT_SHIFT_OP shift and go to state 105
+    BINARY_RIGHT_SHIFT_OP shift and go to state 104
+    BINARY_LEFT_SHIFT_OP shift and go to state 105
     COMPLEMENT_OP   shift and go to state 106
     OVERLOAD_PLUS   shift and go to state 107
     OVERLOAD_MINUS  shift and go to state 108
@@ -9006,8 +9006,8 @@ state 85
     IDENTIFIER      reduce using rule 192 (fname -> IDENTIFIER .)
     RANGE_INCLUSIVE reduce using rule 192 (fname -> IDENTIFIER .)
     OR_SYMBOL       reduce using rule 192 (fname -> IDENTIFIER .)
-    BINARY_XOR_OP   reduce using rule 192 (fname -> IDENTIFIER .)
     BINARY_AND_OP   reduce using rule 192 (fname -> IDENTIFIER .)
+    BINARY_XOR_OP   reduce using rule 192 (fname -> IDENTIFIER .)
     COMBINED_COMPARISON_OP reduce using rule 192 (fname -> IDENTIFIER .)
     EQUAL           reduce using rule 192 (fname -> IDENTIFIER .)
     CASE_EQUALITY   reduce using rule 192 (fname -> IDENTIFIER .)
@@ -9022,8 +9022,8 @@ state 85
     DIVIDE          reduce using rule 192 (fname -> IDENTIFIER .)
     MOD             reduce using rule 192 (fname -> IDENTIFIER .)
     POW             reduce using rule 192 (fname -> IDENTIFIER .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 192 (fname -> IDENTIFIER .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 192 (fname -> IDENTIFIER .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 192 (fname -> IDENTIFIER .)
     COMPLEMENT_OP   reduce using rule 192 (fname -> IDENTIFIER .)
     OVERLOAD_PLUS   reduce using rule 192 (fname -> IDENTIFIER .)
     OVERLOAD_MINUS  reduce using rule 192 (fname -> IDENTIFIER .)
@@ -9054,8 +9054,8 @@ state 86
     IDENTIFIER      reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     RANGE_INCLUSIVE reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     OR_SYMBOL       reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
-    BINARY_XOR_OP   reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     BINARY_AND_OP   reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
+    BINARY_XOR_OP   reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     COMBINED_COMPARISON_OP reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     EQUAL           reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     CASE_EQUALITY   reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
@@ -9070,8 +9070,8 @@ state 86
     DIVIDE          reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     MOD             reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     POW             reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     COMPLEMENT_OP   reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     OVERLOAD_PLUS   reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
     OVERLOAD_MINUS  reduce using rule 193 (fname -> RANGE_INCLUSIVE .)
@@ -9102,8 +9102,8 @@ state 87
     IDENTIFIER      reduce using rule 194 (fname -> OR_SYMBOL .)
     RANGE_INCLUSIVE reduce using rule 194 (fname -> OR_SYMBOL .)
     OR_SYMBOL       reduce using rule 194 (fname -> OR_SYMBOL .)
-    BINARY_XOR_OP   reduce using rule 194 (fname -> OR_SYMBOL .)
     BINARY_AND_OP   reduce using rule 194 (fname -> OR_SYMBOL .)
+    BINARY_XOR_OP   reduce using rule 194 (fname -> OR_SYMBOL .)
     COMBINED_COMPARISON_OP reduce using rule 194 (fname -> OR_SYMBOL .)
     EQUAL           reduce using rule 194 (fname -> OR_SYMBOL .)
     CASE_EQUALITY   reduce using rule 194 (fname -> OR_SYMBOL .)
@@ -9118,8 +9118,8 @@ state 87
     DIVIDE          reduce using rule 194 (fname -> OR_SYMBOL .)
     MOD             reduce using rule 194 (fname -> OR_SYMBOL .)
     POW             reduce using rule 194 (fname -> OR_SYMBOL .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 194 (fname -> OR_SYMBOL .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 194 (fname -> OR_SYMBOL .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 194 (fname -> OR_SYMBOL .)
     COMPLEMENT_OP   reduce using rule 194 (fname -> OR_SYMBOL .)
     OVERLOAD_PLUS   reduce using rule 194 (fname -> OR_SYMBOL .)
     OVERLOAD_MINUS  reduce using rule 194 (fname -> OR_SYMBOL .)
@@ -9128,98 +9128,98 @@ state 87
 
 state 88
 
-    (195) fname -> BINARY_XOR_OP .
+    (195) fname -> BINARY_AND_OP .
 
-    IF              reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    WHILE           reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    UNLESS          reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    UNTIL           reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    TERM            reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    NUMBER          reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    LPAREN          reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    $end            reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    RESCUE          reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    RPAREN          reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    WHEN            reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    RKEY            reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    LKEY            reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    END             reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    ELSIF           reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    ELSE            reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    ENSURE          reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    IDENTIFIER      reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    RANGE_INCLUSIVE reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    OR_SYMBOL       reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    BINARY_XOR_OP   reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    BINARY_AND_OP   reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    COMBINED_COMPARISON_OP reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    EQUAL           reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    CASE_EQUALITY   reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    MATCHED_STRINGS_OP reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    GREATERTHAN     reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    GREATERTHANEQUAL reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    LESSERTHAN      reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    LESSERTHANEQUAL reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    PLUS            reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    MINUS           reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    TIMES           reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    DIVIDE          reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    MOD             reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    POW             reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    BINARY_RIGHT_SHIFT_OP reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    COMPLEMENT_OP   reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    OVERLOAD_PLUS   reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    OVERLOAD_MINUS  reduce using rule 195 (fname -> BINARY_XOR_OP .)
-    LBRACKET        reduce using rule 195 (fname -> BINARY_XOR_OP .)
+    IF              reduce using rule 195 (fname -> BINARY_AND_OP .)
+    WHILE           reduce using rule 195 (fname -> BINARY_AND_OP .)
+    UNLESS          reduce using rule 195 (fname -> BINARY_AND_OP .)
+    UNTIL           reduce using rule 195 (fname -> BINARY_AND_OP .)
+    TERM            reduce using rule 195 (fname -> BINARY_AND_OP .)
+    NUMBER          reduce using rule 195 (fname -> BINARY_AND_OP .)
+    LPAREN          reduce using rule 195 (fname -> BINARY_AND_OP .)
+    $end            reduce using rule 195 (fname -> BINARY_AND_OP .)
+    RESCUE          reduce using rule 195 (fname -> BINARY_AND_OP .)
+    RPAREN          reduce using rule 195 (fname -> BINARY_AND_OP .)
+    WHEN            reduce using rule 195 (fname -> BINARY_AND_OP .)
+    RKEY            reduce using rule 195 (fname -> BINARY_AND_OP .)
+    LKEY            reduce using rule 195 (fname -> BINARY_AND_OP .)
+    END             reduce using rule 195 (fname -> BINARY_AND_OP .)
+    ELSIF           reduce using rule 195 (fname -> BINARY_AND_OP .)
+    ELSE            reduce using rule 195 (fname -> BINARY_AND_OP .)
+    ENSURE          reduce using rule 195 (fname -> BINARY_AND_OP .)
+    IDENTIFIER      reduce using rule 195 (fname -> BINARY_AND_OP .)
+    RANGE_INCLUSIVE reduce using rule 195 (fname -> BINARY_AND_OP .)
+    OR_SYMBOL       reduce using rule 195 (fname -> BINARY_AND_OP .)
+    BINARY_AND_OP   reduce using rule 195 (fname -> BINARY_AND_OP .)
+    BINARY_XOR_OP   reduce using rule 195 (fname -> BINARY_AND_OP .)
+    COMBINED_COMPARISON_OP reduce using rule 195 (fname -> BINARY_AND_OP .)
+    EQUAL           reduce using rule 195 (fname -> BINARY_AND_OP .)
+    CASE_EQUALITY   reduce using rule 195 (fname -> BINARY_AND_OP .)
+    MATCHED_STRINGS_OP reduce using rule 195 (fname -> BINARY_AND_OP .)
+    GREATERTHAN     reduce using rule 195 (fname -> BINARY_AND_OP .)
+    GREATERTHANEQUAL reduce using rule 195 (fname -> BINARY_AND_OP .)
+    LESSERTHAN      reduce using rule 195 (fname -> BINARY_AND_OP .)
+    LESSERTHANEQUAL reduce using rule 195 (fname -> BINARY_AND_OP .)
+    PLUS            reduce using rule 195 (fname -> BINARY_AND_OP .)
+    MINUS           reduce using rule 195 (fname -> BINARY_AND_OP .)
+    TIMES           reduce using rule 195 (fname -> BINARY_AND_OP .)
+    DIVIDE          reduce using rule 195 (fname -> BINARY_AND_OP .)
+    MOD             reduce using rule 195 (fname -> BINARY_AND_OP .)
+    POW             reduce using rule 195 (fname -> BINARY_AND_OP .)
+    BINARY_RIGHT_SHIFT_OP reduce using rule 195 (fname -> BINARY_AND_OP .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 195 (fname -> BINARY_AND_OP .)
+    COMPLEMENT_OP   reduce using rule 195 (fname -> BINARY_AND_OP .)
+    OVERLOAD_PLUS   reduce using rule 195 (fname -> BINARY_AND_OP .)
+    OVERLOAD_MINUS  reduce using rule 195 (fname -> BINARY_AND_OP .)
+    LBRACKET        reduce using rule 195 (fname -> BINARY_AND_OP .)
 
 
 state 89
 
-    (196) fname -> BINARY_AND_OP .
+    (196) fname -> BINARY_XOR_OP .
 
-    IF              reduce using rule 196 (fname -> BINARY_AND_OP .)
-    WHILE           reduce using rule 196 (fname -> BINARY_AND_OP .)
-    UNLESS          reduce using rule 196 (fname -> BINARY_AND_OP .)
-    UNTIL           reduce using rule 196 (fname -> BINARY_AND_OP .)
-    TERM            reduce using rule 196 (fname -> BINARY_AND_OP .)
-    NUMBER          reduce using rule 196 (fname -> BINARY_AND_OP .)
-    LPAREN          reduce using rule 196 (fname -> BINARY_AND_OP .)
-    $end            reduce using rule 196 (fname -> BINARY_AND_OP .)
-    RESCUE          reduce using rule 196 (fname -> BINARY_AND_OP .)
-    RPAREN          reduce using rule 196 (fname -> BINARY_AND_OP .)
-    WHEN            reduce using rule 196 (fname -> BINARY_AND_OP .)
-    RKEY            reduce using rule 196 (fname -> BINARY_AND_OP .)
-    LKEY            reduce using rule 196 (fname -> BINARY_AND_OP .)
-    END             reduce using rule 196 (fname -> BINARY_AND_OP .)
-    ELSIF           reduce using rule 196 (fname -> BINARY_AND_OP .)
-    ELSE            reduce using rule 196 (fname -> BINARY_AND_OP .)
-    ENSURE          reduce using rule 196 (fname -> BINARY_AND_OP .)
-    IDENTIFIER      reduce using rule 196 (fname -> BINARY_AND_OP .)
-    RANGE_INCLUSIVE reduce using rule 196 (fname -> BINARY_AND_OP .)
-    OR_SYMBOL       reduce using rule 196 (fname -> BINARY_AND_OP .)
-    BINARY_XOR_OP   reduce using rule 196 (fname -> BINARY_AND_OP .)
-    BINARY_AND_OP   reduce using rule 196 (fname -> BINARY_AND_OP .)
-    COMBINED_COMPARISON_OP reduce using rule 196 (fname -> BINARY_AND_OP .)
-    EQUAL           reduce using rule 196 (fname -> BINARY_AND_OP .)
-    CASE_EQUALITY   reduce using rule 196 (fname -> BINARY_AND_OP .)
-    MATCHED_STRINGS_OP reduce using rule 196 (fname -> BINARY_AND_OP .)
-    GREATERTHAN     reduce using rule 196 (fname -> BINARY_AND_OP .)
-    GREATERTHANEQUAL reduce using rule 196 (fname -> BINARY_AND_OP .)
-    LESSERTHAN      reduce using rule 196 (fname -> BINARY_AND_OP .)
-    LESSERTHANEQUAL reduce using rule 196 (fname -> BINARY_AND_OP .)
-    PLUS            reduce using rule 196 (fname -> BINARY_AND_OP .)
-    MINUS           reduce using rule 196 (fname -> BINARY_AND_OP .)
-    TIMES           reduce using rule 196 (fname -> BINARY_AND_OP .)
-    DIVIDE          reduce using rule 196 (fname -> BINARY_AND_OP .)
-    MOD             reduce using rule 196 (fname -> BINARY_AND_OP .)
-    POW             reduce using rule 196 (fname -> BINARY_AND_OP .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 196 (fname -> BINARY_AND_OP .)
-    BINARY_RIGHT_SHIFT_OP reduce using rule 196 (fname -> BINARY_AND_OP .)
-    COMPLEMENT_OP   reduce using rule 196 (fname -> BINARY_AND_OP .)
-    OVERLOAD_PLUS   reduce using rule 196 (fname -> BINARY_AND_OP .)
-    OVERLOAD_MINUS  reduce using rule 196 (fname -> BINARY_AND_OP .)
-    LBRACKET        reduce using rule 196 (fname -> BINARY_AND_OP .)
+    IF              reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    WHILE           reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    UNLESS          reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    UNTIL           reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    TERM            reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    NUMBER          reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    LPAREN          reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    $end            reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    RESCUE          reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    RPAREN          reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    WHEN            reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    RKEY            reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    LKEY            reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    END             reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    ELSIF           reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    ELSE            reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    ENSURE          reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    IDENTIFIER      reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    RANGE_INCLUSIVE reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    OR_SYMBOL       reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    BINARY_AND_OP   reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    BINARY_XOR_OP   reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    COMBINED_COMPARISON_OP reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    EQUAL           reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    CASE_EQUALITY   reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    MATCHED_STRINGS_OP reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    GREATERTHAN     reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    GREATERTHANEQUAL reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    LESSERTHAN      reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    LESSERTHANEQUAL reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    PLUS            reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    MINUS           reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    TIMES           reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    DIVIDE          reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    MOD             reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    POW             reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    BINARY_RIGHT_SHIFT_OP reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    COMPLEMENT_OP   reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    OVERLOAD_PLUS   reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    OVERLOAD_MINUS  reduce using rule 196 (fname -> BINARY_XOR_OP .)
+    LBRACKET        reduce using rule 196 (fname -> BINARY_XOR_OP .)
 
 
 state 90
@@ -9246,8 +9246,8 @@ state 90
     IDENTIFIER      reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     RANGE_INCLUSIVE reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     OR_SYMBOL       reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
-    BINARY_XOR_OP   reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     BINARY_AND_OP   reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
+    BINARY_XOR_OP   reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     COMBINED_COMPARISON_OP reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     EQUAL           reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     CASE_EQUALITY   reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
@@ -9262,8 +9262,8 @@ state 90
     DIVIDE          reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     MOD             reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     POW             reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     COMPLEMENT_OP   reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     OVERLOAD_PLUS   reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
     OVERLOAD_MINUS  reduce using rule 197 (fname -> COMBINED_COMPARISON_OP .)
@@ -9294,8 +9294,8 @@ state 91
     IDENTIFIER      reduce using rule 198 (fname -> EQUAL .)
     RANGE_INCLUSIVE reduce using rule 198 (fname -> EQUAL .)
     OR_SYMBOL       reduce using rule 198 (fname -> EQUAL .)
-    BINARY_XOR_OP   reduce using rule 198 (fname -> EQUAL .)
     BINARY_AND_OP   reduce using rule 198 (fname -> EQUAL .)
+    BINARY_XOR_OP   reduce using rule 198 (fname -> EQUAL .)
     COMBINED_COMPARISON_OP reduce using rule 198 (fname -> EQUAL .)
     EQUAL           reduce using rule 198 (fname -> EQUAL .)
     CASE_EQUALITY   reduce using rule 198 (fname -> EQUAL .)
@@ -9310,8 +9310,8 @@ state 91
     DIVIDE          reduce using rule 198 (fname -> EQUAL .)
     MOD             reduce using rule 198 (fname -> EQUAL .)
     POW             reduce using rule 198 (fname -> EQUAL .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 198 (fname -> EQUAL .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 198 (fname -> EQUAL .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 198 (fname -> EQUAL .)
     COMPLEMENT_OP   reduce using rule 198 (fname -> EQUAL .)
     OVERLOAD_PLUS   reduce using rule 198 (fname -> EQUAL .)
     OVERLOAD_MINUS  reduce using rule 198 (fname -> EQUAL .)
@@ -9342,8 +9342,8 @@ state 92
     IDENTIFIER      reduce using rule 199 (fname -> CASE_EQUALITY .)
     RANGE_INCLUSIVE reduce using rule 199 (fname -> CASE_EQUALITY .)
     OR_SYMBOL       reduce using rule 199 (fname -> CASE_EQUALITY .)
-    BINARY_XOR_OP   reduce using rule 199 (fname -> CASE_EQUALITY .)
     BINARY_AND_OP   reduce using rule 199 (fname -> CASE_EQUALITY .)
+    BINARY_XOR_OP   reduce using rule 199 (fname -> CASE_EQUALITY .)
     COMBINED_COMPARISON_OP reduce using rule 199 (fname -> CASE_EQUALITY .)
     EQUAL           reduce using rule 199 (fname -> CASE_EQUALITY .)
     CASE_EQUALITY   reduce using rule 199 (fname -> CASE_EQUALITY .)
@@ -9358,8 +9358,8 @@ state 92
     DIVIDE          reduce using rule 199 (fname -> CASE_EQUALITY .)
     MOD             reduce using rule 199 (fname -> CASE_EQUALITY .)
     POW             reduce using rule 199 (fname -> CASE_EQUALITY .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 199 (fname -> CASE_EQUALITY .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 199 (fname -> CASE_EQUALITY .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 199 (fname -> CASE_EQUALITY .)
     COMPLEMENT_OP   reduce using rule 199 (fname -> CASE_EQUALITY .)
     OVERLOAD_PLUS   reduce using rule 199 (fname -> CASE_EQUALITY .)
     OVERLOAD_MINUS  reduce using rule 199 (fname -> CASE_EQUALITY .)
@@ -9390,8 +9390,8 @@ state 93
     IDENTIFIER      reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     RANGE_INCLUSIVE reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     OR_SYMBOL       reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
-    BINARY_XOR_OP   reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     BINARY_AND_OP   reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
+    BINARY_XOR_OP   reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     COMBINED_COMPARISON_OP reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     EQUAL           reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     CASE_EQUALITY   reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
@@ -9406,8 +9406,8 @@ state 93
     DIVIDE          reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     MOD             reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     POW             reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     COMPLEMENT_OP   reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     OVERLOAD_PLUS   reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
     OVERLOAD_MINUS  reduce using rule 200 (fname -> MATCHED_STRINGS_OP .)
@@ -9438,8 +9438,8 @@ state 94
     IDENTIFIER      reduce using rule 201 (fname -> GREATERTHAN .)
     RANGE_INCLUSIVE reduce using rule 201 (fname -> GREATERTHAN .)
     OR_SYMBOL       reduce using rule 201 (fname -> GREATERTHAN .)
-    BINARY_XOR_OP   reduce using rule 201 (fname -> GREATERTHAN .)
     BINARY_AND_OP   reduce using rule 201 (fname -> GREATERTHAN .)
+    BINARY_XOR_OP   reduce using rule 201 (fname -> GREATERTHAN .)
     COMBINED_COMPARISON_OP reduce using rule 201 (fname -> GREATERTHAN .)
     EQUAL           reduce using rule 201 (fname -> GREATERTHAN .)
     CASE_EQUALITY   reduce using rule 201 (fname -> GREATERTHAN .)
@@ -9454,8 +9454,8 @@ state 94
     DIVIDE          reduce using rule 201 (fname -> GREATERTHAN .)
     MOD             reduce using rule 201 (fname -> GREATERTHAN .)
     POW             reduce using rule 201 (fname -> GREATERTHAN .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 201 (fname -> GREATERTHAN .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 201 (fname -> GREATERTHAN .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 201 (fname -> GREATERTHAN .)
     COMPLEMENT_OP   reduce using rule 201 (fname -> GREATERTHAN .)
     OVERLOAD_PLUS   reduce using rule 201 (fname -> GREATERTHAN .)
     OVERLOAD_MINUS  reduce using rule 201 (fname -> GREATERTHAN .)
@@ -9486,8 +9486,8 @@ state 95
     IDENTIFIER      reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     RANGE_INCLUSIVE reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     OR_SYMBOL       reduce using rule 202 (fname -> GREATERTHANEQUAL .)
-    BINARY_XOR_OP   reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     BINARY_AND_OP   reduce using rule 202 (fname -> GREATERTHANEQUAL .)
+    BINARY_XOR_OP   reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     COMBINED_COMPARISON_OP reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     EQUAL           reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     CASE_EQUALITY   reduce using rule 202 (fname -> GREATERTHANEQUAL .)
@@ -9502,8 +9502,8 @@ state 95
     DIVIDE          reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     MOD             reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     POW             reduce using rule 202 (fname -> GREATERTHANEQUAL .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 202 (fname -> GREATERTHANEQUAL .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     COMPLEMENT_OP   reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     OVERLOAD_PLUS   reduce using rule 202 (fname -> GREATERTHANEQUAL .)
     OVERLOAD_MINUS  reduce using rule 202 (fname -> GREATERTHANEQUAL .)
@@ -9534,8 +9534,8 @@ state 96
     IDENTIFIER      reduce using rule 203 (fname -> LESSERTHAN .)
     RANGE_INCLUSIVE reduce using rule 203 (fname -> LESSERTHAN .)
     OR_SYMBOL       reduce using rule 203 (fname -> LESSERTHAN .)
-    BINARY_XOR_OP   reduce using rule 203 (fname -> LESSERTHAN .)
     BINARY_AND_OP   reduce using rule 203 (fname -> LESSERTHAN .)
+    BINARY_XOR_OP   reduce using rule 203 (fname -> LESSERTHAN .)
     COMBINED_COMPARISON_OP reduce using rule 203 (fname -> LESSERTHAN .)
     EQUAL           reduce using rule 203 (fname -> LESSERTHAN .)
     CASE_EQUALITY   reduce using rule 203 (fname -> LESSERTHAN .)
@@ -9550,8 +9550,8 @@ state 96
     DIVIDE          reduce using rule 203 (fname -> LESSERTHAN .)
     MOD             reduce using rule 203 (fname -> LESSERTHAN .)
     POW             reduce using rule 203 (fname -> LESSERTHAN .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 203 (fname -> LESSERTHAN .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 203 (fname -> LESSERTHAN .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 203 (fname -> LESSERTHAN .)
     COMPLEMENT_OP   reduce using rule 203 (fname -> LESSERTHAN .)
     OVERLOAD_PLUS   reduce using rule 203 (fname -> LESSERTHAN .)
     OVERLOAD_MINUS  reduce using rule 203 (fname -> LESSERTHAN .)
@@ -9582,8 +9582,8 @@ state 97
     IDENTIFIER      reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     RANGE_INCLUSIVE reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     OR_SYMBOL       reduce using rule 204 (fname -> LESSERTHANEQUAL .)
-    BINARY_XOR_OP   reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     BINARY_AND_OP   reduce using rule 204 (fname -> LESSERTHANEQUAL .)
+    BINARY_XOR_OP   reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     COMBINED_COMPARISON_OP reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     EQUAL           reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     CASE_EQUALITY   reduce using rule 204 (fname -> LESSERTHANEQUAL .)
@@ -9598,8 +9598,8 @@ state 97
     DIVIDE          reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     MOD             reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     POW             reduce using rule 204 (fname -> LESSERTHANEQUAL .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 204 (fname -> LESSERTHANEQUAL .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     COMPLEMENT_OP   reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     OVERLOAD_PLUS   reduce using rule 204 (fname -> LESSERTHANEQUAL .)
     OVERLOAD_MINUS  reduce using rule 204 (fname -> LESSERTHANEQUAL .)
@@ -9630,8 +9630,8 @@ state 98
     IDENTIFIER      reduce using rule 205 (fname -> PLUS .)
     RANGE_INCLUSIVE reduce using rule 205 (fname -> PLUS .)
     OR_SYMBOL       reduce using rule 205 (fname -> PLUS .)
-    BINARY_XOR_OP   reduce using rule 205 (fname -> PLUS .)
     BINARY_AND_OP   reduce using rule 205 (fname -> PLUS .)
+    BINARY_XOR_OP   reduce using rule 205 (fname -> PLUS .)
     COMBINED_COMPARISON_OP reduce using rule 205 (fname -> PLUS .)
     EQUAL           reduce using rule 205 (fname -> PLUS .)
     CASE_EQUALITY   reduce using rule 205 (fname -> PLUS .)
@@ -9646,8 +9646,8 @@ state 98
     DIVIDE          reduce using rule 205 (fname -> PLUS .)
     MOD             reduce using rule 205 (fname -> PLUS .)
     POW             reduce using rule 205 (fname -> PLUS .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 205 (fname -> PLUS .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 205 (fname -> PLUS .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 205 (fname -> PLUS .)
     COMPLEMENT_OP   reduce using rule 205 (fname -> PLUS .)
     OVERLOAD_PLUS   reduce using rule 205 (fname -> PLUS .)
     OVERLOAD_MINUS  reduce using rule 205 (fname -> PLUS .)
@@ -9678,8 +9678,8 @@ state 99
     IDENTIFIER      reduce using rule 206 (fname -> MINUS .)
     RANGE_INCLUSIVE reduce using rule 206 (fname -> MINUS .)
     OR_SYMBOL       reduce using rule 206 (fname -> MINUS .)
-    BINARY_XOR_OP   reduce using rule 206 (fname -> MINUS .)
     BINARY_AND_OP   reduce using rule 206 (fname -> MINUS .)
+    BINARY_XOR_OP   reduce using rule 206 (fname -> MINUS .)
     COMBINED_COMPARISON_OP reduce using rule 206 (fname -> MINUS .)
     EQUAL           reduce using rule 206 (fname -> MINUS .)
     CASE_EQUALITY   reduce using rule 206 (fname -> MINUS .)
@@ -9694,8 +9694,8 @@ state 99
     DIVIDE          reduce using rule 206 (fname -> MINUS .)
     MOD             reduce using rule 206 (fname -> MINUS .)
     POW             reduce using rule 206 (fname -> MINUS .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 206 (fname -> MINUS .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 206 (fname -> MINUS .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 206 (fname -> MINUS .)
     COMPLEMENT_OP   reduce using rule 206 (fname -> MINUS .)
     OVERLOAD_PLUS   reduce using rule 206 (fname -> MINUS .)
     OVERLOAD_MINUS  reduce using rule 206 (fname -> MINUS .)
@@ -9726,8 +9726,8 @@ state 100
     IDENTIFIER      reduce using rule 207 (fname -> TIMES .)
     RANGE_INCLUSIVE reduce using rule 207 (fname -> TIMES .)
     OR_SYMBOL       reduce using rule 207 (fname -> TIMES .)
-    BINARY_XOR_OP   reduce using rule 207 (fname -> TIMES .)
     BINARY_AND_OP   reduce using rule 207 (fname -> TIMES .)
+    BINARY_XOR_OP   reduce using rule 207 (fname -> TIMES .)
     COMBINED_COMPARISON_OP reduce using rule 207 (fname -> TIMES .)
     EQUAL           reduce using rule 207 (fname -> TIMES .)
     CASE_EQUALITY   reduce using rule 207 (fname -> TIMES .)
@@ -9742,8 +9742,8 @@ state 100
     DIVIDE          reduce using rule 207 (fname -> TIMES .)
     MOD             reduce using rule 207 (fname -> TIMES .)
     POW             reduce using rule 207 (fname -> TIMES .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 207 (fname -> TIMES .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 207 (fname -> TIMES .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 207 (fname -> TIMES .)
     COMPLEMENT_OP   reduce using rule 207 (fname -> TIMES .)
     OVERLOAD_PLUS   reduce using rule 207 (fname -> TIMES .)
     OVERLOAD_MINUS  reduce using rule 207 (fname -> TIMES .)
@@ -9774,8 +9774,8 @@ state 101
     IDENTIFIER      reduce using rule 208 (fname -> DIVIDE .)
     RANGE_INCLUSIVE reduce using rule 208 (fname -> DIVIDE .)
     OR_SYMBOL       reduce using rule 208 (fname -> DIVIDE .)
-    BINARY_XOR_OP   reduce using rule 208 (fname -> DIVIDE .)
     BINARY_AND_OP   reduce using rule 208 (fname -> DIVIDE .)
+    BINARY_XOR_OP   reduce using rule 208 (fname -> DIVIDE .)
     COMBINED_COMPARISON_OP reduce using rule 208 (fname -> DIVIDE .)
     EQUAL           reduce using rule 208 (fname -> DIVIDE .)
     CASE_EQUALITY   reduce using rule 208 (fname -> DIVIDE .)
@@ -9790,8 +9790,8 @@ state 101
     DIVIDE          reduce using rule 208 (fname -> DIVIDE .)
     MOD             reduce using rule 208 (fname -> DIVIDE .)
     POW             reduce using rule 208 (fname -> DIVIDE .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 208 (fname -> DIVIDE .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 208 (fname -> DIVIDE .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 208 (fname -> DIVIDE .)
     COMPLEMENT_OP   reduce using rule 208 (fname -> DIVIDE .)
     OVERLOAD_PLUS   reduce using rule 208 (fname -> DIVIDE .)
     OVERLOAD_MINUS  reduce using rule 208 (fname -> DIVIDE .)
@@ -9822,8 +9822,8 @@ state 102
     IDENTIFIER      reduce using rule 209 (fname -> MOD .)
     RANGE_INCLUSIVE reduce using rule 209 (fname -> MOD .)
     OR_SYMBOL       reduce using rule 209 (fname -> MOD .)
-    BINARY_XOR_OP   reduce using rule 209 (fname -> MOD .)
     BINARY_AND_OP   reduce using rule 209 (fname -> MOD .)
+    BINARY_XOR_OP   reduce using rule 209 (fname -> MOD .)
     COMBINED_COMPARISON_OP reduce using rule 209 (fname -> MOD .)
     EQUAL           reduce using rule 209 (fname -> MOD .)
     CASE_EQUALITY   reduce using rule 209 (fname -> MOD .)
@@ -9838,8 +9838,8 @@ state 102
     DIVIDE          reduce using rule 209 (fname -> MOD .)
     MOD             reduce using rule 209 (fname -> MOD .)
     POW             reduce using rule 209 (fname -> MOD .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 209 (fname -> MOD .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 209 (fname -> MOD .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 209 (fname -> MOD .)
     COMPLEMENT_OP   reduce using rule 209 (fname -> MOD .)
     OVERLOAD_PLUS   reduce using rule 209 (fname -> MOD .)
     OVERLOAD_MINUS  reduce using rule 209 (fname -> MOD .)
@@ -9870,8 +9870,8 @@ state 103
     IDENTIFIER      reduce using rule 210 (fname -> POW .)
     RANGE_INCLUSIVE reduce using rule 210 (fname -> POW .)
     OR_SYMBOL       reduce using rule 210 (fname -> POW .)
-    BINARY_XOR_OP   reduce using rule 210 (fname -> POW .)
     BINARY_AND_OP   reduce using rule 210 (fname -> POW .)
+    BINARY_XOR_OP   reduce using rule 210 (fname -> POW .)
     COMBINED_COMPARISON_OP reduce using rule 210 (fname -> POW .)
     EQUAL           reduce using rule 210 (fname -> POW .)
     CASE_EQUALITY   reduce using rule 210 (fname -> POW .)
@@ -9886,8 +9886,8 @@ state 103
     DIVIDE          reduce using rule 210 (fname -> POW .)
     MOD             reduce using rule 210 (fname -> POW .)
     POW             reduce using rule 210 (fname -> POW .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 210 (fname -> POW .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 210 (fname -> POW .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 210 (fname -> POW .)
     COMPLEMENT_OP   reduce using rule 210 (fname -> POW .)
     OVERLOAD_PLUS   reduce using rule 210 (fname -> POW .)
     OVERLOAD_MINUS  reduce using rule 210 (fname -> POW .)
@@ -9896,98 +9896,98 @@ state 103
 
 state 104
 
-    (211) fname -> BINARY_LEFT_SHIFT_OP .
+    (211) fname -> BINARY_RIGHT_SHIFT_OP .
 
-    IF              reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    WHILE           reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    UNLESS          reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    UNTIL           reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    TERM            reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    NUMBER          reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    LPAREN          reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    $end            reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    RESCUE          reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    RPAREN          reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    WHEN            reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    RKEY            reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    LKEY            reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    END             reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    ELSIF           reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    ELSE            reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    ENSURE          reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    IDENTIFIER      reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    RANGE_INCLUSIVE reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    OR_SYMBOL       reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    BINARY_XOR_OP   reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    BINARY_AND_OP   reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    COMBINED_COMPARISON_OP reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    EQUAL           reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    CASE_EQUALITY   reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    MATCHED_STRINGS_OP reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    GREATERTHAN     reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    GREATERTHANEQUAL reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    LESSERTHAN      reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    LESSERTHANEQUAL reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    PLUS            reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    MINUS           reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    TIMES           reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    DIVIDE          reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    MOD             reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    POW             reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    BINARY_RIGHT_SHIFT_OP reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    COMPLEMENT_OP   reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    OVERLOAD_PLUS   reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    OVERLOAD_MINUS  reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
-    LBRACKET        reduce using rule 211 (fname -> BINARY_LEFT_SHIFT_OP .)
+    IF              reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    WHILE           reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    UNLESS          reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    UNTIL           reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    TERM            reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    NUMBER          reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    LPAREN          reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    $end            reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    RESCUE          reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    RPAREN          reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    WHEN            reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    RKEY            reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    LKEY            reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    END             reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    ELSIF           reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    ELSE            reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    ENSURE          reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    IDENTIFIER      reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    RANGE_INCLUSIVE reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    OR_SYMBOL       reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    BINARY_AND_OP   reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    BINARY_XOR_OP   reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    COMBINED_COMPARISON_OP reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    EQUAL           reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    CASE_EQUALITY   reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    MATCHED_STRINGS_OP reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    GREATERTHAN     reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    GREATERTHANEQUAL reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    LESSERTHAN      reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    LESSERTHANEQUAL reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    PLUS            reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    MINUS           reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    TIMES           reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    DIVIDE          reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    MOD             reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    POW             reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    BINARY_RIGHT_SHIFT_OP reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    COMPLEMENT_OP   reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    OVERLOAD_PLUS   reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    OVERLOAD_MINUS  reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    LBRACKET        reduce using rule 211 (fname -> BINARY_RIGHT_SHIFT_OP .)
 
 
 state 105
 
-    (212) fname -> BINARY_RIGHT_SHIFT_OP .
+    (212) fname -> BINARY_LEFT_SHIFT_OP .
 
-    IF              reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    WHILE           reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    UNLESS          reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    UNTIL           reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    TERM            reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    NUMBER          reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    LPAREN          reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    $end            reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    RESCUE          reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    RPAREN          reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    WHEN            reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    RKEY            reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    LKEY            reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    END             reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    ELSIF           reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    ELSE            reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    ENSURE          reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    IDENTIFIER      reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    RANGE_INCLUSIVE reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    OR_SYMBOL       reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    BINARY_XOR_OP   reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    BINARY_AND_OP   reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    COMBINED_COMPARISON_OP reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    EQUAL           reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    CASE_EQUALITY   reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    MATCHED_STRINGS_OP reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    GREATERTHAN     reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    GREATERTHANEQUAL reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    LESSERTHAN      reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    LESSERTHANEQUAL reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    PLUS            reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    MINUS           reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    TIMES           reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    DIVIDE          reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    MOD             reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    POW             reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    BINARY_RIGHT_SHIFT_OP reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    COMPLEMENT_OP   reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    OVERLOAD_PLUS   reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    OVERLOAD_MINUS  reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
-    LBRACKET        reduce using rule 212 (fname -> BINARY_RIGHT_SHIFT_OP .)
+    IF              reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    WHILE           reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    UNLESS          reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    UNTIL           reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    TERM            reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    NUMBER          reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    LPAREN          reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    $end            reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    RESCUE          reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    RPAREN          reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    WHEN            reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    RKEY            reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    LKEY            reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    END             reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    ELSIF           reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    ELSE            reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    ENSURE          reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    IDENTIFIER      reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    RANGE_INCLUSIVE reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    OR_SYMBOL       reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    BINARY_AND_OP   reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    BINARY_XOR_OP   reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    COMBINED_COMPARISON_OP reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    EQUAL           reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    CASE_EQUALITY   reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    MATCHED_STRINGS_OP reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    GREATERTHAN     reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    GREATERTHANEQUAL reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    LESSERTHAN      reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    LESSERTHANEQUAL reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    PLUS            reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    MINUS           reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    TIMES           reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    DIVIDE          reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    MOD             reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    POW             reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    BINARY_RIGHT_SHIFT_OP reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    COMPLEMENT_OP   reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    OVERLOAD_PLUS   reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    OVERLOAD_MINUS  reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
+    LBRACKET        reduce using rule 212 (fname -> BINARY_LEFT_SHIFT_OP .)
 
 
 state 106
@@ -10014,8 +10014,8 @@ state 106
     IDENTIFIER      reduce using rule 213 (fname -> COMPLEMENT_OP .)
     RANGE_INCLUSIVE reduce using rule 213 (fname -> COMPLEMENT_OP .)
     OR_SYMBOL       reduce using rule 213 (fname -> COMPLEMENT_OP .)
-    BINARY_XOR_OP   reduce using rule 213 (fname -> COMPLEMENT_OP .)
     BINARY_AND_OP   reduce using rule 213 (fname -> COMPLEMENT_OP .)
+    BINARY_XOR_OP   reduce using rule 213 (fname -> COMPLEMENT_OP .)
     COMBINED_COMPARISON_OP reduce using rule 213 (fname -> COMPLEMENT_OP .)
     EQUAL           reduce using rule 213 (fname -> COMPLEMENT_OP .)
     CASE_EQUALITY   reduce using rule 213 (fname -> COMPLEMENT_OP .)
@@ -10030,8 +10030,8 @@ state 106
     DIVIDE          reduce using rule 213 (fname -> COMPLEMENT_OP .)
     MOD             reduce using rule 213 (fname -> COMPLEMENT_OP .)
     POW             reduce using rule 213 (fname -> COMPLEMENT_OP .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 213 (fname -> COMPLEMENT_OP .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 213 (fname -> COMPLEMENT_OP .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 213 (fname -> COMPLEMENT_OP .)
     COMPLEMENT_OP   reduce using rule 213 (fname -> COMPLEMENT_OP .)
     OVERLOAD_PLUS   reduce using rule 213 (fname -> COMPLEMENT_OP .)
     OVERLOAD_MINUS  reduce using rule 213 (fname -> COMPLEMENT_OP .)
@@ -10062,8 +10062,8 @@ state 107
     IDENTIFIER      reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     RANGE_INCLUSIVE reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     OR_SYMBOL       reduce using rule 214 (fname -> OVERLOAD_PLUS .)
-    BINARY_XOR_OP   reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     BINARY_AND_OP   reduce using rule 214 (fname -> OVERLOAD_PLUS .)
+    BINARY_XOR_OP   reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     COMBINED_COMPARISON_OP reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     EQUAL           reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     CASE_EQUALITY   reduce using rule 214 (fname -> OVERLOAD_PLUS .)
@@ -10078,8 +10078,8 @@ state 107
     DIVIDE          reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     MOD             reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     POW             reduce using rule 214 (fname -> OVERLOAD_PLUS .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 214 (fname -> OVERLOAD_PLUS .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     COMPLEMENT_OP   reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     OVERLOAD_PLUS   reduce using rule 214 (fname -> OVERLOAD_PLUS .)
     OVERLOAD_MINUS  reduce using rule 214 (fname -> OVERLOAD_PLUS .)
@@ -10110,8 +10110,8 @@ state 108
     IDENTIFIER      reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     RANGE_INCLUSIVE reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     OR_SYMBOL       reduce using rule 215 (fname -> OVERLOAD_MINUS .)
-    BINARY_XOR_OP   reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     BINARY_AND_OP   reduce using rule 215 (fname -> OVERLOAD_MINUS .)
+    BINARY_XOR_OP   reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     COMBINED_COMPARISON_OP reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     EQUAL           reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     CASE_EQUALITY   reduce using rule 215 (fname -> OVERLOAD_MINUS .)
@@ -10126,8 +10126,8 @@ state 108
     DIVIDE          reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     MOD             reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     POW             reduce using rule 215 (fname -> OVERLOAD_MINUS .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 215 (fname -> OVERLOAD_MINUS .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     COMPLEMENT_OP   reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     OVERLOAD_PLUS   reduce using rule 215 (fname -> OVERLOAD_MINUS .)
     OVERLOAD_MINUS  reduce using rule 215 (fname -> OVERLOAD_MINUS .)
@@ -10148,8 +10148,8 @@ state 110
     (192) fname -> . IDENTIFIER
     (193) fname -> . RANGE_INCLUSIVE
     (194) fname -> . OR_SYMBOL
-    (195) fname -> . BINARY_XOR_OP
-    (196) fname -> . BINARY_AND_OP
+    (195) fname -> . BINARY_AND_OP
+    (196) fname -> . BINARY_XOR_OP
     (197) fname -> . COMBINED_COMPARISON_OP
     (198) fname -> . EQUAL
     (199) fname -> . CASE_EQUALITY
@@ -10164,8 +10164,8 @@ state 110
     (208) fname -> . DIVIDE
     (209) fname -> . MOD
     (210) fname -> . POW
-    (211) fname -> . BINARY_LEFT_SHIFT_OP
-    (212) fname -> . BINARY_RIGHT_SHIFT_OP
+    (211) fname -> . BINARY_RIGHT_SHIFT_OP
+    (212) fname -> . BINARY_LEFT_SHIFT_OP
     (213) fname -> . COMPLEMENT_OP
     (214) fname -> . OVERLOAD_PLUS
     (215) fname -> . OVERLOAD_MINUS
@@ -10175,8 +10175,8 @@ state 110
     IDENTIFIER      shift and go to state 85
     RANGE_INCLUSIVE shift and go to state 86
     OR_SYMBOL       shift and go to state 87
-    BINARY_XOR_OP   shift and go to state 88
-    BINARY_AND_OP   shift and go to state 89
+    BINARY_AND_OP   shift and go to state 88
+    BINARY_XOR_OP   shift and go to state 89
     COMBINED_COMPARISON_OP shift and go to state 90
     EQUAL           shift and go to state 91
     CASE_EQUALITY   shift and go to state 92
@@ -10191,8 +10191,8 @@ state 110
     DIVIDE          shift and go to state 101
     MOD             shift and go to state 102
     POW             shift and go to state 103
-    BINARY_LEFT_SHIFT_OP shift and go to state 104
-    BINARY_RIGHT_SHIFT_OP shift and go to state 105
+    BINARY_RIGHT_SHIFT_OP shift and go to state 104
+    BINARY_LEFT_SHIFT_OP shift and go to state 105
     COMPLEMENT_OP   shift and go to state 106
     OVERLOAD_PLUS   shift and go to state 107
     OVERLOAD_MINUS  shift and go to state 108
@@ -21531,8 +21531,8 @@ state 244
     IDENTIFIER      reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     RANGE_INCLUSIVE reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     OR_SYMBOL       reduce using rule 216 (fname -> LBRACKET RBRACKET .)
-    BINARY_XOR_OP   reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     BINARY_AND_OP   reduce using rule 216 (fname -> LBRACKET RBRACKET .)
+    BINARY_XOR_OP   reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     COMBINED_COMPARISON_OP reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     EQUAL           reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     CASE_EQUALITY   reduce using rule 216 (fname -> LBRACKET RBRACKET .)
@@ -21547,8 +21547,8 @@ state 244
     DIVIDE          reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     MOD             reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     POW             reduce using rule 216 (fname -> LBRACKET RBRACKET .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 216 (fname -> LBRACKET RBRACKET .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     COMPLEMENT_OP   reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     OVERLOAD_PLUS   reduce using rule 216 (fname -> LBRACKET RBRACKET .)
     OVERLOAD_MINUS  reduce using rule 216 (fname -> LBRACKET RBRACKET .)
@@ -31906,8 +31906,8 @@ state 340
     (192) fname -> . IDENTIFIER
     (193) fname -> . RANGE_INCLUSIVE
     (194) fname -> . OR_SYMBOL
-    (195) fname -> . BINARY_XOR_OP
-    (196) fname -> . BINARY_AND_OP
+    (195) fname -> . BINARY_AND_OP
+    (196) fname -> . BINARY_XOR_OP
     (197) fname -> . COMBINED_COMPARISON_OP
     (198) fname -> . EQUAL
     (199) fname -> . CASE_EQUALITY
@@ -31922,8 +31922,8 @@ state 340
     (208) fname -> . DIVIDE
     (209) fname -> . MOD
     (210) fname -> . POW
-    (211) fname -> . BINARY_LEFT_SHIFT_OP
-    (212) fname -> . BINARY_RIGHT_SHIFT_OP
+    (211) fname -> . BINARY_RIGHT_SHIFT_OP
+    (212) fname -> . BINARY_LEFT_SHIFT_OP
     (213) fname -> . COMPLEMENT_OP
     (214) fname -> . OVERLOAD_PLUS
     (215) fname -> . OVERLOAD_MINUS
@@ -31933,8 +31933,8 @@ state 340
     IDENTIFIER      shift and go to state 85
     RANGE_INCLUSIVE shift and go to state 86
     OR_SYMBOL       shift and go to state 87
-    BINARY_XOR_OP   shift and go to state 88
-    BINARY_AND_OP   shift and go to state 89
+    BINARY_AND_OP   shift and go to state 88
+    BINARY_XOR_OP   shift and go to state 89
     COMBINED_COMPARISON_OP shift and go to state 90
     EQUAL           shift and go to state 91
     CASE_EQUALITY   shift and go to state 92
@@ -31949,8 +31949,8 @@ state 340
     DIVIDE          shift and go to state 101
     MOD             shift and go to state 102
     POW             shift and go to state 103
-    BINARY_LEFT_SHIFT_OP shift and go to state 104
-    BINARY_RIGHT_SHIFT_OP shift and go to state 105
+    BINARY_RIGHT_SHIFT_OP shift and go to state 104
+    BINARY_LEFT_SHIFT_OP shift and go to state 105
     COMPLEMENT_OP   shift and go to state 106
     OVERLOAD_PLUS   shift and go to state 107
     OVERLOAD_MINUS  shift and go to state 108
@@ -31964,8 +31964,8 @@ state 341
     (192) fname -> . IDENTIFIER
     (193) fname -> . RANGE_INCLUSIVE
     (194) fname -> . OR_SYMBOL
-    (195) fname -> . BINARY_XOR_OP
-    (196) fname -> . BINARY_AND_OP
+    (195) fname -> . BINARY_AND_OP
+    (196) fname -> . BINARY_XOR_OP
     (197) fname -> . COMBINED_COMPARISON_OP
     (198) fname -> . EQUAL
     (199) fname -> . CASE_EQUALITY
@@ -31980,8 +31980,8 @@ state 341
     (208) fname -> . DIVIDE
     (209) fname -> . MOD
     (210) fname -> . POW
-    (211) fname -> . BINARY_LEFT_SHIFT_OP
-    (212) fname -> . BINARY_RIGHT_SHIFT_OP
+    (211) fname -> . BINARY_RIGHT_SHIFT_OP
+    (212) fname -> . BINARY_LEFT_SHIFT_OP
     (213) fname -> . COMPLEMENT_OP
     (214) fname -> . OVERLOAD_PLUS
     (215) fname -> . OVERLOAD_MINUS
@@ -31991,8 +31991,8 @@ state 341
     IDENTIFIER      shift and go to state 85
     RANGE_INCLUSIVE shift and go to state 86
     OR_SYMBOL       shift and go to state 87
-    BINARY_XOR_OP   shift and go to state 88
-    BINARY_AND_OP   shift and go to state 89
+    BINARY_AND_OP   shift and go to state 88
+    BINARY_XOR_OP   shift and go to state 89
     COMBINED_COMPARISON_OP shift and go to state 90
     EQUAL           shift and go to state 91
     CASE_EQUALITY   shift and go to state 92
@@ -32007,8 +32007,8 @@ state 341
     DIVIDE          shift and go to state 101
     MOD             shift and go to state 102
     POW             shift and go to state 103
-    BINARY_LEFT_SHIFT_OP shift and go to state 104
-    BINARY_RIGHT_SHIFT_OP shift and go to state 105
+    BINARY_RIGHT_SHIFT_OP shift and go to state 104
+    BINARY_LEFT_SHIFT_OP shift and go to state 105
     COMPLEMENT_OP   shift and go to state 106
     OVERLOAD_PLUS   shift and go to state 107
     OVERLOAD_MINUS  shift and go to state 108
@@ -33331,8 +33331,8 @@ state 363
     IDENTIFIER      reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     RANGE_INCLUSIVE reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     OR_SYMBOL       reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
-    BINARY_XOR_OP   reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     BINARY_AND_OP   reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
+    BINARY_XOR_OP   reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     COMBINED_COMPARISON_OP reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     EQUAL           reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     CASE_EQUALITY   reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
@@ -33347,8 +33347,8 @@ state 363
     DIVIDE          reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     MOD             reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     POW             reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
-    BINARY_LEFT_SHIFT_OP reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     BINARY_RIGHT_SHIFT_OP reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
+    BINARY_LEFT_SHIFT_OP reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     COMPLEMENT_OP   reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     OVERLOAD_PLUS   reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
     OVERLOAD_MINUS  reduce using rule 217 (fname -> LBRACKET RBRACKET EQUAL_SYMBOL .)
