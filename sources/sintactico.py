@@ -323,6 +323,57 @@ def p_op_asgn(p):
                 | OR_EQUAL'''
 # End Hector Rizzo
 
+#Start Marco Del Rosario
+def p_fname(p):
+    '''fname : IDENTIFIER
+            | RANGE_INCLUSIVE
+            | OR_SYMBOL
+            | BINARY_AND_OP
+            | BINARY_XOR_OP
+            | COMBINED_COMPARISON_OP
+            | EQUAL
+            | CASE_EQUALITY
+            | MATCHED_STRINGS_OP
+            | GREATERTHAN
+            | GREATERTHANEQUAL
+            | LESSERTHAN
+            | LESSERTHANEQUAL
+            | PLUS
+            | MINUS
+            | TIMES
+            | DIVIDE
+            | MOD
+            | POW
+            | BINARY_RIGHT_SHIFT_OP
+            | BINARY_LEFT_SHIFT_OP
+            | COMPLEMENT_OP
+            | OVERLOAD_PLUS
+            | OVERLOAD_MINUS
+            | LBRACKET RBRACKET
+            | LBRACKET RBRACKET EQUAL_SYMBOL'''
+
+def p_operation(p):
+    '''operation : IDENTIFIER
+                | IDENTIFIER NOT_SYMBOL
+                | IDENTIFIER OPTIONAL_SYMBOL'''
+
+def p_op_asgn(p):
+    '''op_asgn : PLUS_EQUAL
+                | MINUS_EQUAL
+                | TIMES_EQUAL
+                | DIVIDE_EQUAL
+                | MOD_EQUAL
+                | POW_EQUAL
+		        | SINGLE_AND_EQUAL
+                | SINGLE_OR_EQUAL
+                | XOR_EQUAL
+                | BINARY_LEFT_EQUAL
+                | BINARY_RIGHT_EQUAL
+		        | AND_EQUAL
+                | OR_EQUAL'''
+
+#end Marco Del Rosario
+
 def p_expression_plus(p):
      'expression : expression PLUS term'
      p[0] = p[1] + p[3]
