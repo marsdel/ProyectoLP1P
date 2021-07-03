@@ -76,6 +76,20 @@ tokens = (
     'OPTIONAL_SYMBOL',
     # END Hector Rizzo
 
+     'PLUS_EQUAL',
+    'MINUS_EQUAL',
+    'TIMES_EQUAL',
+    'DIVIDE_EQUAL',
+    'MOD_EQUAL',
+    'POW_EQUAL',
+	'SINGLE_AND_EQUAL',
+    'SINGLE_OR_EQUAL',
+    'XOR_EQUAL',
+    'BINARY_LEFT_EQUAL', 
+    'BINARY_RIGHT_EQUAL',
+	'AND_EQUAL',
+    'OR_EQUAL',
+
     #Simbolo Jhossias Calderon
     'SYMBOL',
     'EQUAL',
@@ -100,6 +114,19 @@ t_GREATERTHANEQUAL = r'\>\='
 t_LESSERTHAN = r'\<'
 t_LESSERTHANEQUAL = r'\<\='
 
+t_PLUS_EQUAL = r'\+='
+t_MINUS_EQUAL = r'-='
+t_TIMES_EQUAL = r'\*='
+t_DIVIDE_EQUAL = r'/='
+t_MOD_EQUAL = r'\%='
+t_POW_EQUAL = r'\*\*='
+t_SINGLE_AND_EQUAL = r'&='
+t_SINGLE_OR_EQUAL = r'\|='
+t_XOR_EQUAL = r'\^='
+t_BINARY_LEFT_EQUAL = r'\<\<='
+t_BINARY_RIGHT_EQUAL = r'\>\>='
+t_AND_EQUAL = r'&&='
+t_OR_EQUAL = r'\|\|='
 
 #Hector Rizzo
 t_CASE_EQUALITY = r'==='

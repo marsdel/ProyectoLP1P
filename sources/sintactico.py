@@ -213,7 +213,7 @@ def p_mlhs(p):
             | TIMES lhs
 
     '''
-
+#TODO *
 def p_mult_mlhs_item(p):
     'mult_mlhs_item : COMMA mlhs_item'
 
@@ -249,6 +249,24 @@ def p_assoc(p):
     '''assoc : arg HASH_ROCKET arg
     '''
 
+def p_call_args(p):
+    '''call_args : args
+                | args COMMA assocs
+                | args COMMA TIMES arg
+                | args COMMA BINARY_AND_OP arg
+                | args COMMA assocs COMMA TIMES arg
+                | args COMMA assocs COMMA BINARY_AND_OP arg
+                | args COMMA TIMES arg COMMA BINARY_AND_OP arg
+                | args COMMA assocs COMMA TIMES arg COMMA BINARY_AND_OP arg
+                | assocs
+                | assocs COMMA TIMES arg
+                | assocs COMMA BINARY_AND_OP arg
+                | assocs COMMA TIMES arg COMMA BINARY_AND_OP arg
+                | TIMES arg
+                | TIMES arg COMMA BINARY_AND_OP arg
+                | BINARY_AND_OP arg
+                | command
+    '''
 
 def p_literal(p):
     '''literal : NUMBER 
@@ -256,6 +274,53 @@ def p_literal(p):
                 | STRING
                 | IDENTIFIER'''
 
+def p_fname(p):
+    '''fname : IDENTIFIER 
+            | RANGE_INCLUSIVE 
+            | OR_SYMBOL 
+            | BINARY_XOR_OP 
+            | BINARY_AND_OP
+		    | COMBINED_COMPARISON_OP 
+            | EQUAL
+            | CASE_EQUALITY 
+            | MATCHED_STRINGS_OP
+            | GREATERTHAN 
+            | GREATERTHANEQUAL
+            | LESSERTHAN
+            | LESSERTHANEQUAL
+		    | PLUS
+            | MINUS
+            | TIMES
+            | DIVIDE 
+            | MOD 
+            | POW
+		    | BINARY_LEFT_SHIFT_OP 
+            | BINARY_RIGHT_SHIFT_OP
+            | COMPLEMENT_OP
+            | OVERLOAD_PLUS 
+            | OVERLOAD_MINUS
+            | LBRACKET RBRACKET 
+            | LBRACKET RBRACKET EQUAL_SYMBOL'''
+
+def p_operation(p):
+    '''operation : IDENTIFIER
+                | IDENTIFIER NOT_SYMBOL
+                | IDENTIFIER OPTIONAL_SYMBOL'''
+
+def p_op_asgn(p):
+    '''op_asgn : PLUS_EQUAL 
+                | MINUS_EQUAL
+                | TIMES_EQUAL
+                | DIVIDE_EQUAL
+                | MOD_EQUAL
+                | POW_EQUAL
+		        | SINGLE_AND_EQUAL
+                | SINGLE_OR_EQUAL
+                | XOR_EQUAL 
+                | BINARY_LEFT_EQUAL 
+                | BINARY_RIGHT_EQUAL
+		        | AND_EQUAL 
+                | OR_EQUAL'''
 # End Hector Rizzo
 
 def p_expression_plus(p):
