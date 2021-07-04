@@ -344,6 +344,14 @@ def p_math_operations(p):
         print("Semantic error in input!")
 #End Hector Rizzo
 
+#Jhossias Calderon
+def p_methods_datastructure(p):
+    '''methods_datastructure : 
+
+    '''
+
+
+
 # Error rule for syntax errors ( prueba sintaxis)
 def p_error(p):
     print("Syntax error in input!", p)
@@ -365,6 +373,9 @@ while True:
 
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+
+
 
 #Hector Rizzo
 from tkinter import *
@@ -513,3 +524,5 @@ if __name__ == '__main__':
 
 #End Hector Rizzo
  
+
+#Jhossias Calderon
