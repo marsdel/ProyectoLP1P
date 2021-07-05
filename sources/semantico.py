@@ -410,12 +410,33 @@ def p_boolean_operations(p):
 #End Marco Del Rosario
 
 #Jhossias Calderon
-def p_methods_datastructure(p):
-    '''methods_datastructure : 
-
+def p_conditions(p):
+    '''conditions : arg IF arg
+                    | arg ELSE arg
+                    | arg ELSIF arg
+                    | arg CASE arg 
+                    | arg UNLESS arg
+                    | STRING IF STRING
+                    | STRING ELSE STRING
+                    | STRING ELSIF STRING
+                    | STRING CASE STRING
+                    | STRING UNLESS STRING
     '''
 
+    if not isinstance(p[1], str) and not isinstance(p[2], str) :
+        print("Semantic error in input!")
 
+def p_methods_datastructure(p):
+    '''methods_datastructure : arg EACH arg
+                            | arg SORT arg
+                            | arg LENGTH arg
+                            | arg FIRST arg
+                            | arg LAST arg
+    '''
+    if not isinstance(p[1], str) and not isinstance(p[2], str) :
+        print("Semantic error in input!")
+
+#End Jhossias Calderon
 
 # Error rule for syntax errors ( prueba sintaxis)
 def p_error(p):
