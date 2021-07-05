@@ -5,14 +5,12 @@ Unused terminals:
     BREAK
     DEFINED
     EXPONENT_AND
-    FALSE
     NEXT
     NIL
     PUTS
     REDO
     RETRY
     SELF
-    TRUE
     VAR_SYSTEM
     _FILE_
     _LINE_
@@ -260,13 +258,27 @@ Rule 237   math_operations -> NUMBER TIMES NUMBER
 Rule 238   math_operations -> NUMBER DIVIDE NUMBER
 Rule 239   math_operations -> NUMBER MOD NUMBER
 Rule 240   math_operations -> NUMBER POW NUMBER
+Rule 241   boolean_operations -> NUMBER EQUAL NUMBER
+Rule 242   boolean_operations -> NUMBER NOTEQUAL NUMBER
+Rule 243   boolean_operations -> NUMBER GREATERTHAN NUMBER
+Rule 244   boolean_operations -> NUMBER GREATERTHANEQUAL NUMBER
+Rule 245   boolean_operations -> NUMBER LESSERTHAN NUMBER
+Rule 246   boolean_operations -> NUMBER LESSERTHANEQUAL NUMBER
+Rule 247   boolean_operations -> TRUE AND TRUE
+Rule 248   boolean_operations -> TRUE OR TRUE
+Rule 249   boolean_operations -> TRUE AND FALSE
+Rule 250   boolean_operations -> TRUE OR FALSE
+Rule 251   boolean_operations -> FALSE AND FALSE
+Rule 252   boolean_operations -> FALSE OR FALSE
+Rule 253   boolean_operations -> TRUE EQUAL TRUE
+Rule 254   methods_datastructure -> <empty>
 
 Terminals, with rules where they appear
 
 &                    : 161
 =                    : 16 18 40
 ALIAS                : 9
-AND                  : 21 64
+AND                  : 21 64 247 249 251
 AND_EQUAL            : 227
 BEGIN                : 14 108 109 110 111
 BINARY_AND_OP        : 49 170 172 173 174 177 178 180 181 190
@@ -293,20 +305,20 @@ ELSE                 : 100 102 106 109 111
 ELSIF                : 118 119
 END                  : 7 15 16 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117
 ENSURE               : 110 111
-EQUAL                : 55 193
+EQUAL                : 55 193 241 253
 EQUAL_SYMBOL         : 212
 EXPONENT_AND         : 
-FALSE                : 
+FALSE                : 249 250 251 251 252 252
 FOR                  : 107
-GREATERTHAN          : 51 196
-GREATERTHANEQUAL     : 52 197
+GREATERTHAN          : 51 196 243
+GREATERTHANEQUAL     : 52 197 244
 HASH_ROCKET          : 166
 IDENTIFIER           : 75 76 112 113 113 114 144 159 160 160 161 161 186 187 213 214 215
 IF                   : 10 98 99 100
 IN                   : 107
 LBRACKET             : 5 6 7 16 16 33 33 77 78 79 80 81 142 143 211 212
-LESSERTHAN           : 53 113 198
-LESSERTHANEQUAL      : 54 199
+LESSERTHAN           : 53 113 198 245
+LESSERTHANEQUAL      : 54 199 246
 LKEY                 : 14 15 82 83 84 85 86 95 95 96 96 97 97
 LPAREN               : 33 34 35 38 72 88 89 91 92 93 93 154 157 163
 MATCHED_STRINGS_OP   : 58 195
@@ -318,12 +330,12 @@ MOD_EQUAL            : 220
 NEXT                 : 
 NIL                  : 
 NOT                  : 23
-NOTEQUAL             : 57
+NOTEQUAL             : 57 242
 NOT_SYMBOL           : 25 60 214
-NUMBER               : 183 235 235 236 236 237 237 238 238 239 239 240 240
+NUMBER               : 183 235 235 236 236 237 237 238 238 239 239 240 240 241 241 242 242 243 243 244 244 245 245 246 246
 OPPOSITE_MATCHED_STRINGS_OP : 59
 OPTIONAL_SYMBOL      : 215
-OR                   : 22 65
+OR                   : 22 65 248 250 252
 OR_EQUAL             : 228
 OR_SYMBOL            : 7 7 16 16 47 96 96 97 97 189
 OVERLOAD_MINUS       : 210
@@ -352,7 +364,7 @@ TERM                 : 129 131 135
 THEN                 : 130 131
 TIMES                : 127 128 138 140 147 149 151 169 171 173 174 176 178 179 180 202 231 237
 TIMES_EQUAL          : 218
-TRUE                 : 
+TRUE                 : 247 247 248 248 249 250 253 253
 UNARY_OP             : 31 35 37 75 76 117
 UNDEF                : 8
 UNLESS               : 12 101 102
@@ -379,6 +391,7 @@ args                 : 78 80 81 83 85 122 124 126 127 136 137 138 139 143 167 16
 assoc                : 164 165 165
 assocs               : 84 86 168 171 172 174 175 176 177 178
 block_var            : 6 7 16 97 107
+boolean_operations   : 
 call                 : 5
 call_args            : 19 20 29 30 31 32 33 34 35 38 89 92
 command              : 16 24 25 28 182
@@ -391,6 +404,7 @@ function             : 27 94 95 96 97
 lhs                  : 16 40 41 145 148 150 151 153
 literal              : 73
 math_operations      : 44
+methods_datastructure : 
 mlhs                 : 18 146 154
 mlhs_item            : 147 147 148 148 149 150 152
 mrhs                 : 18

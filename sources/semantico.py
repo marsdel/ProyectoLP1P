@@ -338,11 +338,76 @@ def p_math_operations(p):
                         | NUMBER MOD NUMBER
                         | NUMBER POW NUMBER
     '''
-    p[0] = p[1] + p[3]
     # Semantic (prueba semantica)
     if not isinstance(p[1], int) and not isinstance(p[2], int) :
         print("Semantic error in input!")
 #End Hector Rizzo
+
+#Start Marco Del Rosario
+def p_boolean_operations(p):
+    '''boolean_operations : arg AND arg
+                        | arg OR arg
+                        | arg EQUAL arg
+                        | arg NOTEQUAL arg
+                        | arg GREATERTHAN arg
+                        | arg GREATERTHANEQUAL arg
+                        | arg LESSERTHAN arg
+                        | arg LESSERTHANEQUAL arg
+                        | NUMBER EQUAL NUMBER
+                        | NUMBER NOTEQUAL NUMBER
+                        | NUMBER GREATERTHAN NUMBER
+                        | NUMBER GREATERTHANEQUAL NUMBER
+                        | NUMBER LESSERTHAN NUMBER
+                        | NUMBER LESSERTHANEQUAL NUMBER
+                        | TRUE AND TRUE
+                        | TRUE OR TRUE
+                        | TRUE AND FALSE
+                        | TRUE OR FALSE
+                        | FALSE AND FALSE
+                        | FALSE OR FALSE
+                        | TRUE EQUAL TRUE
+    '''
+    # Semantic (prueba semantica)
+    if p[2] == 'AND':
+        p[0] = p[1] and p[3]
+
+    elif p[2] == 'OR':
+        p[0] = p[1] or p[3]
+    elif p[2] == 'EQUAL':
+        if p[1] == p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'NOTEQUAL':
+        if p[1] != p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'GREATERTHAN':
+        if p[1] > p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'GREATERTHANEQUAL':
+        if p[1] >= p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'LESSERTHAN':
+        if p[1] < p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'LESSERTHANEQUAL':
+        if p[1] <= p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+
+    if not isinstance(p[1], bool) and not isinstance(p[2], bool) :
+        print("Semantic error in input!")
+
+#End Marco Del Rosario
 
 #Jhossias Calderon
 def p_methods_datastructure(p):
@@ -360,7 +425,7 @@ def p_error(p):
  
 # Build the parser
 parser = yacc.yacc()
-'''
+
 while True:
     try:
         s = input('calc > ')
@@ -369,7 +434,6 @@ while True:
     if not s: continue
     result = parser.parse(s)
     print(result)
-'''
 
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -378,7 +442,7 @@ while True:
 
 
 #Hector Rizzo
-from tkinter import *
+'''from tkinter import *
 from tkinter import ttk, font
 import getpass
 
@@ -520,7 +584,7 @@ def main():
     return 0
 
 if __name__ == '__main__':
-    main()
+    main()'''
 
 #End Hector Rizzo
  
