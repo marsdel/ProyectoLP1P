@@ -325,6 +325,9 @@ def p_op_asgn(p):
 		        | AND_EQUAL
                 | OR_EQUAL'''
 
+def p_expression_puts(p):
+    '''expression : PUTS compstmt'''
+
 #end Marco Del Rosario
 
 def p_expression_plus(p):
@@ -373,5 +376,5 @@ while True:
         break
     if not s: continue
     result = parser.parse(s)
-    print(result)
+    print("Sintaxis Valida")
  
