@@ -147,7 +147,8 @@ def p_primary(p):
                 | MODULE IDENTIFIER compstmt END
                 | DEF fname argdecl compstmt END
                 | DEF singleton DOT fname argdecl compstmt END
-                | DEF singleton UNARY_OP fname argdecl compstmt END'''
+                | DEF singleton UNARY_OP fname argdecl compstmt END
+                | PUTS compstmt'''
 
     
 def p_elsif(p):

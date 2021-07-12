@@ -69,6 +69,8 @@ tokens = (
     'LKEY',
     'RKEY',
     'COMMA',
+    'DOUBLE_QUOTED',
+    'NUMBER_SIGN',
     'DOT',
     'OR_SYMBOL',
     'NOT_SYMBOL',
@@ -102,7 +104,7 @@ tokens = (
 t_PLUS = r'\+'
 t_MINUS = r'\-'
 t_TIMES = r'\*'
-t_DIVIDE = r'/'
+t_DIVIDE = r'\/'
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_MOD = r'\%'
@@ -113,6 +115,8 @@ t_GREATERTHAN = r'\>'
 t_GREATERTHANEQUAL = r'\>\='
 t_LESSERTHAN = r'\<'
 t_LESSERTHANEQUAL = r'\<\='
+t_DOUBLE_QUOTED =   r'\"'
+t_NUMBER_SIGN = r'\#'
 
 #Marco Del Rosario
 t_PLUS_EQUAL = r'\+='
@@ -147,7 +151,7 @@ t_LBRACKET = r'\['
 t_RBRACKET = r']'
 t_LKEY = r'\{'
 t_RKEY = r'\}'
-t_COMMA = r','
+t_COMMA = r'\,'
 t_DOT = r'\.'
 t_OR_SYMBOL = r'\|'
 t_NOT_SYMBOL = r'\!'
@@ -167,7 +171,7 @@ t_VAR_GLOBAL = r'\$\w+'
 t_VAR_INSTANCE = r'\@\w+'
 t_VAR_CLASS = r'\@\@\w+'
 t_VAR_SYSTEM = r'\$[!|@|_|.|&|~|n|=|/|\\|0|*|$|?]'
-t_STRING = r'"\w+"|\'\w+\'|´\w+´'
+t_STRING = r'\"[\w|\s]+\" | \'[\w|\s]+\''
 t_VAR_LOCAL =r'((_[a-z]+)|[a-z])\w*'
 t_TERM= r';|\n'
 
