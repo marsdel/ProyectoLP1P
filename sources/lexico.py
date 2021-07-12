@@ -42,6 +42,7 @@ tokens = (
     'VAR_CLASS',
     'VAR_LOCAL',
     'VAR_SYSTEM',
+    'VAR_CONSTANT',
 
     'STRING',
     'TERM',
@@ -143,12 +144,12 @@ t_MATCHED_STRINGS_OP = r'=\~'
 t_OPPOSITE_MATCHED_STRINGS_OP = r'\!\~'
 t_OVERLOAD_PLUS = r'\+\@'
 t_OVERLOAD_MINUS = r'-\@'
-t_HASH_ROCKET = r'=>'
+t_HASH_ROCKET = r'\=\>'
 t_RANGE_INCLUSIVE = r'\.\.'
 t_RANGE_EXCLUSIVE = r'\.\.\.'
 t_UNARY_OP = r'::'
 t_LBRACKET = r'\['
-t_RBRACKET = r']'
+t_RBRACKET = r'\]'
 t_LKEY = r'\{'
 t_RKEY = r'\}'
 t_COMMA = r'\,'
@@ -173,6 +174,7 @@ t_VAR_CLASS = r'\@\@\w+'
 t_VAR_SYSTEM = r'\$[!|@|_|.|&|~|n|=|/|\\|0|*|$|?]'
 t_STRING = r'\"[\w|\s]+\" | \'[\w|\s]+\''
 t_VAR_LOCAL =r'((_[a-z]+)|[a-z])\w*'
+t_VAR_CONSTANT = r'[A_Z]+'
 t_TERM= r';|\n'
 
 def t_IDENTIFIER(t):
