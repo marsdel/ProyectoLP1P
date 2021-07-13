@@ -5,11 +5,12 @@ from lexico import tokens
 
 #start Marco Del Rosario
 def p_program(p):
-    'program : compstmt'
+    'program : expression'
 
 def p_expressions(p):
     '''expression : string_literals
-                    | variables
+                    | prints
+                    | variable
                     | array
                     | hash
                     | method_invocation
@@ -17,17 +18,15 @@ def p_expressions(p):
                     | assignment
                     | expression_operations
                     | control_structure             
-                    | Class definitions
-                    | Singleton-class definitions
-                    | Module definitions
-                    | Method definitions
-                    | Singleton-method definitions
+                    | class_definition
+                    | module_definition
+                    | method_definition
                     | alias
                     | undef
-                    | defined?'''
+                    | defined'''
 
-def p_variables(p):
-    '''variables : VAR_GLOBAL
+def p_variable(p):
+    '''variable : VAR_GLOBAL
                     | VAR_INSTANCE
                     | VAR_CLASS
                     | VAR_LOCAL
@@ -45,6 +44,8 @@ def p_string_concat(p):
 def p_concat(p):
     '''concat : NUMBER_SIGN LKEY IDENTIFIER RKEY'''
 
+def p_prints(p):
+    '''prints :  '''
 def p_array(p):
     '''array : LBRACKET args_array RBRACKET'''
 
@@ -62,11 +63,9 @@ def p_args_hash(p):
     '''args_hash : data HASH_ROCKET data
                 | data HASH_ROCKET data COMMA args_hash'''
 
-#[expr `.'] identifier [`(' expr...[`*' [expr]],[`&' ] expr`)']
-#[expr `::'] identifier [`(' expr...[`*' [expr]],[`&' expr] `)']
-
 def p_function(p):
-    '''function : IDENTIFIER LPAREN RPAREN'''
+    '''function : IDENTIFIER LPAREN RPAREN
+                | IDENTIFIER LPAREN args_method RPAREN'''
 def p_super(p):
     '''super : SUPER LPAREN RPAREN
             | SUPER LPAREN args_method RPAREN'''
@@ -80,10 +79,6 @@ def p_args_method(p):
     '''args_method : data
                 | data COMMA args_method'''
 
-    # variable '=' expr
-    # constant '=' expr
-    # expr`['expr..`]' '=' expr
-    # expr`.'identifier '=' expr
 def p_assignment(p):
     '''assignment : variable EQUAL_SYMBOL data
                     | array_data EQUAL_SYMBOL data
@@ -151,9 +146,31 @@ def p_if(p):
             | IF expression THEN expression elsif else END'''
 
 def p_elseif(p):
-    '''elseif : '''
+    '''elsif :  ELSIF expression expression
+                | ELSIF expression THEN expression'''
+        
+def p_else(p):
+    '''else : ELSE expression'''
 
+def p_class_definition(p):
+    ''' class_definition : CLASS IDENTIFIER expression END
+                        | CLASS IDENTIFIER LESSERTHAN IDENTIFIER expression END'''
 
+def p_module_definition(p):
+    ''' module_definition : MODULE IDENTIFIER expression END'''
+
+def p_method_definition(p):
+    ''' method_definition : DEF function expression END '''
+
+def p_alias(p):
+    ''' alias : ALIAS IDENTIFIER IDENTIFIER
+	            | ALIAS VAR_GLOBAL VAR_GLOBAL'''
+
+def p_undef(p):
+    ''' undef : UNDEF IDENTIFIER'''
+
+def p_defined(p):
+    ''' defined : DEFINED_OP expression'''
 def p_expression_operations(p):
     '''expression_operations : opmate
                             | LPAREN opmate RPAREN
