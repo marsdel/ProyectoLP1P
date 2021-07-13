@@ -1,4 +1,3 @@
-
 # Yacc example
 import ply.yacc as yacc
 from lexico import tokens 
@@ -9,6 +8,11 @@ def p_program(p):
     'program : compstmt'
 
 'STMT (TERM EXPR)* [TERM]'
+
+def p_statement(p):
+    '''statement : '''
+
+
 def p_compstmt(p):
     '''compstmt : stmt
                 | stmt term
@@ -151,7 +155,8 @@ def p_primary(p):
                 | MODULE IDENTIFIER compstmt END
                 | DEF fname argdecl compstmt END
                 | DEF singleton DOT fname argdecl compstmt END
-                | DEF singleton UNARY_OP fname argdecl compstmt END'''
+                | DEF singleton UNARY_OP fname argdecl compstmt END
+                | PUTS compstmt'''
 
     
 def p_elsif(p):
@@ -325,8 +330,7 @@ def p_op_asgn(p):
 		        | AND_EQUAL
                 | OR_EQUAL'''
 
-def p_expression_puts(p):
-    '''expression : PUTS compstmt'''
+
 
 #end Marco Del Rosario
 

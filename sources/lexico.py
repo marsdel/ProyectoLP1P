@@ -16,7 +16,7 @@ reserved = {
     'module' : 'MODULE',
     'next' : 'NEXT', 'nil' : 'NIL', 'not' : 'NOT',
     'or' : 'OR',
-    'puts' : 'PUTS',
+    'puts' : 'PUTS', 'print' : 'PRINT',
     'redo' : 'REDO', 'rescue' : 'RESCUE', 'retry' : 'RETRY', 'return' : 'RETURN',
     'self' : 'SELF', 'super' : 'SUPER',
     'then' : 'THEN',

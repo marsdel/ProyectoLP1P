@@ -2,6 +2,8 @@
 import ply.yacc as yacc
 from lexico import tokens 
  # Get the token map from the lexer.  This is required.from calclex import tokens
+# variable que guarda la salida de la GUI 
+resultado = ""
 
 #start Marco Del Rosario
 def p_program(p):
@@ -47,7 +49,22 @@ def p_concat(p):
     '''concat : NUMBER_SIGN LKEY IDENTIFIER RKEY'''
 
 def p_prints(p):
-    '''prints : PRINT expression '''
+    '''prints : print
+                | puts'''
+
+def p_print(p):
+    ''' print : PRINT expression
+                | PRINT LPAREN expression RPAREN'''
+    global resultado 
+    resultado = "expresión print correcta"
+
+def p_puts(p):
+    ''' puts : PUTS expression
+                | PUTS LPAREN expression RPAREN'''
+    global resultado 
+    resultado = "expresión puts correcta"
+    
+
 def p_array(p):
     '''array : LBRACKET args_array RBRACKET'''
 
@@ -82,14 +99,14 @@ def p_args_method(p):
                 | data COMMA args_method'''
 
 def p_assignment(p):
-    '''assignment : variables EQUAL_SYMBOL data
+    '''assignment : variable EQUAL_SYMBOL data
                     | array_data EQUAL_SYMBOL data
                     | method_invocation EQUAL_SYMBOL data 
                     | self_assigment
                     | mult_assigment'''
 
 def p_self_assigment(p):
-    '''self_assigment : variables op_assigment data'''
+    '''self_assigment : variable op_assigment data'''
 
 def p_op_assigment(p):
     '''op_assigment : PLUS_EQUAL
@@ -103,9 +120,9 @@ def p_mult_assigment(p):
     '''mult_assigment : list_var EQUAL_SYMBOL args_method'''
 
 def p_list_var(p):
-    '''list_var : variables COMMA
-                | variables COMMA list_var
-                | variables'''
+    '''list_var : variable COMMA
+                | variable COMMA list_var
+                | variable'''
 
 
 def p_control_structure(p):
@@ -131,9 +148,9 @@ def p_control_structure(p):
                         | next
                         | redo
                         | BEGIN
-                        | END'''
+                        | END
+                        | case'''
                         # TODO
-                        # | case
                         # | raise TODO'''
 
 
@@ -146,6 +163,8 @@ def p_if(p):
             | IF expression THEN expression else END
             | IF expression expression elsif else END
             | IF expression THEN expression elsif else END'''
+    global resultado 
+    resultado = "expresión if correcta"
 
 def p_elsif(p):
     '''elsif : ELSIF expression expression END
@@ -164,6 +183,23 @@ def p_unless(p):
 def p_unless_modifier(p):
     '''unless_modifier : expression UNLESS expression'''
 
+def p_case(p):
+    ''' case : CASE expression END
+            | CASE expression when END
+            | CASE expression else END
+            | CASE expression when else END'''
+
+def p_when(p):
+    ''' when : WHEN it_expression THEN expression
+            | WHEN it_expression THEN expression when
+            | WHEN it_expression expression
+            | WHEN it_expression expression when '''
+
+def p_it_expression(p):
+    ''' it_expression : expression
+                        | expression it_expression'''
+
+
 def p_and(p):
     'and : expression AND expression'
 
@@ -172,20 +208,26 @@ def p_or(p):
 
 def p_not(p):
     '''not : NOT expression
-            | NOT_SYMBOL expression'''
+            | NOT_SYMBOL expression
+            | expression NOTEQUAL expression
+            | expression OPPOSITE_MATCHED_STRINGS_OP expression'''
 
 def p_range_expressions(p):
     '''range_expressions : expression RANGE_INCLUSIVE expression
                         | expression RANGE_EXCLUSIVE expression'''
 
 def p_while(p):
-    'while : WHILE expression expression DO expression END'
+    '''while : WHILE expression expression END
+            | WHILE expression DO expression END'''
+    global resultado 
+    resultado = "expresión while correcta"
 
 def p_while_modifier(p):
     'while_modifier : expression WHILE expression'
 
 def p_until(p):
-    'until : UNTIL expression DO expression END'
+    '''until : UNTIL expression DO expression END
+            |  UNTIL expression expression END'''
 
 def p_until_modifier(p):
     'until_modifier : expression UNTIL expression'
@@ -195,14 +237,23 @@ def p_iterator(p):
                 | expression LKEY OR_SYMBOL expression OR_SYMBOL expression RKEY'''
 
 def p_for(p):
-    'for : FOR expression IN expression DO expression END'
+    '''for : FOR IDENTIFIER IN expression DO expression END
+        | FOR IDENTIFIER IN expression expression END'''
+    
+    global resultado 
+    resultado = "expresión for correcta"
 
 def p_yield(p):
     '''yield : YIELD LPAREN expression RPAREN
             | YIELD expression'''
 
 def p_begin_expression(p):
-    '''begin_expression : BEGIN expression RESCUE expression ENSURE expression END
+    '''begin_expression : BEGIN expression END
+                        | BEGIN expression RESCUE expression END
+                        | BEGIN expression ENSURE expression END
+                        | BEGIN expression RESCUE expression ENSURE expression END
+                        | BEGIN expression RESCUE expression ELSE expression END
+                        | BEGIN expression ELSE expression ENSURE expression END
                         | BEGIN expression RESCUE expression ELSE expression ENSURE expression END'''
 
 def p_retry(p):
@@ -210,7 +261,7 @@ def p_retry(p):
 
 def p_return(p):
     '''return : RETURN
-            | RETURN expression'''
+            | RETURN args_method'''
 
 def p_break(p):
     'break : BREAK'
@@ -221,7 +272,11 @@ def p_next(p):
 def p_redo(p):
     'redo : REDO'
 
+def p_begin(p):
+    '''begin : BEGIN LKEY expression RKEY'''
 
+def p_end(p):
+    '''end : END RKEY expression LKEY'''
 #definitions-------------------------------
 def p_class_definitions(p):
     '''class_definitions : CLASS IDENTIFIER expression END
@@ -319,21 +374,136 @@ def p_op(p):
 def p_data(p):
     '''data : NUMBER
             | STRING
-            | variables'''
+            | variable'''
 
 
 #Error rule for syntax errors
 def p_error(p):
     print("Syntax error in input!", p)
+    global resultado 
+    resultado = "expresión incorrecta"
  
-# Build the parser
+# # Build the parser
 parser = yacc.yacc()
  
-while True:
-    try:
-        s = input('calc > ')
-    except EOFError:
-        break
-    if not s: continue
-    result = parser.parse(s)
-    print("Sintaxis Valida")
+# while True:
+#     try:
+#         s = input('calc > ')
+#     except EOFError:
+#         break
+#     if not s: continue
+#     result = parser.parse(s)
+#     print("Sintaxis Valida")
+
+# GUI 
+from tkinter import *
+from tkinter import ttk, font
+import getpass
+
+# Gestor de geometría (pack)
+
+class Aplicacion():
+
+    resultado = ''
+    def __init__(self):
+        self.raiz = Tk()
+        self.raiz.title("Acceso")
+        
+     
+        fuente = font.Font(weight='bold')
+        
+        # Define las etiquetas que acompañan a las cajas de
+        # entrada y asigna el formato de fuente anterior: 
+                               
+        self.etiq1 = ttk.Label(self.raiz, text="Validar expresión:", 
+                               font=fuente)
+        self.etiq2 = ttk.Label(self.raiz, text="Resultado:", 
+                               font=fuente)
+        
+        # Declara dos variables de tipo cadena para contener
+        # el usuario y la contraseña: 
+        
+        self.usuario = StringVar()
+        self.clave = StringVar()
+        
+       
+        # Define dos cajas de entrada que aceptarán cadenas
+        # de una longitud máxima de 30 caracteres.
+        # A la primera de ellas 'self.ctext1' que contendrá
+        # el nombre del usuario, se le asigna la variable
+        # 'self.usuario' a la opción 'textvariable'. Cualquier
+        # valor que tome la variable durante la ejecución del
+        # programa quedará reflejada en la caja de entrada.
+        # En la segunda caja de entrada, la de la contraseña,
+        # se hace lo mismo. Además, se establece la opción
+        # 'show' con un "*" (asterisco) para ocultar la 
+        # escritura de las contraseñas:
+        
+        self.ctext1 = ttk.Entry(self.raiz, 
+                                textvariable=self.usuario, 
+                                width=30)
+        self.ctext2 = ttk.Entry(self.raiz, 
+                                textvariable=self.clave, 
+                                width=30)
+        self.separ1 = ttk.Separator(self.raiz, orient=HORIZONTAL)
+        
+        # Se definen dos botones con dos métodos: El botón
+        # 'Aceptar' llamará al método 'self.aceptar' cuando
+        # sea presionado para validar la contraseña; y el botón
+        # 'Cancelar' finalizará la aplicación si se llega a
+        # presionar:
+        
+        self.boton1 = ttk.Button(self.raiz, text="Aceptar", 
+                                 command=self.aceptar)
+        self.boton2 = ttk.Button(self.raiz, text="Cancelar", 
+                                 command=quit)
+                                 
+        # Se definen las posiciones de los widgets dentro de
+        # la ventana. 
+                                         
+        self.etiq1.pack(side=TOP, fill=BOTH, expand=True, 
+                        padx=5, pady=5)
+        self.ctext1.pack(side=TOP, fill=X, expand=True, 
+                         padx=5, pady=5)
+        self.etiq2.pack(side=TOP, fill=BOTH, expand=True, 
+                        padx=5, pady=5)
+        self.ctext2.pack(side=TOP, fill=X, expand=True, 
+                         padx=5, pady=5)
+        self.separ1.pack(side=TOP, fill=BOTH, expand=True, 
+                         padx=5, pady=5)
+        self.boton1.pack(side=LEFT, fill=BOTH, expand=True, 
+                         padx=5, pady=5)
+        self.boton2.pack(side=RIGHT, fill=BOTH, expand=True, 
+                         padx=5, pady=5)
+        
+    
+        self.ctext2.focus_set()
+        
+        self.raiz.mainloop()
+    
+    # El método 'aceptar' se emplea para validar la 
+    # contraseña introducida. Será llamado cuando se 
+    # presione el botón 'Aceptar'. Si la contraseña
+    # coincide con la cadena 'tkinter' se imprimirá
+    # el mensaje 'Acceso permitido' y los valores 
+    # aceptados. En caso contrario, se mostrará el
+    # mensaje 'Acceso denegado' y el foco volverá al
+    # mismo lugar.
+
+    
+    
+    def aceptar(self):
+        result = parser.parse(self.ctext1.get())
+        global resultado
+        self.clave.set(resultado)   # aqui se pone el valor de resultado en la caja de texto
+ 
+            
+def main():
+    mi_app = Aplicacion()
+    return 0
+
+if __name__ == '__main__':
+    main()
+
+#End Hector Rizzo
+
