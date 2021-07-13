@@ -7,7 +7,7 @@ from lexico import tokens
 def p_program(p):
     'program : expression'
 
-def p_expressions(p):
+def p_expression(p):
     '''expression : string_literals
                     | prints
                     | variable
@@ -18,9 +18,11 @@ def p_expressions(p):
                     | assignment
                     | expression_operations
                     | control_structure             
-                    | class_definition
-                    | module_definition
-                    | method_definition
+                    | class_definitions
+                    | singleton_class_definitions
+                    | module_definitions
+                    | method_definitions
+                    | singleton_method_definitions
                     | alias
                     | undef
                     | defined'''
@@ -45,7 +47,7 @@ def p_concat(p):
     '''concat : NUMBER_SIGN LKEY IDENTIFIER RKEY'''
 
 def p_prints(p):
-    '''prints :  '''
+    '''prints : PRINT expression '''
 def p_array(p):
     '''array : LBRACKET args_array RBRACKET'''
 
@@ -107,32 +109,32 @@ def p_list_var(p):
 
 
 def p_control_structure(p):
-    '''control_structure : if'''
+    '''control_structure : if
+                        | if_modifier
+                        | unless
+                        | unless_modifier
+                        | and
+                        | or
+                        | not
+                        | range_expressions
+                        | while
+                        | while_modifier
+                        | until
+                        | until_modifier
+                        | iterator
+                        | for
+                        | yield
+                        | begin_expression
+                        | retry
+                        | return
+                        | break
+                        | next
+                        | redo
+                        | begin
+                        | end'''
                         # TODO
-                        # | if modifier
-                        # | unless
-                        # | unless modifier
                         # | case
-                        # | and
-                        # | or
-                        # | not
-                        # | Range expressions
-                        # | while
-                        # | while modifier
-                        # | until
-                        # | until modifier
-                        # | Iterators
-                        # | for
-                        # | yield
-                        # | raise
-                        # | begin
-                        # | retry
-                        # | return
-                        # | break
-                        # | next
-                        # | redo
-                        # | BEGIN
-                        # | END TODO'''
+                        # | raise TODO'''
 
 
 def p_if(p):
@@ -145,32 +147,114 @@ def p_if(p):
             | IF expression expression elsif else END
             | IF expression THEN expression elsif else END'''
 
-def p_elseif(p):
-    '''elsif :  ELSIF expression expression
-                | ELSIF expression THEN expression'''
-        
+def p_elsif(p):
+    '''elsif : ELSIF expression expression END
+            | ELSIF expression THEN expression END'''
 def p_else(p):
     '''else : ELSE expression'''
+    
+def p_if_modifier(p):
+    'if_modifier : expression IF expression'
 
-def p_class_definition(p):
-    ''' class_definition : CLASS IDENTIFIER expression END
-                        | CLASS IDENTIFIER LESSERTHAN IDENTIFIER expression END'''
+def p_unless(p):
+    '''unless : UNLESS expression expression END
+            | UNLESS expression THEN expression END
+            | UNLESS expression THEN expression else END'''
 
-def p_module_definition(p):
-    ''' module_definition : MODULE IDENTIFIER expression END'''
+def p_unless_modifier(p):
+    '''unless_modifier : expression UNLESS expression'''
 
-def p_method_definition(p):
-    ''' method_definition : DEF function expression END '''
+def p_and(p):
+    'and : expression AND expression'
+
+def p_or(p):
+    'or : expression OR expression'
+
+def p_not(p):
+    '''not : NOT expression
+            | NOT_SYMBOL expression'''
+
+def p_range_expressions(p):
+    '''range_expressions : expression RANGE_INCLUSIVE expression
+                        | expression RANGE_EXCLUSIVE expression'''
+
+def p_while(p):
+    'while : WHILE expression expression DO expression END'
+
+def p_while_modifier(p):
+    'while_modifier : expression WHILE expression'
+
+def p_until(p):
+    'until : UNTIL expression DO expression END'
+
+def p_until_modifier(p):
+    'until_modifier : expression UNTIL expression'
+
+def p_iterator(p):
+    '''iterator : expression do OR_SYMBOL expression OR_SYMBOL expression END
+                | expression LKEY OR_SYMBOL expression OR_SYMBOL expression RKEY'''
+
+def p_for(p):
+    'for : FOR expression IN expression DO expression END'
+
+def p_yield(p):
+    '''yield : YIELD LPAREN expression RPAREN
+            | YIELD expression'''
+
+def p_begin_expression(p):
+    '''begin_expression : BEGIN expression RESCUE expression ENSURE expression END
+                        | BEGIN expression RESCUE expression ELSE expression ENSURE expression END'''
+
+def p_retry(p):
+    'retry : RETRY'
+
+def p_return(p):
+    '''return : RETURN
+            | RETURN expression'''
+
+def p_break(p):
+    'break : BREAK'
+
+def p_next(p):
+    'next : NEXT'
+
+def p_redo(p):
+    'redo : REDO'
+
+def p_begin(p):
+    'begin : BEGIN LKEY expression RKEY'
+
+def p_end(p):
+    'end : END LKEY expression RKEY'
+
+#definitions-------------------------------
+def p_class_definitions(p):
+    '''class_definitions : CLASS IDENTIFIER expression END
+                        | CLASS IDENTIFIER LESSERTHAN SUPER expression END'''
+
+def p_singleton_class_definitions(p):
+    'singleton_class_definitions : CLASS BINARY_LEFT_SHIFT_OP expression expression END'
+
+def p_module_definitions(p):
+    'module_definitions : MODULE IDENTIFIER expression END'
+
+def p_method_definitions(p):
+    '''method_definitions : DEF function expression END'''
+
+def p_singleton_method_definitions(p):
+    '''singleton_method_definitions : DEF expression DOT IDENTIFIER expression END
+                        | DEF expression DOT IDENTIFIER LPAREN args_method RPAREN expression END'''
 
 def p_alias(p):
-    ''' alias : ALIAS IDENTIFIER IDENTIFIER
-	            | ALIAS VAR_GLOBAL VAR_GLOBAL'''
+    'alias : ALIAS expression expression'
 
 def p_undef(p):
-    ''' undef : UNDEF IDENTIFIER'''
+    'undef : UNDEF expression'
 
 def p_defined(p):
-    ''' defined : DEFINED_OP expression'''
+    'defined : DEFINED_OP expression'
+
+
 def p_expression_operations(p):
     '''expression_operations : opmate
                             | LPAREN opmate RPAREN
