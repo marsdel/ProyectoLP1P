@@ -17,7 +17,7 @@ def p_expression(p):
                     | assignment
                     | expression_operations
                     | control_structure             
-                    | Class definitions
+                    | class_definitions
                     | singleton_class_definitions
                     | module_definitions
                     | method_definitions
@@ -85,14 +85,14 @@ def p_args_method(p):
     # expr`['expr..`]' '=' expr
     # expr`.'identifier '=' expr
 def p_assignment(p):
-    '''assignment : variable EQUAL_SYMBOL data
+    '''assignment : variables EQUAL_SYMBOL data
                     | array_data EQUAL_SYMBOL data
                     | method_invocation EQUAL_SYMBOL data 
                     | self_assigment
                     | mult_assigment'''
 
 def p_self_assigment(p):
-    '''self_assigment : variable op_assigment data'''
+    '''self_assigment : variables op_assigment data'''
 
 def p_op_assigment(p):
     '''op_assigment : PLUS_EQUAL
@@ -106,9 +106,9 @@ def p_mult_assigment(p):
     '''mult_assigment : list_var EQUAL_SYMBOL args_method'''
 
 def p_list_var(p):
-    '''list_var : variable COMMA
-                | variable COMMA list_var
-                | variable'''
+    '''list_var : variables COMMA
+                | variables COMMA list_var
+                | variables'''
 
 
 def p_control_structure(p):
@@ -133,8 +133,8 @@ def p_control_structure(p):
                         | break
                         | next
                         | redo
-                        | begin
-                        | end'''
+                        | BEGIN
+                        | END'''
                         # TODO
                         # | case
                         # | raise TODO'''
@@ -192,7 +192,7 @@ def p_until_modifier(p):
     'until_modifier : expression UNTIL expression'
 
 def p_iterator(p):
-    '''iterator : expression do OR_SYMBOL expression OR_SYMBOL expression END
+    '''iterator : expression DO OR_SYMBOL expression OR_SYMBOL expression END
                 | expression LKEY OR_SYMBOL expression OR_SYMBOL expression RKEY'''
 
 def p_for(p):
@@ -222,11 +222,6 @@ def p_next(p):
 def p_redo(p):
     'redo : REDO'
 
-def p_begin(p):
-    'begin : BEGIN LKEY expression RKEY'
-
-def p_end(p):
-    'end : END LKEY expression RKEY'
 
 #definitions-------------------------------
 def p_class_definitions(p):
@@ -327,7 +322,7 @@ def p_op(p):
 def p_data(p):
     '''data : NUMBER
             | STRING
-            | variable'''
+            | variables'''
 
 
 #Error rule for syntax errors

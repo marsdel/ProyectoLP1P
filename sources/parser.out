@@ -2,54 +2,28 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    ALIAS
-    AND
     AND_EQUAL
-    BEGIN
     BINARY_AND_OP
     BINARY_LEFT_EQUAL
-    BINARY_LEFT_SHIFT_OP
     BINARY_RIGHT_EQUAL
     BINARY_RIGHT_SHIFT_OP
     BINARY_XOR_OP
-    BREAK
     CASE
     CASE_EQUALITY
-    CLASS
     COMBINED_COMPARISON_OP
     COMPLEMENT_OP
-    DEF
     DEFINED
-    DEFINED_OP
-    DO
-    ELSE
-    ELSIF
-    ENSURE
     EXPONENT_AND
     FALSE
-    FOR
-    IN
     MATCHED_STRINGS_OP
-    MODULE
-    NEXT
     NIL
-    NOT
-    NOT_SYMBOL
     OPPOSITE_MATCHED_STRINGS_OP
     OPTIONAL_SYMBOL
-    OR
     OR_EQUAL
-    OR_SYMBOL
     OVERLOAD_MINUS
     OVERLOAD_PLUS
     POW
     PUTS
-    RANGE_EXCLUSIVE
-    RANGE_INCLUSIVE
-    REDO
-    RESCUE
-    RETRY
-    RETURN
     SELF
     SINGLE_AND_EQUAL
     SINGLE_OR_EQUAL
@@ -57,13 +31,8 @@ Unused terminals:
     TERM
     TRUE
     UNARY_OP
-    UNDEF
-    UNLESS
-    UNTIL
     WHEN
-    WHILE
     XOR_EQUAL
-    YIELD
     _FILE_
     _LINE_
 
@@ -80,235 +49,317 @@ Rule 7     expression -> super
 Rule 8     expression -> assignment
 Rule 9     expression -> expression_operations
 Rule 10    expression -> control_structure
-Rule 11    expression -> Class definitions
-Rule 12    expression -> Singleton-class definitions
-Rule 13    expression -> Module definitions
-Rule 14    expression -> Method definitions
-Rule 15    expression -> Singleton-method definitions
+Rule 11    expression -> class_definitions
+Rule 12    expression -> singleton_class_definitions
+Rule 13    expression -> module_definitions
+Rule 14    expression -> method_definitions
+Rule 15    expression -> singleton_method_definitions
 Rule 16    expression -> alias
 Rule 17    expression -> undef
-Rule 18    variables -> VAR_GLOBAL
-Rule 19    variables -> VAR_INSTANCE
-Rule 20    variables -> VAR_CLASS
-Rule 21    variables -> VAR_LOCAL
-Rule 22    variables -> VAR_SYSTEM
-Rule 23    variables -> VAR_CONSTANT
-Rule 24    string_literals -> STRING
-Rule 25    string_literals -> string_concat
-Rule 26    string_concat -> DOUBLE_QUOTED IDENTIFIER concat DOUBLE_QUOTED
-Rule 27    string_concat -> DOUBLE_QUOTED IDENTIFIER concat IDENTIFIER DOUBLE_QUOTED
-Rule 28    concat -> NUMBER_SIGN LKEY IDENTIFIER RKEY
-Rule 29    array -> LBRACKET args_array RBRACKET
-Rule 30    array_data -> IDENTIFIER LBRACKET NUMBER RBRACKET
-Rule 31    args_array -> data
-Rule 32    args_array -> data COMMA args_array
-Rule 33    hash -> LKEY args_hash RKEY
-Rule 34    args_hash -> data HASH_ROCKET data
-Rule 35    args_hash -> data HASH_ROCKET data COMMA args_hash
-Rule 36    function -> IDENTIFIER LPAREN RPAREN
-Rule 37    super -> SUPER LPAREN RPAREN
-Rule 38    super -> SUPER LPAREN args_method RPAREN
-Rule 39    method_invocation -> IDENTIFIER DOT IDENTIFIER LPAREN RPAREN
-Rule 40    method_invocation -> IDENTIFIER DOT IDENTIFIER LPAREN args_method RPAREN
-Rule 41    method_invocation -> IDENTIFIER DOT IDENTIFIER
-Rule 42    args_method -> data
-Rule 43    args_method -> data COMMA args_method
-Rule 44    assignment -> variable EQUAL_SYMBOL data
-Rule 45    assignment -> array_data EQUAL_SYMBOL data
-Rule 46    assignment -> method_invocation EQUAL_SYMBOL data
-Rule 47    assignment -> self_assigment
-Rule 48    assignment -> mult_assigment
-Rule 49    self_assigment -> variable op_assigment data
-Rule 50    op_assigment -> PLUS_EQUAL
-Rule 51    op_assigment -> MINUS_EQUAL
-Rule 52    op_assigment -> TIMES_EQUAL
-Rule 53    op_assigment -> DIVIDE_EQUAL
-Rule 54    op_assigment -> MOD_EQUAL
-Rule 55    op_assigment -> POW_EQUAL
-Rule 56    mult_assigment -> list_var EQUAL_SYMBOL args_method
-Rule 57    list_var -> variable COMMA
-Rule 58    list_var -> variable COMMA list_var
-Rule 59    list_var -> variable
-Rule 60    control_structure -> if
-Rule 61    if -> IF expression expression END
-Rule 62    if -> IF expression THEN expression END
-Rule 63    if -> IF expression expression elsif END
-Rule 64    if -> IF expression THEN expression elsif END
-Rule 65    if -> IF expression expression else END
-Rule 66    if -> IF expression THEN expression else END
-Rule 67    if -> IF expression expression elsif else END
-Rule 68    if -> IF expression THEN expression elsif else END
-Rule 69    elseif -> <empty>
-Rule 70    expression_operations -> opmate
-Rule 71    expression_operations -> LPAREN opmate RPAREN
-Rule 72    expression_operations -> expression_operations op expression_operations
-Rule 73    expression_operations -> expression_operations op opmate
-Rule 74    expression_operations -> LPAREN opmate RPAREN op expression_operations
-Rule 75    expression_operations -> expression_operations op LPAREN opmate RPAREN
-Rule 76    opmate -> data op data
-Rule 77    op -> PLUS
-Rule 78    op -> MINUS
-Rule 79    op -> TIMES
-Rule 80    op -> DIVIDE
-Rule 81    op -> MOD
-Rule 82    op -> EQUAL
-Rule 83    op -> NOTEQUAL
-Rule 84    op -> GREATERTHAN
-Rule 85    op -> GREATERTHANEQUAL
-Rule 86    op -> LESSERTHAN
-Rule 87    op -> LESSERTHANEQUAL
-Rule 88    data -> NUMBER
-Rule 89    data -> STRING
-Rule 90    data -> variable
+Rule 18    expression -> defined
+Rule 19    variables -> VAR_GLOBAL
+Rule 20    variables -> VAR_INSTANCE
+Rule 21    variables -> VAR_CLASS
+Rule 22    variables -> VAR_LOCAL
+Rule 23    variables -> VAR_SYSTEM
+Rule 24    variables -> VAR_CONSTANT
+Rule 25    string_literals -> STRING
+Rule 26    string_literals -> string_concat
+Rule 27    string_concat -> DOUBLE_QUOTED IDENTIFIER concat DOUBLE_QUOTED
+Rule 28    string_concat -> DOUBLE_QUOTED IDENTIFIER concat IDENTIFIER DOUBLE_QUOTED
+Rule 29    concat -> NUMBER_SIGN LKEY IDENTIFIER RKEY
+Rule 30    array -> LBRACKET args_array RBRACKET
+Rule 31    array_data -> IDENTIFIER LBRACKET NUMBER RBRACKET
+Rule 32    args_array -> data
+Rule 33    args_array -> data COMMA args_array
+Rule 34    hash -> LKEY args_hash RKEY
+Rule 35    args_hash -> data HASH_ROCKET data
+Rule 36    args_hash -> data HASH_ROCKET data COMMA args_hash
+Rule 37    function -> IDENTIFIER LPAREN RPAREN
+Rule 38    super -> SUPER LPAREN RPAREN
+Rule 39    super -> SUPER LPAREN args_method RPAREN
+Rule 40    method_invocation -> IDENTIFIER DOT IDENTIFIER LPAREN RPAREN
+Rule 41    method_invocation -> IDENTIFIER DOT IDENTIFIER LPAREN args_method RPAREN
+Rule 42    method_invocation -> IDENTIFIER DOT IDENTIFIER
+Rule 43    args_method -> data
+Rule 44    args_method -> data COMMA args_method
+Rule 45    assignment -> variables EQUAL_SYMBOL data
+Rule 46    assignment -> array_data EQUAL_SYMBOL data
+Rule 47    assignment -> method_invocation EQUAL_SYMBOL data
+Rule 48    assignment -> self_assigment
+Rule 49    assignment -> mult_assigment
+Rule 50    self_assigment -> variables op_assigment data
+Rule 51    op_assigment -> PLUS_EQUAL
+Rule 52    op_assigment -> MINUS_EQUAL
+Rule 53    op_assigment -> TIMES_EQUAL
+Rule 54    op_assigment -> DIVIDE_EQUAL
+Rule 55    op_assigment -> MOD_EQUAL
+Rule 56    op_assigment -> POW_EQUAL
+Rule 57    mult_assigment -> list_var EQUAL_SYMBOL args_method
+Rule 58    list_var -> variables COMMA
+Rule 59    list_var -> variables COMMA list_var
+Rule 60    list_var -> variables
+Rule 61    control_structure -> if
+Rule 62    control_structure -> if_modifier
+Rule 63    control_structure -> unless
+Rule 64    control_structure -> unless_modifier
+Rule 65    control_structure -> and
+Rule 66    control_structure -> or
+Rule 67    control_structure -> not
+Rule 68    control_structure -> range_expressions
+Rule 69    control_structure -> while
+Rule 70    control_structure -> while_modifier
+Rule 71    control_structure -> until
+Rule 72    control_structure -> until_modifier
+Rule 73    control_structure -> iterator
+Rule 74    control_structure -> for
+Rule 75    control_structure -> yield
+Rule 76    control_structure -> begin
+Rule 77    control_structure -> retry
+Rule 78    control_structure -> return
+Rule 79    control_structure -> break
+Rule 80    control_structure -> next
+Rule 81    control_structure -> redo
+Rule 82    control_structure -> BEGIN
+Rule 83    control_structure -> END
+Rule 84    if -> IF expression expression END
+Rule 85    if -> IF expression THEN expression END
+Rule 86    if -> IF expression expression elsif END
+Rule 87    if -> IF expression THEN expression elsif END
+Rule 88    if -> IF expression expression else END
+Rule 89    if -> IF expression THEN expression else END
+Rule 90    if -> IF expression expression elsif else END
+Rule 91    if -> IF expression THEN expression elsif else END
+Rule 92    elsif -> ELSIF expression expression END
+Rule 93    elsif -> ELSIF expression THEN expression END
+Rule 94    if_modifier -> expression IF expression
+Rule 95    unless -> UNLESS expression expression END
+Rule 96    unless -> UNLESS expression THEN expression END
+Rule 97    unless -> UNLESS expression THEN expression else END
+Rule 98    unless_modifier -> expression UNLESS expression
+Rule 99    and -> expression AND expression
+Rule 100   or -> expression OR expression
+Rule 101   not -> NOT expression
+Rule 102   not -> NOT_SYMBOL expression
+Rule 103   range_expressions -> expression RANGE_INCLUSIVE expression
+Rule 104   range_expressions -> expression RANGE_EXCLUSIVE expression
+Rule 105   while -> WHILE expression expression DO expression END
+Rule 106   while_modifier -> expression WHILE expression
+Rule 107   until -> UNTIL expression DO expression END
+Rule 108   until_modifier -> expression UNTIL expression
+Rule 109   iterator -> expression DO OR_SYMBOL expression OR_SYMBOL expression END
+Rule 110   iterator -> expression LKEY OR_SYMBOL expression OR_SYMBOL expression RKEY
+Rule 111   for -> FOR expression IN expression DO expression END
+Rule 112   yield -> YIELD LPAREN expression RPAREN
+Rule 113   yield -> YIELD expression
+Rule 114   begin -> BEGIN expression RESCUE expression ENSURE expression END
+Rule 115   begin -> BEGIN expression RESCUE expression ELSE expression ENSURE expression END
+Rule 116   retry -> RETRY
+Rule 117   return -> RETURN
+Rule 118   return -> RETURN expression
+Rule 119   break -> BREAK
+Rule 120   next -> NEXT
+Rule 121   redo -> REDO
+Rule 122   class_definitions -> CLASS IDENTIFIER expression END
+Rule 123   class_definitions -> CLASS IDENTIFIER LESSERTHAN SUPER expression END
+Rule 124   singleton_class_definitions -> CLASS BINARY_LEFT_SHIFT_OP expression expression END
+Rule 125   module_definitions -> MODULE IDENTIFIER expression END
+Rule 126   method_definitions -> DEF expression expression END
+Rule 127   method_definitions -> DEF expression LPAREN RPAREN expression END
+Rule 128   method_definitions -> DEF expression LPAREN args_method RPAREN expression END
+Rule 129   singleton_method_definitions -> DEF expression DOT IDENTIFIER expression END
+Rule 130   singleton_method_definitions -> DEF expression DOT IDENTIFIER LPAREN args_method RPAREN expression END
+Rule 131   alias -> ALIAS expression expression
+Rule 132   undef -> UNDEF expression
+Rule 133   defined -> DEFINED_OP expression
+Rule 134   expression_operations -> opmate
+Rule 135   expression_operations -> LPAREN opmate RPAREN
+Rule 136   expression_operations -> expression_operations op expression_operations
+Rule 137   expression_operations -> expression_operations op opmate
+Rule 138   expression_operations -> LPAREN opmate RPAREN op expression_operations
+Rule 139   expression_operations -> expression_operations op LPAREN opmate RPAREN
+Rule 140   opmate -> data op data
+Rule 141   op -> PLUS
+Rule 142   op -> MINUS
+Rule 143   op -> TIMES
+Rule 144   op -> DIVIDE
+Rule 145   op -> MOD
+Rule 146   op -> EQUAL
+Rule 147   op -> NOTEQUAL
+Rule 148   op -> GREATERTHAN
+Rule 149   op -> GREATERTHANEQUAL
+Rule 150   op -> LESSERTHAN
+Rule 151   op -> LESSERTHANEQUAL
+Rule 152   data -> NUMBER
+Rule 153   data -> STRING
+Rule 154   data -> variables
 
 Terminals, with rules where they appear
 
-ALIAS                : 
-AND                  : 
+ALIAS                : 131
+AND                  : 99
 AND_EQUAL            : 
-BEGIN                : 
+BEGIN                : 82 114 115
 BINARY_AND_OP        : 
 BINARY_LEFT_EQUAL    : 
-BINARY_LEFT_SHIFT_OP : 
+BINARY_LEFT_SHIFT_OP : 124
 BINARY_RIGHT_EQUAL   : 
 BINARY_RIGHT_SHIFT_OP : 
 BINARY_XOR_OP        : 
-BREAK                : 
+BREAK                : 119
 CASE                 : 
 CASE_EQUALITY        : 
-CLASS                : 
+CLASS                : 122 123 124
 COMBINED_COMPARISON_OP : 
-COMMA                : 32 35 43 57 58
+COMMA                : 33 36 44 58 59
 COMPLEMENT_OP        : 
-DEF                  : 
+DEF                  : 126 127 128 129 130
 DEFINED              : 
-DEFINED_OP           : 
-DIVIDE               : 80
-DIVIDE_EQUAL         : 53
-DO                   : 
-DOT                  : 39 40 41
-DOUBLE_QUOTED        : 26 26 27 27
-ELSE                 : 
-ELSIF                : 
-END                  : 61 62 63 64 65 66 67 68
-ENSURE               : 
-EQUAL                : 82
-EQUAL_SYMBOL         : 44 45 46 56
+DEFINED_OP           : 133
+DIVIDE               : 144
+DIVIDE_EQUAL         : 54
+DO                   : 105 107 109 111
+DOT                  : 40 41 42 129 130
+DOUBLE_QUOTED        : 27 27 28 28
+ELSE                 : 115
+ELSIF                : 92 93
+END                  : 83 84 85 86 87 88 89 90 91 92 93 95 96 97 105 107 109 111 114 115 122 123 124 125 126 127 128 129 130
+ENSURE               : 114 115
+EQUAL                : 146
+EQUAL_SYMBOL         : 45 46 47 57
 EXPONENT_AND         : 
 FALSE                : 
-FOR                  : 
-GREATERTHAN          : 84
-GREATERTHANEQUAL     : 85
-HASH_ROCKET          : 34 35
-IDENTIFIER           : 26 27 27 28 30 36 39 39 40 40 41 41
-IF                   : 61 62 63 64 65 66 67 68
-IN                   : 
-LBRACKET             : 29 30
-LESSERTHAN           : 86
-LESSERTHANEQUAL      : 87
-LKEY                 : 28 33
-LPAREN               : 36 37 38 39 40 71 74 75
+FOR                  : 111
+GREATERTHAN          : 148
+GREATERTHANEQUAL     : 149
+HASH_ROCKET          : 35 36
+IDENTIFIER           : 27 28 28 29 31 37 40 40 41 41 42 42 122 123 125 129 130
+IF                   : 84 85 86 87 88 89 90 91 94
+IN                   : 111
+LBRACKET             : 30 31
+LESSERTHAN           : 123 150
+LESSERTHANEQUAL      : 151
+LKEY                 : 29 34 110
+LPAREN               : 37 38 39 40 41 112 127 128 130 135 138 139
 MATCHED_STRINGS_OP   : 
-MINUS                : 78
-MINUS_EQUAL          : 51
-MOD                  : 81
-MODULE               : 
-MOD_EQUAL            : 54
-NEXT                 : 
+MINUS                : 142
+MINUS_EQUAL          : 52
+MOD                  : 145
+MODULE               : 125
+MOD_EQUAL            : 55
+NEXT                 : 120
 NIL                  : 
-NOT                  : 
-NOTEQUAL             : 83
-NOT_SYMBOL           : 
-NUMBER               : 30 88
-NUMBER_SIGN          : 28
+NOT                  : 101
+NOTEQUAL             : 147
+NOT_SYMBOL           : 102
+NUMBER               : 31 152
+NUMBER_SIGN          : 29
 OPPOSITE_MATCHED_STRINGS_OP : 
 OPTIONAL_SYMBOL      : 
-OR                   : 
+OR                   : 100
 OR_EQUAL             : 
-OR_SYMBOL            : 
+OR_SYMBOL            : 109 109 110 110
 OVERLOAD_MINUS       : 
 OVERLOAD_PLUS        : 
-PLUS                 : 77
-PLUS_EQUAL           : 50
+PLUS                 : 141
+PLUS_EQUAL           : 51
 POW                  : 
-POW_EQUAL            : 55
+POW_EQUAL            : 56
 PUTS                 : 
-RANGE_EXCLUSIVE      : 
-RANGE_INCLUSIVE      : 
-RBRACKET             : 29 30
-REDO                 : 
-RESCUE               : 
-RETRY                : 
-RETURN               : 
-RKEY                 : 28 33
-RPAREN               : 36 37 38 39 40 71 74 75
+RANGE_EXCLUSIVE      : 104
+RANGE_INCLUSIVE      : 103
+RBRACKET             : 30 31
+REDO                 : 121
+RESCUE               : 114 115
+RETRY                : 116
+RETURN               : 117 118
+RKEY                 : 29 34 110
+RPAREN               : 37 38 39 40 41 112 127 128 130 135 138 139
 SELF                 : 
 SINGLE_AND_EQUAL     : 
 SINGLE_OR_EQUAL      : 
-STRING               : 24 89
-SUPER                : 37 38
+STRING               : 25 153
+SUPER                : 38 39 123
 SYMBOL               : 
 TERM                 : 
-THEN                 : 62 64 66 68
-TIMES                : 79
-TIMES_EQUAL          : 52
+THEN                 : 85 87 89 91 93 96 97
+TIMES                : 143
+TIMES_EQUAL          : 53
 TRUE                 : 
 UNARY_OP             : 
-UNDEF                : 
-UNLESS               : 
-UNTIL                : 
-VAR_CLASS            : 20
-VAR_CONSTANT         : 23
-VAR_GLOBAL           : 18
-VAR_INSTANCE         : 19
-VAR_LOCAL            : 21
-VAR_SYSTEM           : 22
+UNDEF                : 132
+UNLESS               : 95 96 97 98
+UNTIL                : 107 108
+VAR_CLASS            : 21
+VAR_CONSTANT         : 24
+VAR_GLOBAL           : 19
+VAR_INSTANCE         : 20
+VAR_LOCAL            : 22
+VAR_SYSTEM           : 23
 WHEN                 : 
-WHILE                : 
+WHILE                : 105 106
 XOR_EQUAL            : 
-YIELD                : 
+YIELD                : 112 113
 _FILE_               : 
 _LINE_               : 
 error                : 
 
 Nonterminals, with rules where they appear
 
-Class                : 11
-Method               : 14
-Module               : 13
-Singleton-class      : 12
-Singleton-method     : 15
 alias                : 16
-args_array           : 29 32
-args_hash            : 33 35
-args_method          : 38 40 43 56
+and                  : 65
+args_array           : 30 33
+args_hash            : 34 36
+args_method          : 39 41 44 57 128 130
 array                : 4
-array_data           : 45
+array_data           : 46
 assignment           : 8
-concat               : 26 27
+begin                : 76
+break                : 79
+class_definitions    : 11
+concat               : 27 28
 control_structure    : 10
-data                 : 31 32 34 34 35 35 42 43 44 45 46 49 76 76
-definitions          : 11 12 13 14 15
-else                 : 65 66 67 68
-elseif               : 
-elsif                : 63 64 67 68
-expression           : 1 61 61 62 62 63 63 64 64 65 65 66 66 67 67 68 68
-expression_operations : 9 72 72 73 74 75
+data                 : 32 33 35 35 36 36 43 44 45 46 47 50 140 140
+defined              : 18
+else                 : 88 89 90 91 97
+elsif                : 86 87 90 91
+expression           : 1 84 84 85 85 86 86 87 87 88 88 89 89 90 90 91 91 92 92 93 93 94 94 95 95 96 96 97 97 98 98 99 99 100 100 101 102 103 103 104 104 105 105 105 106 106 107 107 108 108 109 109 109 110 110 110 111 111 111 112 113 114 114 114 115 115 115 115 118 122 123 124 124 125 126 126 127 127 128 128 129 129 130 130 131 131 132 133
+expression_operations : 9 136 136 137 138 139
+for                  : 74
 function             : 
 hash                 : 5
-if                   : 60
-list_var             : 56 58
-method_invocation    : 6 46
-mult_assigment       : 48
-op                   : 72 73 74 75 76
-op_assigment         : 49
-opmate               : 70 71 73 74 75
+if                   : 61
+if_modifier          : 62
+iterator             : 73
+list_var             : 57 59
+method_definitions   : 14
+method_invocation    : 6 47
+module_definitions   : 13
+mult_assigment       : 49
+next                 : 80
+not                  : 67
+op                   : 136 137 138 139 140
+op_assigment         : 50
+opmate               : 134 135 137 138 139
+or                   : 66
 program              : 0
-self_assigment       : 47
-string_concat        : 25
+range_expressions    : 68
+redo                 : 81
+retry                : 77
+return               : 78
+self_assigment       : 48
+singleton_class_definitions : 12
+singleton_method_definitions : 15
+string_concat        : 26
 string_literals      : 2
 super                : 7
 undef                : 17
-variable             : 44 49 57 58 59 90
-variables            : 3
+unless               : 63
+unless_modifier      : 64
+until                : 71
+until_modifier       : 72
+variables            : 3 45 50 58 59 60 154
+while                : 69
+while_modifier       : 70
+yield                : 75
 
