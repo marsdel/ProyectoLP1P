@@ -504,9 +504,12 @@ class Aplicacion():
 
     resultado = ''
     def __init__(self):
+
         self.raiz = Tk()
-        self.raiz.title("Acceso")
+        self.raiz.title("Validar Ruby")
         fuente = font.Font(weight='bold')
+
+        frame = Frame(self.raiz)
                               
         self.etiq1 = ttk.Label(self.raiz, text="Validar expresión:", 
                                font=fuente)
@@ -520,10 +523,10 @@ class Aplicacion():
         
         self.ctext1 = ttk.Entry(self.raiz, 
                                 textvariable=self.usuario, 
-                                width=300)
+                                width=70)
         self.ctext2 = ttk.Entry(self.raiz, 
                                 textvariable=self.clave, state="readonly",
-                                width=100 )
+                                width=70 )
         self.separ1 = ttk.Separator(self.raiz, orient=VERTICAL)
         
         
