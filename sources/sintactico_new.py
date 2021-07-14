@@ -11,6 +11,7 @@ def p_program(p):
 
 def p_expression(p):
     '''expression : string_literals
+                    | booleans
                     | prints
                     | variable
                     | array
@@ -29,7 +30,7 @@ def p_expression(p):
                     | undef
                     | defined
                     | boolean_operations'''
-    
+    p[0] = p[1]
 
 def p_variable(p):
     '''variable : VAR_GLOBAL
@@ -154,8 +155,7 @@ def p_control_structure(p):
                         | BEGIN
                         | END
                         | case'''
-                        # TODO
-                        # | raise TODO'''
+                        
 
 
 def p_if(p):
@@ -166,18 +166,30 @@ def p_if(p):
             | IF expression expression else END
             | IF expression THEN expression else END
             | IF expression expression elsif else END
-            | IF expression THEN expression elsif else END'''
+            | IF expression THEN expression elsif else END
+            | IF boolean_operations'''
     global resultado 
-    resultado = "expresión if correcta"
+    if(p[2]!=True and p[2] != False):
+        resultado ="Condición debe dar un boolean"
+    else:
+        resultado = "expresión if correcta"
+    
 
 def p_elsif(p):
     '''elsif : ELSIF expression expression END
             | ELSIF expression THEN expression END'''
+    global resultado
+    if(p[2]!=True and p[2] != False):
+        resultado ="Condición de elsif debe dar un boolean"
+    else:
+        resultado = "expresión if correcta"
+
 def p_else(p):
     '''else : ELSE expression'''
     
 def p_if_modifier(p):
     'if_modifier : expression IF expression'
+    
 
 def p_unless(p):
     '''unless : UNLESS expression expression END
@@ -224,7 +236,10 @@ def p_while(p):
     '''while : WHILE expression expression END
             | WHILE expression DO expression END'''
     global resultado 
-    resultado = "expresión while correcta"
+    if(p[2]!=True and p[2]!=False):
+        resultado = "la condición del while debe dar un boolean"
+    else:
+        resultado = "expresión while correcta"
 
 def p_while_modifier(p):
     'while_modifier : expression WHILE expression'
@@ -243,6 +258,7 @@ def p_iterator(p):
 def p_for(p):
     '''for : FOR IDENTIFIER IN expression DO expression END
         | FOR IDENTIFIER IN expression expression END'''
+
     
     global resultado 
     resultado = "expresión for correcta"
@@ -348,52 +364,45 @@ def p_boolean_operations(p):
     # Semantic (prueba semantica)
     if p[2] == 'and':
         p[0] = p[1] and p[3]
-        resultado = "true" if p[0] else "false"
     elif p[2] == 'or':
         p[0] = p[1] or p[3]
-        resultado = "true" if p[0] else "false"
 
     elif p[2] == '==':
         if p[1] == p[3]:
             p[0] = True
         else:
             p[0] = False
-        resultado = "true" if p[0] else "false"
 
     elif p[2] == '!=':
         if p[1] != p[3]:
             p[0] = True
         else:
             p[0] = False
-        resultado = "true" if p[0] else "false"
 
     elif p[2] == '>':
         if p[1] > p[3]:
             p[0] = True
         else:
             p[0] = False
-        resultado = "true" if p[0] else "false"
 
     elif p[2] == '>=':
         if p[1] >= p[3]:
             p[0] = True
         else:
             p[0] = False
-        resultado = "true" if p[0] else "false"
 
     elif p[2] == '<':
         if p[1] < p[3]:
             p[0] = True
         else:
             p[0] = False
-        resultado = "true" if p[0] else "false"
 
     elif p[2] == '<=':
         if p[1] <= p[3]:
             p[0] = True
         else:
             p[0] = False
-        resultado = "true" if p[0] else "false"
+    resultado = "true" if p[0] else "false"
 
     if not isinstance(p[1], bool) and not isinstance(p[2], bool) :
         print("Semantic error in input!")
@@ -403,35 +412,21 @@ def p_expression_operations(p):
                             | LPAREN opmate RPAREN
                             | expression_operations op expression_operations
                             | expression_operations op opmate
+                            | expression_operations op data
                             | LPAREN opmate RPAREN op expression_operations
                             | expression_operations op LPAREN opmate RPAREN
                 '''
-    if (len(p) > 2):
-        if (p[1] != "Semantic error in input!" and p[3] != "Semantic error in input!"):
-            if p[2] == '+':
-                p[0] = (p[1] + p[3])
-            elif p[2] == '-':
-                p[0] = (p[1] - p[3])
-            elif p[2] == '*':
-                p[0] = (p[1] * p[3])
-            elif p[2] == '/':
-                p[0] = (p[1] / p[3])
-            elif p[2] == '%':
-                p[0] = (p[1] % p[3])
-      
+    p[0] = p[1]
 
 def p_opmate(p):
     '''opmate : data op data'''
         
     global resultado
 
-    print(p[1])
-    print(p[2])
 
     if not isinstance(p[1], int) and not isinstance(p[3], int) :
         resultado = "error semantico"
     else:
-        print("aquí")
         if p[2] == '+':
             p[0] = (p[1] + p[3])
         elif p[2] == '-':
@@ -486,6 +481,10 @@ def p_data(p):
             | variable'''
     
     p[0] = p[1]
+
+def p_booleans(p):
+    '''booleans : TRUE
+                | FALSE'''
 #Error rule for syntax errors
 def p_error(p):
     print("Syntax error in input!", p)
