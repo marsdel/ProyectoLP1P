@@ -2,7 +2,7 @@
 from re import A
 import ply.yacc as yacc
 from lexico import tokens 
- # Get the token map from the lexer.  This is required.from calclex import tokens
+
 # variable que guarda la salida de la GUI 
 resultado = ""
 
@@ -438,27 +438,7 @@ def p_opmate(p):
             p[0] = (p[1] % p[3])
         resultado = p[0]
 
-    # if (len(p) > 2):
-    #     if (p[1] != "Semantic error in input!" and p[3] != "Semantic error in input!"):
-    #         if p[2] == '+':
-    #             p[0] = (p[1] + p[3])
-    #         elif p[2] == '-':
-    #             p[0] = (p[1] - p[3])
-    #         elif p[2] == '*':
-    #             p[0] = (p[1] * p[3])
-    #         elif p[2] == '/':
-    #             p[0] = (p[1] / p[3])
-    #         elif p[2] == '%':
-    #             p[0] = (p[1] % p[3])
-    #     else:
-    #         p[0] = "Semantic error in input!"
-    # else:
-    #     if (p[1] == "Semantic error in input!"):
-    #         p[0] = "Semantic error in input!"
-    #     else:
-    #         print(p[0])
-    #         p[0] = "sintaxis Valida"
-
+  
 def p_op(p):
     '''op : PLUS
         | MINUS
@@ -515,7 +495,11 @@ class Aplicacion():
         '3 + 3',
         'true and true',
         'if 3>4 3+4 end',
-        'if a+3 end']
+        'if a+3 end',
+        'true and a',
+        'while 3 3+4 end',
+        'a + 5'
+        '@var = "hello world!!!"']
 
 
     resultado = ''
@@ -523,47 +507,26 @@ class Aplicacion():
         self.raiz = Tk()
         self.raiz.title("Acceso")
         fuente = font.Font(weight='bold')
-        
-        # Define las etiquetas que acompañan a las cajas de
-        # entrada y asigna el formato de fuente anterior: 
-                               
+                              
         self.etiq1 = ttk.Label(self.raiz, text="Validar expresión:", 
                                font=fuente)
         self.etiq2 = ttk.Label(self.raiz, text="Resultado:", 
                                font=fuente)
         
-        # Declara dos variables de tipo cadena para contener
-        # el usuario y la contraseña: 
         
         self.usuario = StringVar()
         self.clave = StringVar()
-        
        
-        # Define dos cajas de entrada que aceptarán cadenas
-        # de una longitud máxima de 30 caracteres.
-        # A la primera de ellas 'self.ctext1' que contendrá
-        # el nombre del usuario, se le asigna la variable
-        # 'self.usuario' a la opción 'textvariable'. Cualquier
-        # valor que tome la variable durante la ejecución del
-        # programa quedará reflejada en la caja de entrada.
-        # En la segunda caja de entrada, la de la contraseña,
-        # se hace lo mismo. Además, se establece la opción
-        # 'show' con un "*" (asterisco) para ocultar la 
-        # escritura de las contraseñas:
         
         self.ctext1 = ttk.Entry(self.raiz, 
                                 textvariable=self.usuario, 
                                 width=300)
         self.ctext2 = ttk.Entry(self.raiz, 
-                                textvariable=self.clave, 
+                                textvariable=self.clave, state="readonly",
                                 width=100 )
         self.separ1 = ttk.Separator(self.raiz, orient=VERTICAL)
         
-        # Se definen dos botones con dos métodos: El botón
-        # 'Aceptar' llamará al método 'self.aceptar' cuando
-        # sea presionado para validar la contraseña; y el botón
-        # 'Cancelar' finalizará la aplicación si se llega a
-        # presionar:
+        
         
         self.boton1 = ttk.Button(self.raiz, text="Aceptar", 
                                  command=self.aceptar)
@@ -572,8 +535,7 @@ class Aplicacion():
         self.boton3 = ttk.Button(self.raiz, text="Algoritmo aleatorio", 
                                  command=self.algoritmo)
                                  
-        # Se definen las posiciones de los widgets dentro de
-        # la ventana. 
+        
                                          
         self.etiq1.pack(side=TOP, fill=BOTH, expand=True, 
                         padx=5, pady=5)
@@ -597,16 +559,7 @@ class Aplicacion():
         
         self.raiz.mainloop()
     
-    # El método 'aceptar' se emplea para validar la 
-    # contraseña introducida. Será llamado cuando se 
-    # presione el botón 'Aceptar'. Si la contraseña
-    # coincide con la cadena 'tkinter' se imprimirá
-    # el mensaje 'Acceso permitido' y los valores 
-    # aceptados. En caso contrario, se mostrará el
-    # mensaje 'Acceso denegado' y el foco volverá al
-    # mismo lugar.
 
-    
     
     def aceptar(self):
         result = parser.parse(self.ctext1.get())
