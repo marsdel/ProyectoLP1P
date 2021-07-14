@@ -28,8 +28,8 @@ def p_expression(p):
                     | alias
                     | undef
                     | defined
-                    | boolean_operations
-                    | math_operations'''
+                    | boolean_operations'''
+    
 
 def p_variable(p):
     '''variable : VAR_GLOBAL
@@ -308,27 +308,6 @@ def p_undef(p):
 def p_defined(p):
     'defined : DEFINED_OP expression'
 
-def p_math_operations(p):
-    '''math_operations : expression PLUS expression
-                        | expression MINUS expression
-                        | expression TIMES expression
-                        | expression DIVIDE expression
-                        | expression MOD expression
-                        | expression POW expression
-                        | NUMBER PLUS NUMBER
-                        | NUMBER MINUS NUMBER
-                        | NUMBER TIMES NUMBER
-                        | NUMBER DIVIDE NUMBER
-                        | NUMBER MOD NUMBER
-                        | NUMBER POW NUMBER
-    '''
-    # Semantic (prueba semantica)
-    global resultado
-    if not isinstance(p[1], int) and not isinstance(p[2], int) :
-
-        resultado = "error semantico"
-    else:
-        resultado = "semantica correcta!"
 
 def p_boolean_operations(p):
     '''boolean_operations : expression AND expression
@@ -354,6 +333,7 @@ def p_boolean_operations(p):
                         | TRUE EQUAL TRUE
                         | TRUE NOTEQUAL TRUE
     '''
+    global resultado
     if p[1] == "true" and p[3] == "true":
         p[1]=p[3]=True
     if p[1] == "false" and p[3] == "false":
@@ -364,44 +344,56 @@ def p_boolean_operations(p):
     if p[1] == "false" and p[3] == "true":
         p[1]=False
         p[3]=True
+        
     # Semantic (prueba semantica)
-    global resultado
-    if p[2] == 'AND':
+    if p[2] == 'and':
         p[0] = p[1] and p[3]
-        resultado = p[0]
-        print(resultado)
-    elif p[2] == 'OR':
+        resultado = "true" if p[0] else "false"
+    elif p[2] == 'or':
         p[0] = p[1] or p[3]
-    elif p[2] == 'EQUAL':
+        resultado = "true" if p[0] else "false"
+
+    elif p[2] == '==':
         if p[1] == p[3]:
             p[0] = True
         else:
             p[0] = False
-    elif p[2] == 'NOTEQUAL':
+        resultado = "true" if p[0] else "false"
+
+    elif p[2] == '!=':
         if p[1] != p[3]:
             p[0] = True
         else:
             p[0] = False
-    elif p[2] == 'GREATERTHAN':
+        resultado = "true" if p[0] else "false"
+
+    elif p[2] == '>':
         if p[1] > p[3]:
             p[0] = True
         else:
             p[0] = False
-    elif p[2] == 'GREATERTHANEQUAL':
+        resultado = "true" if p[0] else "false"
+
+    elif p[2] == '>=':
         if p[1] >= p[3]:
             p[0] = True
         else:
             p[0] = False
-    elif p[2] == 'LESSERTHAN':
+        resultado = "true" if p[0] else "false"
+
+    elif p[2] == '<':
         if p[1] < p[3]:
             p[0] = True
         else:
             p[0] = False
-    elif p[2] == 'LESSERTHANEQUAL':
+        resultado = "true" if p[0] else "false"
+
+    elif p[2] == '<=':
         if p[1] <= p[3]:
             p[0] = True
         else:
             p[0] = False
+        resultado = "true" if p[0] else "false"
 
     if not isinstance(p[1], bool) and not isinstance(p[2], bool) :
         print("Semantic error in input!")
@@ -426,37 +418,52 @@ def p_expression_operations(p):
                 p[0] = (p[1] / p[3])
             elif p[2] == '%':
                 p[0] = (p[1] % p[3])
-        else:
-            p[0] = "Semantic error in input!"
-    else:
-        if (p[1] == "Semantic error in input!"):
-            p[0] = "Semantic error in input!"
-        else:
-            p[0] = "sintaxis Valida"
-            print(p[0])
+      
 
 def p_opmate(p):
     '''opmate : data op data'''
-    if (len(p) > 2):
-        if (p[1] != "Semantic error in input!" and p[3] != "Semantic error in input!"):
-            if p[2] == '+':
-                p[0] = (p[1] + p[3])
-            elif p[2] == '-':
-                p[0] = (p[1] - p[3])
-            elif p[2] == '*':
-                p[0] = (p[1] * p[3])
-            elif p[2] == '/':
-                p[0] = (p[1] / p[3])
-            elif p[2] == '%':
-                p[0] = (p[1] % p[3])
-        else:
-            p[0] = "Semantic error in input!"
+        
+    global resultado
+
+    print(p[1])
+    print(p[2])
+
+    if not isinstance(p[1], int) and not isinstance(p[3], int) :
+        resultado = "error semantico"
     else:
-        if (p[1] == "Semantic error in input!"):
-            p[0] = "Semantic error in input!"
-        else:
-            print(p[0])
-            p[0] = "sintaxis Valida"
+        print("aquí")
+        if p[2] == '+':
+            p[0] = (p[1] + p[3])
+        elif p[2] == '-':
+            p[0] = (p[1] - p[3])
+        elif p[2] == '*':
+            p[0] = (p[1] * p[3])
+        elif p[2] == '/':
+            p[0] = (p[1] / p[3])
+        elif p[2] == '%':
+            p[0] = (p[1] % p[3])
+        resultado = p[0]
+
+    # if (len(p) > 2):
+    #     if (p[1] != "Semantic error in input!" and p[3] != "Semantic error in input!"):
+    #         if p[2] == '+':
+    #             p[0] = (p[1] + p[3])
+    #         elif p[2] == '-':
+    #             p[0] = (p[1] - p[3])
+    #         elif p[2] == '*':
+    #             p[0] = (p[1] * p[3])
+    #         elif p[2] == '/':
+    #             p[0] = (p[1] / p[3])
+    #         elif p[2] == '%':
+    #             p[0] = (p[1] % p[3])
+    #     else:
+    #         p[0] = "Semantic error in input!"
+    # else:
+    #     if (p[1] == "Semantic error in input!"):
+    #         p[0] = "Semantic error in input!"
+    #     else:
+    #         print(p[0])
+    #         p[0] = "sintaxis Valida"
 
 def p_op(p):
     '''op : PLUS
@@ -471,13 +478,14 @@ def p_op(p):
         | LESSERTHAN
         | LESSERTHANEQUAL
     '''
-
+    print(p[1])
+    p[0] = p[1]
 def p_data(p):
     '''data : NUMBER
             | STRING
             | variable'''
-
-
+    
+    p[0] = p[1]
 #Error rule for syntax errors
 def p_error(p):
     print("Syntax error in input!", p)
