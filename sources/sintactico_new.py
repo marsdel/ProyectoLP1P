@@ -1,4 +1,5 @@
 # Yacc example
+from re import A
 import ply.yacc as yacc
 from lexico import tokens 
  # Get the token map from the lexer.  This is required.from calclex import tokens
@@ -404,8 +405,6 @@ def p_boolean_operations(p):
             p[0] = False
     resultado = "true" if p[0] else "false"
 
-    if not isinstance(p[1], bool) and not isinstance(p[2], bool) :
-        print("Semantic error in input!")
 
 def p_expression_operations(p):
     '''expression_operations : opmate
@@ -473,7 +472,6 @@ def p_op(p):
         | LESSERTHAN
         | LESSERTHANEQUAL
     '''
-    print(p[1])
     p[0] = p[1]
 def p_data(p):
     '''data : NUMBER
@@ -506,18 +504,24 @@ parser = yacc.yacc()
 # GUI 
 from tkinter import *
 from tkinter import ttk, font
-import getpass
+import random
+
 
 # Gestor de geometría (pack)
 
 class Aplicacion():
 
+    array_randoms= [
+        '3 + 3',
+        'true and true',
+        'if 3>4 3+4 end',
+        'if a+3 end']
+
+
     resultado = ''
     def __init__(self):
         self.raiz = Tk()
         self.raiz.title("Acceso")
-        
-     
         fuente = font.Font(weight='bold')
         
         # Define las etiquetas que acompañan a las cajas de
@@ -549,11 +553,11 @@ class Aplicacion():
         
         self.ctext1 = ttk.Entry(self.raiz, 
                                 textvariable=self.usuario, 
-                                width=30)
+                                width=300)
         self.ctext2 = ttk.Entry(self.raiz, 
                                 textvariable=self.clave, 
-                                width=30)
-        self.separ1 = ttk.Separator(self.raiz, orient=HORIZONTAL)
+                                width=100 )
+        self.separ1 = ttk.Separator(self.raiz, orient=VERTICAL)
         
         # Se definen dos botones con dos métodos: El botón
         # 'Aceptar' llamará al método 'self.aceptar' cuando
@@ -565,6 +569,8 @@ class Aplicacion():
                                  command=self.aceptar)
         self.boton2 = ttk.Button(self.raiz, text="Cancelar", 
                                  command=quit)
+        self.boton3 = ttk.Button(self.raiz, text="Algoritmo aleatorio", 
+                                 command=self.algoritmo)
                                  
         # Se definen las posiciones de los widgets dentro de
         # la ventana. 
@@ -582,6 +588,8 @@ class Aplicacion():
         self.boton1.pack(side=LEFT, fill=BOTH, expand=True, 
                          padx=5, pady=5)
         self.boton2.pack(side=RIGHT, fill=BOTH, expand=True, 
+                         padx=5, pady=5)
+        self.boton3.pack(side=RIGHT, fill=BOTH, expand=True, 
                          padx=5, pady=5)
         
     
@@ -604,8 +612,12 @@ class Aplicacion():
         result = parser.parse(self.ctext1.get())
         global resultado
         self.clave.set(resultado)   # aqui se pone el valor de resultado en la caja de texto
- 
-            
+    
+    def algoritmo(self):
+        num= random.randint(0, len(self.array_randoms)-1)
+        self.usuario.set(self.array_randoms[num])
+        result = parser.parse(self.array_randoms[num])
+        self.clave.set(resultado)
 def main():
     mi_app = Aplicacion()
     return 0

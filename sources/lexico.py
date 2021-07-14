@@ -185,7 +185,7 @@ def t_IDENTIFIER(t):
 # +Hector Rizzo
 # A regular expression rule with some action code
 def t_NUMBER(t):
-    r'\d+'
+    r'\d+|\-\d+'
     t.value = int(t.value)
     return t
 
