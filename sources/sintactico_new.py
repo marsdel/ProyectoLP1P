@@ -27,7 +27,9 @@ def p_expression(p):
                     | singleton_method_definitions
                     | alias
                     | undef
-                    | defined'''
+                    | defined
+                    | boolean_operations
+                    | math_operations'''
 
 def p_variable(p):
     '''variable : VAR_GLOBAL
@@ -104,6 +106,8 @@ def p_assignment(p):
                     | method_invocation EQUAL_SYMBOL data 
                     | self_assigment
                     | mult_assigment'''
+    global resultado
+    resultado = "asignacion de variable correcta"
 
 def p_self_assigment(p):
     '''self_assigment : variable op_assigment data'''
@@ -304,6 +308,103 @@ def p_undef(p):
 def p_defined(p):
     'defined : DEFINED_OP expression'
 
+def p_math_operations(p):
+    '''math_operations : expression PLUS expression
+                        | expression MINUS expression
+                        | expression TIMES expression
+                        | expression DIVIDE expression
+                        | expression MOD expression
+                        | expression POW expression
+                        | NUMBER PLUS NUMBER
+                        | NUMBER MINUS NUMBER
+                        | NUMBER TIMES NUMBER
+                        | NUMBER DIVIDE NUMBER
+                        | NUMBER MOD NUMBER
+                        | NUMBER POW NUMBER
+    '''
+    # Semantic (prueba semantica)
+    global resultado
+    if not isinstance(p[1], int) and not isinstance(p[2], int) :
+
+        resultado = "error semantico"
+    else:
+        resultado = "semantica correcta!"
+
+def p_boolean_operations(p):
+    '''boolean_operations : expression AND expression
+                        | expression OR expression
+                        | expression EQUAL expression
+                        | expression NOTEQUAL expression
+                        | expression GREATERTHAN expression
+                        | expression GREATERTHANEQUAL expression
+                        | expression LESSERTHAN expression
+                        | expression LESSERTHANEQUAL expression
+                        | NUMBER EQUAL NUMBER
+                        | NUMBER NOTEQUAL NUMBER
+                        | NUMBER GREATERTHAN NUMBER
+                        | NUMBER GREATERTHANEQUAL NUMBER
+                        | NUMBER LESSERTHAN NUMBER
+                        | NUMBER LESSERTHANEQUAL NUMBER
+                        | TRUE AND TRUE
+                        | TRUE OR TRUE
+                        | TRUE AND FALSE
+                        | TRUE OR FALSE
+                        | FALSE AND FALSE
+                        | FALSE OR FALSE
+                        | TRUE EQUAL TRUE
+                        | TRUE NOTEQUAL TRUE
+    '''
+    if p[1] == "true" and p[3] == "true":
+        p[1]=p[3]=True
+    if p[1] == "false" and p[3] == "false":
+        p[1]=p[3]=False
+    if p[1] == "true" and p[3] == "false":
+        p[1]=True
+        p[3]=False
+    if p[1] == "false" and p[3] == "true":
+        p[1]=False
+        p[3]=True
+    # Semantic (prueba semantica)
+    global resultado
+    if p[2] == 'AND':
+        p[0] = p[1] and p[3]
+        resultado = p[0]
+        print(resultado)
+    elif p[2] == 'OR':
+        p[0] = p[1] or p[3]
+    elif p[2] == 'EQUAL':
+        if p[1] == p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'NOTEQUAL':
+        if p[1] != p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'GREATERTHAN':
+        if p[1] > p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'GREATERTHANEQUAL':
+        if p[1] >= p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'LESSERTHAN':
+        if p[1] < p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+    elif p[2] == 'LESSERTHANEQUAL':
+        if p[1] <= p[3]:
+            p[0] = True
+        else:
+            p[0] = False
+
+    if not isinstance(p[1], bool) and not isinstance(p[2], bool) :
+        print("Semantic error in input!")
 
 def p_expression_operations(p):
     '''expression_operations : opmate
