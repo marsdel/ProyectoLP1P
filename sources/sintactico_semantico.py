@@ -509,11 +509,13 @@ class Aplicacion():
         self.raiz.title("Validar Ruby")
         fuente = font.Font(weight='bold')
 
-        frame = Frame(self.raiz)
+        frame_entry = Frame(self.raiz)
+        frame_result = Frame(self.raiz)
+
                               
-        self.etiq1 = ttk.Label(self.raiz, text="Validar expresión:", 
+        self.etiq1 = ttk.Label(frame_entry, text="Validar expresión:", 
                                font=fuente)
-        self.etiq2 = ttk.Label(self.raiz, text="Resultado:", 
+        self.etiq2 = ttk.Label(frame_result, text="Resultado:", 
                                font=fuente)
         
         
@@ -521,33 +523,36 @@ class Aplicacion():
         self.clave = StringVar()
        
         
-        self.ctext1 = ttk.Entry(self.raiz, 
+        self.ctext1 = ttk.Entry(frame_entry, 
                                 textvariable=self.usuario, 
                                 width=70)
-        self.ctext2 = ttk.Entry(self.raiz, 
+        self.ctext2 = ttk.Entry(frame_result, 
                                 textvariable=self.clave, state="readonly",
                                 width=70 )
         self.separ1 = ttk.Separator(self.raiz, orient=VERTICAL)
         
         
-        
-        self.boton1 = ttk.Button(self.raiz, text="Aceptar", 
+        frame_botons = Frame(self.raiz)
+        self.boton1 = ttk.Button(frame_botons, text="Aceptar", 
                                  command=self.aceptar)
-        self.boton2 = ttk.Button(self.raiz, text="Cancelar", 
+        self.boton2 = ttk.Button(frame_botons, text="Cancelar", 
                                  command=quit)
-        self.boton3 = ttk.Button(self.raiz, text="Algoritmo aleatorio", 
+        self.boton3 = ttk.Button(frame_botons, text="Algoritmo aleatorio", 
                                  command=self.algoritmo)
                                  
         
-                                         
+        frame_botons.pack(side = BOTTOM, fill=BOTH, expand=False, padx=5, pady=5)                       
+        frame_result.pack(side = RIGHT, fill=BOTH, expand=True, padx=70, pady=70)                       
+        frame_entry.pack(side = LEFT, fill=BOTH, expand=True, padx=70, pady=70)                       
+
         self.etiq1.pack(side=TOP, fill=BOTH, expand=True, 
                         padx=5, pady=5)
-        self.ctext1.pack(side=TOP, fill=X, expand=True, 
-                         padx=5, pady=5)
+        self.ctext1.pack(side=TOP, fill=BOTH, expand=True, 
+                         padx=5, pady=30)
         self.etiq2.pack(side=TOP, fill=BOTH, expand=True, 
                         padx=5, pady=5)
-        self.ctext2.pack(side=TOP, fill=X, expand=True, 
-                         padx=5, pady=5)
+        self.ctext2.pack(side=TOP, fill=BOTH, expand=True, 
+                         padx=5, pady=30)
         self.separ1.pack(side=TOP, fill=BOTH, expand=True, 
                          padx=5, pady=5)
         self.boton1.pack(side=LEFT, fill=BOTH, expand=True, 
