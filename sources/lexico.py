@@ -28,6 +28,7 @@ reserved = {
 
 tokens = (
     'NUMBER',
+    'FLOAT',
     'PLUS',
     'MINUS',
     'TIMES',
@@ -184,6 +185,12 @@ def t_IDENTIFIER(t):
 
 # +Hector Rizzo
 # A regular expression rule with some action code
+
+def t_FLOAT(t):
+    r'\d+\.\d+|\-\d+\.\d+'
+    t.value = float(t.value)
+    return t
+
 def t_NUMBER(t):
     r'\d+|\-\d+'
     t.value = int(t.value)

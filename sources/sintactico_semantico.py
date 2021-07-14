@@ -97,6 +97,8 @@ def p_method_invocation(p):
     '''method_invocation : IDENTIFIER DOT IDENTIFIER LPAREN RPAREN
                         | IDENTIFIER DOT IDENTIFIER LPAREN args_method RPAREN
                         | IDENTIFIER DOT IDENTIFIER'''
+    global resultado
+    resultado = "Invocación de método válido"
 
 def p_args_method(p):
     '''args_method : data
@@ -106,6 +108,8 @@ def p_assignment(p):
     '''assignment : variable EQUAL_SYMBOL data
                     | array_data EQUAL_SYMBOL data
                     | method_invocation EQUAL_SYMBOL data 
+                    | variable EQUAL_SYMBOL array
+                    | variable EQUAL_SYMBOL hash
                     | self_assigment
                     | mult_assigment'''
     global resultado
@@ -248,6 +252,8 @@ def p_while_modifier(p):
 def p_until(p):
     '''until : UNTIL expression DO expression END
             |  UNTIL expression expression END'''
+    global resultado
+    resultado = "Expresión until correcta"
 
 def p_until_modifier(p):
     'until_modifier : expression UNTIL expression'
@@ -258,9 +264,9 @@ def p_iterator(p):
 
 def p_for(p):
     '''for : FOR IDENTIFIER IN expression DO expression END
+        | FOR IDENTIFIER IN IDENTIFIER DO expression END
+        | FOR IDENTIFIER IN IDENTIFIER expression END
         | FOR IDENTIFIER IN expression expression END'''
-
-    
     global resultado 
     resultado = "expresión for correcta"
 
@@ -276,6 +282,9 @@ def p_begin_expression(p):
                         | BEGIN expression RESCUE expression ELSE expression END
                         | BEGIN expression ELSE expression ENSURE expression END
                         | BEGIN expression RESCUE expression ELSE expression ENSURE expression END'''
+    
+    global resultado
+    resultado = "Expresión begin correcta"
 
 def p_retry(p):
     'retry : RETRY'
@@ -283,9 +292,15 @@ def p_retry(p):
 def p_return(p):
     '''return : RETURN
             | RETURN args_method'''
+    
+    global resultado
+    resultado = "return correcto"
 
 def p_break(p):
     'break : BREAK'
+    global resultado
+    resultado = "break correcto"
+
 
 def p_next(p):
     'next : NEXT'
@@ -302,22 +317,35 @@ def p_end(p):
 def p_class_definitions(p):
     '''class_definitions : CLASS IDENTIFIER expression END
                         | CLASS IDENTIFIER LESSERTHAN SUPER expression END'''
+        
+    global resultado
+    resultado = "Definicion de clase correcta"
 
 def p_singleton_class_definitions(p):
     'singleton_class_definitions : CLASS BINARY_LEFT_SHIFT_OP expression expression END'
+    global resultado
+    resultado = "Definicion de clase correcta"
 
 def p_module_definitions(p):
     'module_definitions : MODULE IDENTIFIER expression END'
+    global resultado
+    resultado = "Definicion de module correcta"
 
 def p_method_definitions(p):
     '''method_definitions : DEF function expression END'''
+    global resultado
+    resultado = "Definicion de metodo correcta"
 
 def p_singleton_method_definitions(p):
     '''singleton_method_definitions : DEF expression DOT IDENTIFIER expression END
                         | DEF expression DOT IDENTIFIER LPAREN args_method RPAREN expression END'''
+    
 
 def p_alias(p):
     'alias : ALIAS expression expression'
+
+    global resultado
+    resultado = "Definicion de alias correcta"
 
 def p_undef(p):
     'undef : UNDEF expression'
@@ -463,6 +491,10 @@ def p_data(p):
 def p_booleans(p):
     '''booleans : TRUE
                 | FALSE'''
+    if p[1] == 'true':
+        p[0] =True
+    else:
+        p[0] = False
 #Error rule for syntax errors
 def p_error(p):
     print("Syntax error in input!", p)
@@ -498,8 +530,17 @@ class Aplicacion():
         'if a+3 end',
         'true and a',
         'while 3 3+4 end',
-        'a + 5'
-        '@var = "hello world!!!"']
+        'while true puts("ciclo") end',
+        'a + 5',
+        '@var = "hello world!!!"',
+        '$var = { 3 => 3 , "a" => 3}',
+        '$var = { 3 => }',
+        '$var = [ 3 => 3 , "a" => 3]',
+        '$var = [1,2,3]',
+        'def metodo() print("metodo") end',
+        'def metodo print ("es metodo?") end',
+        'print "Hola mundo"',
+        'put "hola mundo"']
 
 
     resultado = ''
@@ -579,6 +620,7 @@ class Aplicacion():
         self.usuario.set(self.array_randoms[num])
         result = parser.parse(self.array_randoms[num])
         self.clave.set(resultado)
+
 def main():
     mi_app = Aplicacion()
     return 0
