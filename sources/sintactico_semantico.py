@@ -110,6 +110,9 @@ def p_assignment(p):
                     | method_invocation EQUAL_SYMBOL data 
                     | variable EQUAL_SYMBOL array
                     | variable EQUAL_SYMBOL hash
+                    | variable EQUAL_SYMBOL expression_operations
+                    | array_data EQUAL_SYMBOL expression_operations
+                    | method_invocation EQUAL_SYMBOL expression_operations
                     | self_assigment
                     | mult_assigment'''
     global resultado
@@ -515,8 +518,10 @@ parser = yacc.yacc()
 
 # GUI 
 from tkinter import *
-from tkinter import ttk, font
+from tkinter import ttk, font, messagebox
 import random
+
+
 
 
 # Gestor de geometría (pack)
@@ -550,8 +555,11 @@ class Aplicacion():
         self.raiz.title("Validar Ruby")
         fuente = font.Font(weight='bold')
 
+        self.help = messagebox
+
         frame_entry = Frame(self.raiz)
         frame_result = Frame(self.raiz)
+        frame_top = Frame(frame_entry)
 
                               
         self.etiq1 = ttk.Label(frame_entry, text="Validar expresión:", 
@@ -564,30 +572,41 @@ class Aplicacion():
         self.clave = StringVar()
        
         
-        self.ctext1 = ttk.Entry(frame_entry, 
-                                textvariable=self.usuario, 
-                                width=70)
-        self.ctext2 = ttk.Entry(frame_result, 
-                                textvariable=self.clave, state="readonly",
-                                width=70 )
-        self.separ1 = ttk.Separator(self.raiz, orient=VERTICAL)
+        self.ctext1 = Text(frame_entry,  
+                                width=50, height=20)
         
+        self.ctext2 = Text(frame_result,  
+                                width=50, height=20)
+        self.separ1 = ttk.Separator(self.raiz, orient=VERTICAL)
         
         frame_botons = Frame(self.raiz)
         self.boton1 = ttk.Button(frame_botons, text="Aceptar", 
                                  command=self.aceptar)
-        self.boton2 = ttk.Button(frame_botons, text="Cancelar", 
+        self.boton2 = ttk.Button(frame_botons,text="Cancelar", 
                                  command=quit)
         self.boton3 = ttk.Button(frame_botons, text="Algoritmo aleatorio", 
                                  command=self.algoritmo)
+
+        self.boton4 = ttk.Button(frame_top, text="Agregar código de prueba", 
+                                 command=self.insertar)  
+
+        self.boton5 = ttk.Button(frame_top, text="¿Cómo funciona?", 
+                                 command=self.alert_help)                     
                                  
-        
+        self.ctext1.insert("end","\n>> ")
         frame_botons.pack(side = BOTTOM, fill=BOTH, expand=False, padx=5, pady=5)                       
         frame_result.pack(side = RIGHT, fill=BOTH, expand=True, padx=70, pady=70)                       
         frame_entry.pack(side = LEFT, fill=BOTH, expand=True, padx=70, pady=70)                       
+                               
 
+        self.boton4.pack(side=LEFT, expand=True, 
+                         padx=1, pady=1)
+        self.boton5.pack(side=RIGHT, expand=True, 
+                         padx=1, pady=1)
         self.etiq1.pack(side=TOP, fill=BOTH, expand=True, 
                         padx=5, pady=5)
+        frame_top.pack(side = TOP, fill=BOTH, expand=True, padx=10, pady=10)
+        
         self.ctext1.pack(side=TOP, fill=BOTH, expand=True, 
                          padx=5, pady=30)
         self.etiq2.pack(side=TOP, fill=BOTH, expand=True, 
@@ -603,6 +622,7 @@ class Aplicacion():
         self.boton3.pack(side=RIGHT, fill=BOTH, expand=True, 
                          padx=5, pady=5)
         
+        
     
         self.ctext2.focus_set()
         
@@ -611,15 +631,34 @@ class Aplicacion():
 
     
     def aceptar(self):
-        result = parser.parse(self.ctext1.get())
-        global resultado
-        self.clave.set(resultado)   # aqui se pone el valor de resultado en la caja de texto
+        entrada = self.ctext1.get(1.0,"end").split(">>")
+        self.ctext2.delete(1.0,"end")
+        for i in entrada:
+            if(i!=""):
+                print(i)
+                result = parser.parse(i)
+                global resultado
+                self.ctext2.insert("end","\n" + str(resultado))# aqui se pone el valor de resultado en la caja de texto
+           
+            
     
     def algoritmo(self):
         num= random.randint(0, len(self.array_randoms)-1)
-        self.usuario.set(self.array_randoms[num])
+        self.ctext1.insert("end","\n>> "+ self.array_randoms[num])
         result = parser.parse(self.array_randoms[num])
-        self.clave.set(resultado)
+        self.ctext2.insert("end","\n" + resultado)
+
+    def insertar(self):
+        self.ctext1.insert("end","\n>> ")
+
+    def alert_help(self):
+        self.help.showinfo("¿Cómo funciona?","Las instrucciones empiezan desde '>>' y se tomará cada línea como parte de la instrucción. Para agregar otra instrucción presione el botón 'Agregar código de prueba'. Puede presionar el botón 'Algoritmo aleatorio' para agregar instrucciones aleatorias. Presione 'Aceptar' para ver el resultado.")
+
+# >> if 3>2 then
+# puts("h")
+# end
+# >> true and true
+# >>8+8
 
 def main():
     mi_app = Aplicacion()
@@ -629,4 +668,5 @@ if __name__ == '__main__':
     main()
 
 #End Hector Rizzo
+
 
