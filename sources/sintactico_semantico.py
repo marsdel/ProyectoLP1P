@@ -570,9 +570,7 @@ class Aplicacion():
         
         self.usuario = StringVar()
         self.clave = StringVar()
-       
-        
-        self.ctext1 = Text(frame_entry,  
+        self.ctext1 = Text(frame_entry, bg='black',fg='#B0F638', 
                                 width=50, height=20)
         
         self.ctext2 = Text(frame_result,  
@@ -593,7 +591,7 @@ class Aplicacion():
         self.boton5 = ttk.Button(frame_top, text="¿Cómo funciona?", 
                                  command=self.alert_help)                     
                                  
-        self.ctext1.insert("end","\n>> ")
+        self.ctext1.insert("end",">> ")
         frame_botons.pack(side = BOTTOM, fill=BOTH, expand=False, padx=5, pady=5)                       
         frame_result.pack(side = RIGHT, fill=BOTH, expand=True, padx=70, pady=70)                       
         frame_entry.pack(side = LEFT, fill=BOTH, expand=True, padx=70, pady=70)                       
