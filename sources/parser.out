@@ -89,11 +89,11 @@ Rule 52    method_invocation -> IDENTIFIER DOT IDENTIFIER
 Rule 53    args_method -> data
 Rule 54    args_method -> data COMMA args_method
 Rule 55    assignment -> variable EQUAL_SYMBOL data
-Rule 56    assignment -> array_data EQUAL_SYMBOL data
-Rule 57    assignment -> method_invocation EQUAL_SYMBOL data
-Rule 58    assignment -> variable EQUAL_SYMBOL array
-Rule 59    assignment -> variable EQUAL_SYMBOL hash
-Rule 60    assignment -> variable EQUAL_SYMBOL expression_operations
+Rule 56    assignment -> variable EQUAL_SYMBOL expression_operations
+Rule 57    assignment -> array_data EQUAL_SYMBOL data
+Rule 58    assignment -> method_invocation EQUAL_SYMBOL data
+Rule 59    assignment -> variable EQUAL_SYMBOL array
+Rule 60    assignment -> variable EQUAL_SYMBOL hash
 Rule 61    assignment -> array_data EQUAL_SYMBOL expression_operations
 Rule 62    assignment -> method_invocation EQUAL_SYMBOL expression_operations
 Rule 63    assignment -> self_assigment
@@ -373,8 +373,8 @@ and                  : 80
 args_array           : 39 42
 args_hash            : 43 45
 args_method          : 47 49 51 54 72 158 170
-array                : 6 58
-array_data           : 56 61
+array                : 6 59
+array_data           : 57 61
 assignment           : 10
 begin                : 
 begin_expression     : 91
@@ -385,23 +385,23 @@ case                 : 99
 class_definitions    : 13
 concat               : 30 31
 control_structure    : 12
-data                 : 41 42 44 44 45 45 53 54 55 56 57 65 200 203 203
+data                 : 41 42 44 44 45 45 53 54 55 57 58 65 200 203 203
 defined              : 20
 else                 : 104 105 106 107 115 119 120
 elsif                : 102 103 106 107
 end                  : 
 expression           : 1 35 36 37 38 100 100 101 101 102 102 103 103 104 104 105 105 106 106 107 107 109 109 110 110 111 112 112 113 113 114 114 115 115 116 116 117 118 119 120 121 122 123 124 125 126 127 127 128 128 129 130 131 131 132 132 133 133 134 134 135 135 136 136 137 137 138 138 139 139 140 140 141 141 141 142 142 142 143 143 144 145 146 146 147 148 149 150 150 151 151 152 152 152 153 153 153 154 154 154 155 155 155 155 162 163 164 165 166 166 167 168 169 169 170 170 171 171 172 173 174 174 175 175 176 176 177 177 178 178 179 179 180 180 181 181
-expression_operations : 11 60 61 62 198 198 199 200 201 202
+expression_operations : 11 56 61 62 198 198 199 200 201 202
 for                  : 89
 function             : 168
-hash                 : 7 59
+hash                 : 7 60
 if                   : 76
 if_modifier          : 77
 it_expression        : 121 122 123 124 126
 iterator             : 88
 list_var             : 72 74
 method_definitions   : 16
-method_invocation    : 8 57 62
+method_invocation    : 8 58 62
 module_definitions   : 15
 mult_assigment       : 64
 next                 : 95
@@ -429,7 +429,7 @@ unless               : 78
 unless_modifier      : 79
 until                : 86
 until_modifier       : 87
-variable             : 5 55 58 59 60 65 73 74 75 217
+variable             : 5 55 56 59 60 65 73 74 75 217
 when                 : 118 120 122 124
 while                : 84
 while_modifier       : 85
@@ -481,11 +481,11 @@ state 0
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
-    (56) assignment -> . array_data EQUAL_SYMBOL data
-    (57) assignment -> . method_invocation EQUAL_SYMBOL data
-    (58) assignment -> . variable EQUAL_SYMBOL array
-    (59) assignment -> . variable EQUAL_SYMBOL hash
-    (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -979,9 +979,15 @@ state 6
 
     (5) expression -> variable .
     (55) assignment -> variable . EQUAL_SYMBOL data
+<<<<<<< HEAD
     (58) assignment -> variable . EQUAL_SYMBOL array
     (59) assignment -> variable . EQUAL_SYMBOL hash
     (60) assignment -> variable . EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> variable . EQUAL_SYMBOL expression_operations
+    (59) assignment -> variable . EQUAL_SYMBOL array
+    (60) assignment -> variable . EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (65) self_assigment -> variable . op_assigment data
     (73) list_var -> variable . COMMA
     (74) list_var -> variable . COMMA list_var
@@ -1229,7 +1235,11 @@ state 8
 state 9
 
     (8) expression -> method_invocation .
+<<<<<<< HEAD
     (57) assignment -> method_invocation . EQUAL_SYMBOL data
+=======
+    (58) assignment -> method_invocation . EQUAL_SYMBOL data
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (62) assignment -> method_invocation . EQUAL_SYMBOL expression_operations
 
     AND             reduce using rule 8 (expression -> method_invocation .)
@@ -3322,7 +3332,11 @@ state 40
 
 state 41
 
+<<<<<<< HEAD
     (56) assignment -> array_data . EQUAL_SYMBOL data
+=======
+    (57) assignment -> array_data . EQUAL_SYMBOL data
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> array_data . EQUAL_SYMBOL expression_operations
 
     EQUAL_SYMBOL    shift and go to state 151
@@ -5039,11 +5053,19 @@ state 66
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -5581,11 +5603,19 @@ state 71
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -5861,11 +5891,19 @@ state 72
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -6140,11 +6178,19 @@ state 73
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -6419,11 +6465,19 @@ state 74
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -6743,11 +6797,19 @@ state 77
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -7023,11 +7085,19 @@ state 78
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -7339,11 +7409,19 @@ state 80
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -7598,11 +7676,19 @@ state 81
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -7877,11 +7963,19 @@ state 82
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -8156,11 +8250,19 @@ state 83
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -8436,11 +8538,19 @@ state 84
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -8716,11 +8826,19 @@ state 85
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -9006,11 +9124,19 @@ state 87
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -9665,11 +9791,19 @@ state 93
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -9945,11 +10079,19 @@ state 94
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -10225,11 +10367,19 @@ state 95
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -10504,11 +10654,19 @@ state 96
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -10784,11 +10942,19 @@ state 97
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -11063,11 +11229,19 @@ state 98
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -11342,11 +11516,19 @@ state 99
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -11621,11 +11803,19 @@ state 100
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -11900,11 +12090,19 @@ state 101
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -12179,11 +12377,19 @@ state 102
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -12458,11 +12664,19 @@ state 103
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -12737,11 +12951,19 @@ state 104
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -13016,11 +13238,19 @@ state 105
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -13295,11 +13525,19 @@ state 106
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -13574,11 +13812,19 @@ state 107
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -13853,11 +14099,19 @@ state 108
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -14106,12 +14360,28 @@ state 110
 state 111
 
     (55) assignment -> variable EQUAL_SYMBOL . data
+<<<<<<< HEAD
     (58) assignment -> variable EQUAL_SYMBOL . array
     (59) assignment -> variable EQUAL_SYMBOL . hash
     (60) assignment -> variable EQUAL_SYMBOL . expression_operations
     (215) data -> . NUMBER
     (216) data -> . STRING
     (217) data -> . variable
+=======
+    (56) assignment -> variable EQUAL_SYMBOL . expression_operations
+    (59) assignment -> variable EQUAL_SYMBOL . array
+    (60) assignment -> variable EQUAL_SYMBOL . hash
+    (215) data -> . NUMBER
+    (216) data -> . STRING
+    (217) data -> . variable
+    (196) expression_operations -> . opmate
+    (197) expression_operations -> . LPAREN opmate RPAREN
+    (198) expression_operations -> . expression_operations op expression_operations
+    (199) expression_operations -> . expression_operations op opmate
+    (200) expression_operations -> . expression_operations op data
+    (201) expression_operations -> . LPAREN opmate RPAREN op expression_operations
+    (202) expression_operations -> . expression_operations op LPAREN opmate RPAREN
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (39) array -> . LBRACKET args_array RBRACKET
     (43) hash -> . LKEY args_hash RKEY
     (196) expression_operations -> . opmate
@@ -14131,6 +14401,7 @@ state 111
 
     NUMBER          shift and go to state 141
     STRING          shift and go to state 142
+    LPAREN          shift and go to state 38
     LBRACKET        shift and go to state 35
     LKEY            shift and go to state 36
     LPAREN          shift and go to state 38
@@ -14143,9 +14414,15 @@ state 111
 
     variable                       shift and go to state 143
     data                           shift and go to state 206
+<<<<<<< HEAD
     array                          shift and go to state 207
     hash                           shift and go to state 208
     expression_operations          shift and go to state 209
+=======
+    expression_operations          shift and go to state 207
+    array                          shift and go to state 208
+    hash                           shift and go to state 209
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     opmate                         shift and go to state 44
 
 state 112
@@ -14284,7 +14561,11 @@ state 119
 
 state 120
 
+<<<<<<< HEAD
     (57) assignment -> method_invocation EQUAL_SYMBOL . data
+=======
+    (58) assignment -> method_invocation EQUAL_SYMBOL . data
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (62) assignment -> method_invocation EQUAL_SYMBOL . expression_operations
     (215) data -> . NUMBER
     (216) data -> . STRING
@@ -14912,7 +15193,11 @@ state 150
 
 state 151
 
+<<<<<<< HEAD
     (56) assignment -> array_data EQUAL_SYMBOL . data
+=======
+    (57) assignment -> array_data EQUAL_SYMBOL . data
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> array_data EQUAL_SYMBOL . expression_operations
     (215) data -> . NUMBER
     (216) data -> . STRING
@@ -15044,11 +15329,19 @@ state 153
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -15324,11 +15617,19 @@ state 154
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -15603,11 +15904,19 @@ state 155
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -15882,11 +16191,19 @@ state 156
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -16240,11 +16557,19 @@ state 159
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -16958,11 +17283,19 @@ state 170
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -17363,11 +17696,19 @@ state 172
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -17696,11 +18037,19 @@ state 174
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -18367,11 +18716,19 @@ state 178
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -18928,11 +19285,19 @@ state 181
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -19240,11 +19605,19 @@ state 182
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -19544,11 +19917,19 @@ state 184
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -22383,11 +22764,19 @@ state 204
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -22662,11 +23051,19 @@ state 205
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -23000,144 +23397,179 @@ state 206
 
 state 207
 
-    (58) assignment -> variable EQUAL_SYMBOL array .
+    (56) assignment -> variable EQUAL_SYMBOL expression_operations .
+    (198) expression_operations -> expression_operations . op expression_operations
+    (199) expression_operations -> expression_operations . op opmate
+    (200) expression_operations -> expression_operations . op data
+    (202) expression_operations -> expression_operations . op LPAREN opmate RPAREN
+    (204) op -> . PLUS
+    (205) op -> . MINUS
+    (206) op -> . TIMES
+    (207) op -> . DIVIDE
+    (208) op -> . MOD
+    (209) op -> . EQUAL
+    (210) op -> . NOTEQUAL
+    (211) op -> . GREATERTHAN
+    (212) op -> . GREATERTHANEQUAL
+    (213) op -> . LESSERTHAN
+    (214) op -> . LESSERTHANEQUAL
 
-    AND             reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    OR              reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    EQUAL           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    NOTEQUAL        reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    GREATERTHAN     reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    GREATERTHANEQUAL reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    LESSERTHAN      reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    LESSERTHANEQUAL reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    IF              reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    UNLESS          reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    OPPOSITE_MATCHED_STRINGS_OP reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    RANGE_INCLUSIVE reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    RANGE_EXCLUSIVE reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    WHILE           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    UNTIL           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    DO              reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    LKEY            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    $end            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    END             reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    RESCUE          reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    ENSURE          reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    ELSE            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    DOT             reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    STRING          reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    TRUE            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    FALSE           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    VAR_GLOBAL      reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    VAR_INSTANCE    reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    VAR_CLASS       reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    VAR_LOCAL       reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    VAR_SYSTEM      reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    VAR_CONSTANT    reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    LBRACKET        reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    IDENTIFIER      reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    SUPER           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    LPAREN          reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    BEGIN           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    CLASS           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    MODULE          reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    DEF             reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    ALIAS           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    UNDEF           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    DEFINED_OP      reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    NUMBER          reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    DOUBLE_QUOTED   reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    PRINT           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    PUTS            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    NOT             reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    NOT_SYMBOL      reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    FOR             reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    YIELD           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    RETRY           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    RETURN          reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    BREAK           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    NEXT            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    REDO            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    CASE            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    THEN            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    WHEN            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    RPAREN          reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    ELSIF           reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    OR_SYMBOL       reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
-    RKEY            reduce using rule 58 (assignment -> variable EQUAL_SYMBOL array .)
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for GREATERTHAN resolved as shift
+  ! shift/reduce conflict for GREATERTHANEQUAL resolved as shift
+  ! shift/reduce conflict for LESSERTHAN resolved as shift
+  ! shift/reduce conflict for LESSERTHANEQUAL resolved as shift
+    AND             reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    OR              reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    IF              reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    UNLESS          reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    OPPOSITE_MATCHED_STRINGS_OP reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    RANGE_INCLUSIVE reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    RANGE_EXCLUSIVE reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    WHILE           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    UNTIL           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    DO              reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    LKEY            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    $end            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    END             reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    RESCUE          reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    ENSURE          reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    ELSE            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    DOT             reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    STRING          reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    TRUE            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    FALSE           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    VAR_GLOBAL      reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    VAR_INSTANCE    reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    VAR_CLASS       reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    VAR_LOCAL       reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    VAR_SYSTEM      reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    VAR_CONSTANT    reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    LBRACKET        reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    IDENTIFIER      reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    SUPER           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    LPAREN          reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    BEGIN           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    CLASS           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    MODULE          reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    DEF             reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    ALIAS           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    UNDEF           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    DEFINED_OP      reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    NUMBER          reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    DOUBLE_QUOTED   reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    PRINT           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    PUTS            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    NOT             reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    NOT_SYMBOL      reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    FOR             reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    YIELD           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    RETRY           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    RETURN          reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    BREAK           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    NEXT            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    REDO            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    CASE            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    THEN            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    WHEN            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    RPAREN          reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    ELSIF           reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    OR_SYMBOL       reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    RKEY            reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .)
+    PLUS            shift and go to state 122
+    MINUS           shift and go to state 123
+    TIMES           shift and go to state 124
+    DIVIDE          shift and go to state 125
+    MOD             shift and go to state 126
+    EQUAL           shift and go to state 127
+    NOTEQUAL        shift and go to state 128
+    GREATERTHAN     shift and go to state 129
+    GREATERTHANEQUAL shift and go to state 130
+    LESSERTHAN      shift and go to state 131
+    LESSERTHANEQUAL shift and go to state 132
 
+  ! EQUAL           [ reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .) ]
+  ! NOTEQUAL        [ reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .) ]
+  ! GREATERTHAN     [ reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .) ]
+  ! GREATERTHANEQUAL [ reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .) ]
+  ! LESSERTHAN      [ reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .) ]
+  ! LESSERTHANEQUAL [ reduce using rule 56 (assignment -> variable EQUAL_SYMBOL expression_operations .) ]
+
+    op                             shift and go to state 121
 
 state 208
 
-    (59) assignment -> variable EQUAL_SYMBOL hash .
+    (59) assignment -> variable EQUAL_SYMBOL array .
 
-    AND             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    OR              reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    EQUAL           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    NOTEQUAL        reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    GREATERTHAN     reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    GREATERTHANEQUAL reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    LESSERTHAN      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    LESSERTHANEQUAL reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    IF              reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    UNLESS          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    OPPOSITE_MATCHED_STRINGS_OP reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    RANGE_INCLUSIVE reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    RANGE_EXCLUSIVE reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    WHILE           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    UNTIL           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    DO              reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    LKEY            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    $end            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    END             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    RESCUE          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    ENSURE          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    ELSE            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    DOT             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    STRING          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    TRUE            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    FALSE           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    VAR_GLOBAL      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    VAR_INSTANCE    reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    VAR_CLASS       reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    VAR_LOCAL       reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    VAR_SYSTEM      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    VAR_CONSTANT    reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    LBRACKET        reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    IDENTIFIER      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    SUPER           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    LPAREN          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    BEGIN           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    CLASS           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    MODULE          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    DEF             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    ALIAS           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    UNDEF           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    DEFINED_OP      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    NUMBER          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    DOUBLE_QUOTED   reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    PRINT           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    PUTS            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    NOT             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    NOT_SYMBOL      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    FOR             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    YIELD           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    RETRY           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    RETURN          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    BREAK           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    NEXT            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    REDO            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    CASE            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    THEN            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    WHEN            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    RPAREN          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    ELSIF           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    OR_SYMBOL       reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
-    RKEY            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL hash .)
+    AND             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    OR              reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    EQUAL           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    NOTEQUAL        reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    GREATERTHAN     reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    GREATERTHANEQUAL reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    LESSERTHAN      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    LESSERTHANEQUAL reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    IF              reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    UNLESS          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    OPPOSITE_MATCHED_STRINGS_OP reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    RANGE_INCLUSIVE reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    RANGE_EXCLUSIVE reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    WHILE           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    UNTIL           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    DO              reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    LKEY            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    $end            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    END             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    RESCUE          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    ENSURE          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    ELSE            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    DOT             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    STRING          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    TRUE            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    FALSE           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    VAR_GLOBAL      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    VAR_INSTANCE    reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    VAR_CLASS       reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    VAR_LOCAL       reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    VAR_SYSTEM      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    VAR_CONSTANT    reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    LBRACKET        reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    IDENTIFIER      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    SUPER           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    LPAREN          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    BEGIN           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    CLASS           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    MODULE          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    DEF             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    ALIAS           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    UNDEF           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    DEFINED_OP      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    NUMBER          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    DOUBLE_QUOTED   reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    PRINT           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    PUTS            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    NOT             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    NOT_SYMBOL      reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    FOR             reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    YIELD           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    RETRY           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    RETURN          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    BREAK           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    NEXT            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    REDO            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    CASE            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    THEN            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    WHEN            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    RPAREN          reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    ELSIF           reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    OR_SYMBOL       reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
+    RKEY            reduce using rule 59 (assignment -> variable EQUAL_SYMBOL array .)
 
 
 state 209
 
+<<<<<<< HEAD
     (60) assignment -> variable EQUAL_SYMBOL expression_operations .
     (198) expression_operations -> expression_operations . op expression_operations
     (199) expression_operations -> expression_operations . op opmate
@@ -23229,6 +23661,73 @@ state 209
     GREATERTHANEQUAL shift and go to state 130
     LESSERTHAN      shift and go to state 131
     LESSERTHANEQUAL shift and go to state 132
+=======
+    (60) assignment -> variable EQUAL_SYMBOL hash .
+
+    AND             reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    OR              reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    EQUAL           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    NOTEQUAL        reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    GREATERTHAN     reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    GREATERTHANEQUAL reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    LESSERTHAN      reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    LESSERTHANEQUAL reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    IF              reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    UNLESS          reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    OPPOSITE_MATCHED_STRINGS_OP reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    RANGE_INCLUSIVE reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    RANGE_EXCLUSIVE reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    WHILE           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    UNTIL           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    DO              reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    LKEY            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    $end            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    END             reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    RESCUE          reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    ENSURE          reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    ELSE            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    DOT             reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    STRING          reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    TRUE            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    FALSE           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    VAR_GLOBAL      reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    VAR_INSTANCE    reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    VAR_CLASS       reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    VAR_LOCAL       reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    VAR_SYSTEM      reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    VAR_CONSTANT    reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    LBRACKET        reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    IDENTIFIER      reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    SUPER           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    LPAREN          reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    BEGIN           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    CLASS           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    MODULE          reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    DEF             reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    ALIAS           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    UNDEF           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    DEFINED_OP      reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    NUMBER          reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    DOUBLE_QUOTED   reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    PRINT           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    PUTS            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    NOT             reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    NOT_SYMBOL      reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    FOR             reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    YIELD           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    RETRY           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    RETURN          reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    BREAK           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    NEXT            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    REDO            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    CASE            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    THEN            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    WHEN            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    RPAREN          reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    ELSIF           reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    OR_SYMBOL       reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+    RKEY            reduce using rule 60 (assignment -> variable EQUAL_SYMBOL hash .)
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
 
   ! EQUAL           [ reduce using rule 60 (assignment -> variable EQUAL_SYMBOL expression_operations .) ]
   ! NOTEQUAL        [ reduce using rule 60 (assignment -> variable EQUAL_SYMBOL expression_operations .) ]
@@ -23239,8 +23738,11 @@ state 209
 
     op                             shift and go to state 121
 
+<<<<<<< HEAD
 state 210
 
+=======
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (65) self_assigment -> variable op_assigment data .
 
     AND             reduce using rule 65 (self_assigment -> variable op_assigment data .)
@@ -23323,6 +23825,7 @@ state 212
     (74) list_var -> variable COMMA list_var .
 
     EQUAL_SYMBOL    reduce using rule 74 (list_var -> variable COMMA list_var .)
+<<<<<<< HEAD
 
 
 state 213
@@ -23415,6 +23918,8 @@ state 213
     GREATERTHANEQUAL shift and go to state 130
     LESSERTHAN      shift and go to state 131
     LESSERTHANEQUAL shift and go to state 132
+=======
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
 
   ! EQUAL           [ reduce using rule 57 (assignment -> method_invocation EQUAL_SYMBOL data .) ]
   ! NOTEQUAL        [ reduce using rule 57 (assignment -> method_invocation EQUAL_SYMBOL data .) ]
@@ -23528,6 +24033,210 @@ state 214
 
     op                             shift and go to state 121
 
+<<<<<<< HEAD
+=======
+    (58) assignment -> method_invocation EQUAL_SYMBOL data .
+    (203) opmate -> data . op data
+    (204) op -> . PLUS
+    (205) op -> . MINUS
+    (206) op -> . TIMES
+    (207) op -> . DIVIDE
+    (208) op -> . MOD
+    (209) op -> . EQUAL
+    (210) op -> . NOTEQUAL
+    (211) op -> . GREATERTHAN
+    (212) op -> . GREATERTHANEQUAL
+    (213) op -> . LESSERTHAN
+    (214) op -> . LESSERTHANEQUAL
+
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for GREATERTHAN resolved as shift
+  ! shift/reduce conflict for GREATERTHANEQUAL resolved as shift
+  ! shift/reduce conflict for LESSERTHAN resolved as shift
+  ! shift/reduce conflict for LESSERTHANEQUAL resolved as shift
+    AND             reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    OR              reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    IF              reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    UNLESS          reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    OPPOSITE_MATCHED_STRINGS_OP reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    RANGE_INCLUSIVE reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    RANGE_EXCLUSIVE reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    WHILE           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    UNTIL           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    DO              reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    LKEY            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    $end            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    END             reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    RESCUE          reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    ENSURE          reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    ELSE            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    DOT             reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    STRING          reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    TRUE            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    FALSE           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    VAR_GLOBAL      reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    VAR_INSTANCE    reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    VAR_CLASS       reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    VAR_LOCAL       reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    VAR_SYSTEM      reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    VAR_CONSTANT    reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    LBRACKET        reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    IDENTIFIER      reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    SUPER           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    LPAREN          reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    BEGIN           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    CLASS           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    MODULE          reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    DEF             reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    ALIAS           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    UNDEF           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    DEFINED_OP      reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    NUMBER          reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    DOUBLE_QUOTED   reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    PRINT           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    PUTS            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    NOT             reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    NOT_SYMBOL      reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    FOR             reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    YIELD           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    RETRY           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    RETURN          reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    BREAK           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    NEXT            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    REDO            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    CASE            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    THEN            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    WHEN            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    RPAREN          reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    ELSIF           reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    OR_SYMBOL       reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    RKEY            reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .)
+    PLUS            shift and go to state 122
+    MINUS           shift and go to state 123
+    TIMES           shift and go to state 124
+    DIVIDE          shift and go to state 125
+    MOD             shift and go to state 126
+    EQUAL           shift and go to state 127
+    NOTEQUAL        shift and go to state 128
+    GREATERTHAN     shift and go to state 129
+    GREATERTHANEQUAL shift and go to state 130
+    LESSERTHAN      shift and go to state 131
+    LESSERTHANEQUAL shift and go to state 132
+
+  ! EQUAL           [ reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .) ]
+  ! NOTEQUAL        [ reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .) ]
+  ! GREATERTHAN     [ reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .) ]
+  ! GREATERTHANEQUAL [ reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .) ]
+  ! LESSERTHAN      [ reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .) ]
+  ! LESSERTHANEQUAL [ reduce using rule 58 (assignment -> method_invocation EQUAL_SYMBOL data .) ]
+
+    op                             shift and go to state 150
+
+state 214
+
+    (62) assignment -> method_invocation EQUAL_SYMBOL expression_operations .
+    (198) expression_operations -> expression_operations . op expression_operations
+    (199) expression_operations -> expression_operations . op opmate
+    (200) expression_operations -> expression_operations . op data
+    (202) expression_operations -> expression_operations . op LPAREN opmate RPAREN
+    (204) op -> . PLUS
+    (205) op -> . MINUS
+    (206) op -> . TIMES
+    (207) op -> . DIVIDE
+    (208) op -> . MOD
+    (209) op -> . EQUAL
+    (210) op -> . NOTEQUAL
+    (211) op -> . GREATERTHAN
+    (212) op -> . GREATERTHANEQUAL
+    (213) op -> . LESSERTHAN
+    (214) op -> . LESSERTHANEQUAL
+
+  ! shift/reduce conflict for EQUAL resolved as shift
+  ! shift/reduce conflict for NOTEQUAL resolved as shift
+  ! shift/reduce conflict for GREATERTHAN resolved as shift
+  ! shift/reduce conflict for GREATERTHANEQUAL resolved as shift
+  ! shift/reduce conflict for LESSERTHAN resolved as shift
+  ! shift/reduce conflict for LESSERTHANEQUAL resolved as shift
+    AND             reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    OR              reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    IF              reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    UNLESS          reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    OPPOSITE_MATCHED_STRINGS_OP reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    RANGE_INCLUSIVE reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    RANGE_EXCLUSIVE reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    WHILE           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    UNTIL           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    DO              reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    LKEY            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    $end            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    END             reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    RESCUE          reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    ENSURE          reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    ELSE            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    DOT             reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    STRING          reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    TRUE            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    FALSE           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    VAR_GLOBAL      reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    VAR_INSTANCE    reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    VAR_CLASS       reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    VAR_LOCAL       reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    VAR_SYSTEM      reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    VAR_CONSTANT    reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    LBRACKET        reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    IDENTIFIER      reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    SUPER           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    LPAREN          reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    BEGIN           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    CLASS           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    MODULE          reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    DEF             reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    ALIAS           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    UNDEF           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    DEFINED_OP      reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    NUMBER          reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    DOUBLE_QUOTED   reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    PRINT           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    PUTS            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    NOT             reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    NOT_SYMBOL      reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    FOR             reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    YIELD           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    RETRY           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    RETURN          reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    BREAK           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    NEXT            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    REDO            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    CASE            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    THEN            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    WHEN            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    RPAREN          reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    ELSIF           reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    OR_SYMBOL       reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    RKEY            reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .)
+    PLUS            shift and go to state 122
+    MINUS           shift and go to state 123
+    TIMES           shift and go to state 124
+    DIVIDE          shift and go to state 125
+    MOD             shift and go to state 126
+    EQUAL           shift and go to state 127
+    NOTEQUAL        shift and go to state 128
+    GREATERTHAN     shift and go to state 129
+    GREATERTHANEQUAL shift and go to state 130
+    LESSERTHAN      shift and go to state 131
+    LESSERTHANEQUAL shift and go to state 132
+
+  ! EQUAL           [ reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .) ]
+  ! NOTEQUAL        [ reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .) ]
+  ! GREATERTHAN     [ reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .) ]
+  ! GREATERTHANEQUAL [ reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .) ]
+  ! LESSERTHAN      [ reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .) ]
+  ! LESSERTHANEQUAL [ reduce using rule 62 (assignment -> method_invocation EQUAL_SYMBOL expression_operations .) ]
+
+    op                             shift and go to state 121
+
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
 state 215
 
     (198) expression_operations -> expression_operations op expression_operations .
@@ -25079,6 +25788,7 @@ state 236
 
 
 state 237
+<<<<<<< HEAD
 
     (56) assignment -> array_data EQUAL_SYMBOL data .
     (203) opmate -> data . op data
@@ -25094,12 +25804,30 @@ state 237
     (213) op -> . LESSERTHAN
     (214) op -> . LESSERTHANEQUAL
 
+=======
+
+    (57) assignment -> array_data EQUAL_SYMBOL data .
+    (203) opmate -> data . op data
+    (204) op -> . PLUS
+    (205) op -> . MINUS
+    (206) op -> . TIMES
+    (207) op -> . DIVIDE
+    (208) op -> . MOD
+    (209) op -> . EQUAL
+    (210) op -> . NOTEQUAL
+    (211) op -> . GREATERTHAN
+    (212) op -> . GREATERTHANEQUAL
+    (213) op -> . LESSERTHAN
+    (214) op -> . LESSERTHANEQUAL
+
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
   ! shift/reduce conflict for EQUAL resolved as shift
   ! shift/reduce conflict for NOTEQUAL resolved as shift
   ! shift/reduce conflict for GREATERTHAN resolved as shift
   ! shift/reduce conflict for GREATERTHANEQUAL resolved as shift
   ! shift/reduce conflict for LESSERTHAN resolved as shift
   ! shift/reduce conflict for LESSERTHANEQUAL resolved as shift
+<<<<<<< HEAD
     AND             reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .)
     OR              reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .)
     IF              reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .)
@@ -25157,6 +25885,65 @@ state 237
     ELSIF           reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .)
     OR_SYMBOL       reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .)
     RKEY            reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .)
+=======
+    AND             reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    OR              reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    IF              reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    UNLESS          reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    OPPOSITE_MATCHED_STRINGS_OP reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    RANGE_INCLUSIVE reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    RANGE_EXCLUSIVE reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    WHILE           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    UNTIL           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    DO              reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    LKEY            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    $end            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    END             reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    RESCUE          reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    ENSURE          reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    ELSE            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    DOT             reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    STRING          reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    TRUE            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    FALSE           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    VAR_GLOBAL      reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    VAR_INSTANCE    reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    VAR_CLASS       reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    VAR_LOCAL       reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    VAR_SYSTEM      reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    VAR_CONSTANT    reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    LBRACKET        reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    IDENTIFIER      reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    SUPER           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    LPAREN          reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    BEGIN           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    CLASS           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    MODULE          reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    DEF             reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    ALIAS           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    UNDEF           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    DEFINED_OP      reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    NUMBER          reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    DOUBLE_QUOTED   reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    PRINT           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    PUTS            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    NOT             reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    NOT_SYMBOL      reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    FOR             reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    YIELD           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    RETRY           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    RETURN          reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    BREAK           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    NEXT            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    REDO            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    CASE            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    THEN            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    WHEN            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    RPAREN          reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    ELSIF           reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    OR_SYMBOL       reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+    RKEY            reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .)
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     PLUS            shift and go to state 122
     MINUS           shift and go to state 123
     TIMES           shift and go to state 124
@@ -25169,12 +25956,21 @@ state 237
     LESSERTHAN      shift and go to state 131
     LESSERTHANEQUAL shift and go to state 132
 
+<<<<<<< HEAD
   ! EQUAL           [ reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .) ]
   ! NOTEQUAL        [ reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .) ]
   ! GREATERTHAN     [ reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .) ]
   ! GREATERTHANEQUAL [ reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .) ]
   ! LESSERTHAN      [ reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .) ]
   ! LESSERTHANEQUAL [ reduce using rule 56 (assignment -> array_data EQUAL_SYMBOL data .) ]
+=======
+  ! EQUAL           [ reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .) ]
+  ! NOTEQUAL        [ reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .) ]
+  ! GREATERTHAN     [ reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .) ]
+  ! GREATERTHANEQUAL [ reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .) ]
+  ! LESSERTHAN      [ reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .) ]
+  ! LESSERTHANEQUAL [ reduce using rule 57 (assignment -> array_data EQUAL_SYMBOL data .) ]
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
 
     op                             shift and go to state 150
 
@@ -25396,11 +26192,19 @@ state 240
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -25675,11 +26479,19 @@ state 241
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -25954,11 +26766,19 @@ state 242
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -26304,11 +27124,19 @@ state 245
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -26876,11 +27704,19 @@ state 251
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -27136,11 +27972,19 @@ state 252
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -27417,11 +28261,19 @@ state 253
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -27698,11 +28550,19 @@ state 254
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -28476,9 +29336,15 @@ state 266
 
     (5) expression -> variable .
     (55) assignment -> variable . EQUAL_SYMBOL data
+<<<<<<< HEAD
     (58) assignment -> variable . EQUAL_SYMBOL array
     (59) assignment -> variable . EQUAL_SYMBOL hash
     (60) assignment -> variable . EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> variable . EQUAL_SYMBOL expression_operations
+    (59) assignment -> variable . EQUAL_SYMBOL array
+    (60) assignment -> variable . EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (217) data -> variable .
     (65) self_assigment -> variable . op_assigment data
     (73) list_var -> variable . COMMA
@@ -28753,11 +29619,19 @@ state 270
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -29077,11 +29951,19 @@ state 272
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -29401,11 +30283,19 @@ state 274
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -29726,11 +30616,19 @@ state 276
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -30009,11 +30907,19 @@ state 277
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -30452,11 +31358,19 @@ state 283
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -30732,11 +31646,19 @@ state 284
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -31472,11 +32394,19 @@ state 298
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -31934,11 +32864,19 @@ state 302
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -32294,11 +33232,19 @@ state 305
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -32726,11 +33672,19 @@ state 306
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -33157,11 +34111,19 @@ state 307
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -33586,11 +34548,19 @@ state 308
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -34302,11 +35272,19 @@ state 317
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -34983,11 +35961,19 @@ state 325
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -35285,11 +36271,19 @@ state 326
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -35862,11 +36856,19 @@ state 332
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -36165,11 +37167,19 @@ state 333
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -36583,11 +37593,19 @@ state 335
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -36862,11 +37880,19 @@ state 336
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -37675,11 +38701,19 @@ state 343
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -37955,11 +38989,19 @@ state 344
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -38303,11 +39345,19 @@ state 346
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -39059,11 +40109,19 @@ state 357
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -39652,11 +40710,19 @@ state 365
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -40049,11 +41115,19 @@ state 369
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -40399,11 +41473,19 @@ state 371
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -41375,11 +42457,19 @@ state 388
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -42442,11 +43532,19 @@ state 404
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -42790,11 +43888,19 @@ state 406
     (48) super -> . SUPER LPAREN RPAREN
     (49) super -> . SUPER LPAREN args_method RPAREN
     (55) assignment -> . variable EQUAL_SYMBOL data
+<<<<<<< HEAD
     (56) assignment -> . array_data EQUAL_SYMBOL data
     (57) assignment -> . method_invocation EQUAL_SYMBOL data
     (58) assignment -> . variable EQUAL_SYMBOL array
     (59) assignment -> . variable EQUAL_SYMBOL hash
     (60) assignment -> . variable EQUAL_SYMBOL expression_operations
+=======
+    (56) assignment -> . variable EQUAL_SYMBOL expression_operations
+    (57) assignment -> . array_data EQUAL_SYMBOL data
+    (58) assignment -> . method_invocation EQUAL_SYMBOL data
+    (59) assignment -> . variable EQUAL_SYMBOL array
+    (60) assignment -> . variable EQUAL_SYMBOL hash
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
     (61) assignment -> . array_data EQUAL_SYMBOL expression_operations
     (62) assignment -> . method_invocation EQUAL_SYMBOL expression_operations
     (63) assignment -> . self_assigment
@@ -43982,12 +45088,21 @@ WARNING: shift/reduce conflict for GREATERTHAN in state 206 resolved as shift
 WARNING: shift/reduce conflict for GREATERTHANEQUAL in state 206 resolved as shift
 WARNING: shift/reduce conflict for LESSERTHAN in state 206 resolved as shift
 WARNING: shift/reduce conflict for LESSERTHANEQUAL in state 206 resolved as shift
+<<<<<<< HEAD
 WARNING: shift/reduce conflict for EQUAL in state 209 resolved as shift
 WARNING: shift/reduce conflict for NOTEQUAL in state 209 resolved as shift
 WARNING: shift/reduce conflict for GREATERTHAN in state 209 resolved as shift
 WARNING: shift/reduce conflict for GREATERTHANEQUAL in state 209 resolved as shift
 WARNING: shift/reduce conflict for LESSERTHAN in state 209 resolved as shift
 WARNING: shift/reduce conflict for LESSERTHANEQUAL in state 209 resolved as shift
+=======
+WARNING: shift/reduce conflict for EQUAL in state 207 resolved as shift
+WARNING: shift/reduce conflict for NOTEQUAL in state 207 resolved as shift
+WARNING: shift/reduce conflict for GREATERTHAN in state 207 resolved as shift
+WARNING: shift/reduce conflict for GREATERTHANEQUAL in state 207 resolved as shift
+WARNING: shift/reduce conflict for LESSERTHAN in state 207 resolved as shift
+WARNING: shift/reduce conflict for LESSERTHANEQUAL in state 207 resolved as shift
+>>>>>>> 74d8c8d5e0a2bc45590a22c0d60da342a7797c72
 WARNING: shift/reduce conflict for EQUAL in state 213 resolved as shift
 WARNING: shift/reduce conflict for NOTEQUAL in state 213 resolved as shift
 WARNING: shift/reduce conflict for GREATERTHAN in state 213 resolved as shift

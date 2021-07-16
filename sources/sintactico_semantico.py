@@ -106,11 +106,11 @@ def p_args_method(p):
 
 def p_assignment(p):
     '''assignment : variable EQUAL_SYMBOL data
+                    | variable EQUAL_SYMBOL expression_operations
                     | array_data EQUAL_SYMBOL data
                     | method_invocation EQUAL_SYMBOL data 
                     | variable EQUAL_SYMBOL array
                     | variable EQUAL_SYMBOL hash
-                    | variable EQUAL_SYMBOL expression_operations
                     | array_data EQUAL_SYMBOL expression_operations
                     | method_invocation EQUAL_SYMBOL expression_operations
                     | self_assigment
