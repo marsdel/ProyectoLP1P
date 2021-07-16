@@ -10,6 +10,8 @@ resultado = ""
 def p_program(p):
     'program : expression'
 
+#diferentes expresiones existentes en el lenguaje propuesto que contienen tipos de datos, estructuras de control,
+#estructuras de datos, definicion de clases, entre otras expresiones
 def p_expression(p):
     '''expression : string_literals
                     | booleans
@@ -33,6 +35,7 @@ def p_expression(p):
                     | boolean_operations'''
     p[0] = p[1]
 
+#diferentes variables existentes en el lenguaje propuesto
 def p_variable(p):
     '''variable : VAR_GLOBAL
                     | VAR_INSTANCE
@@ -44,24 +47,26 @@ def p_variable(p):
 def p_string_literals(p):
     '''string_literals : STRING
                         | string_concat '''
-
+#concatenacion de un string con un identificador
 def p_string_concat(p):
     ''' string_concat : DOUBLE_QUOTED IDENTIFIER concat DOUBLE_QUOTED
                         | DOUBLE_QUOTED IDENTIFIER concat IDENTIFIER DOUBLE_QUOTED '''
 
+#concatenacion de un identificador para ser usada en un string
 def p_concat(p):
     '''concat : NUMBER_SIGN LKEY IDENTIFIER RKEY'''
 
 def p_prints(p):
     '''prints : print
                 | puts'''
-
+#metodo print con las dos opciones a considerar de impresion
 def p_print(p):
     ''' print : PRINT expression
                 | PRINT LPAREN expression RPAREN'''
     global resultado 
     resultado = "expresión print correcta"
 
+#metodo puts con las dos opciones a considerar de impresion
 def p_puts(p):
     ''' puts : PUTS expression
                 | PUTS LPAREN expression RPAREN'''
@@ -86,6 +91,7 @@ def p_args_hash(p):
     '''args_hash : data HASH_ROCKET data
                 | data HASH_ROCKET data COMMA args_hash'''
 
+#metodo funcion usado para definir la sintaxis de un metodo real del lenguaje propuesto
 def p_function(p):
     '''function : IDENTIFIER LPAREN RPAREN
                 | IDENTIFIER LPAREN args_method RPAREN'''
@@ -104,6 +110,7 @@ def p_args_method(p):
     '''args_method : data
                 | data COMMA args_method'''
 
+#metodo de asignaciones donde se puede definir valores a variables definidas en el metodo variable
 def p_assignment(p):
     '''assignment : variable EQUAL_SYMBOL data
                     | variable EQUAL_SYMBOL expression_operations
@@ -121,6 +128,7 @@ def p_assignment(p):
 def p_self_assigment(p):
     '''self_assigment : variable op_assigment data'''
 
+#operaciones matematicas existentes en el lenguaje propuesto
 def p_op_assigment(p):
     '''op_assigment : PLUS_EQUAL
                     | MINUS_EQUAL
@@ -132,12 +140,13 @@ def p_op_assigment(p):
 def p_mult_assigment(p):
     '''mult_assigment : list_var EQUAL_SYMBOL args_method'''
 
+#metodo que indica las diferentes formas de listar variables
 def p_list_var(p):
     '''list_var : variable COMMA
                 | variable COMMA list_var
                 | variable'''
 
-
+#metodo que contiene las diferentes estructuras de control
 def p_control_structure(p):
     '''control_structure : if
                         | if_modifier
@@ -165,7 +174,7 @@ def p_control_structure(p):
                         | case'''
                         
 
-
+#sintaxis if que valida su segundo parametro como expresion booleana de resultante
 def p_if(p):
     '''if : IF expression expression END
             | IF expression THEN expression END
@@ -182,7 +191,7 @@ def p_if(p):
     else:
         resultado = "expresión if correcta"
     
-
+#sintaxis elif donde el segundo parametro indica una expresion booleana como resultante
 def p_elsif(p):
     '''elsif : ELSIF expression expression END
             | ELSIF expression THEN expression END'''
@@ -198,7 +207,7 @@ def p_else(p):
 def p_if_modifier(p):
     'if_modifier : expression IF expression'
     
-
+#sintaxis unless donde el segundo parametro su expresion tiene que dar un resultado booleano
 def p_unless(p):
     '''unless : UNLESS expression expression END
             | UNLESS expression THEN expression END
@@ -240,6 +249,7 @@ def p_range_expressions(p):
     '''range_expressions : expression RANGE_INCLUSIVE expression
                         | expression RANGE_EXCLUSIVE expression'''
 
+#sintaxis while donde su segundo parametro de constructor su resultante tiene que ser un valor booleano
 def p_while(p):
     '''while : WHILE expression expression END
             | WHILE expression DO expression END'''
@@ -265,6 +275,7 @@ def p_iterator(p):
     '''iterator : expression DO OR_SYMBOL expression OR_SYMBOL expression END
                 | expression LKEY OR_SYMBOL expression OR_SYMBOL expression RKEY'''
 
+#sintaxis de for para realizar el ciclo
 def p_for(p):
     '''for : FOR IDENTIFIER IN expression DO expression END
         | FOR IDENTIFIER IN IDENTIFIER DO expression END
@@ -334,6 +345,7 @@ def p_module_definitions(p):
     global resultado
     resultado = "Definicion de module correcta"
 
+#sintaxis de metodo a cumplir donde la expression puede ser cualquiera de las anteriores mencionadas
 def p_method_definitions(p):
     '''method_definitions : DEF function expression END'''
     global resultado
@@ -356,7 +368,7 @@ def p_undef(p):
 def p_defined(p):
     'defined : DEFINED_OP expression'
 
-
+#metodo que implica operadores logicas para obtener resultados booleanos
 def p_boolean_operations(p):
     '''boolean_operations : expression AND expression
                         | expression OR expression
@@ -382,6 +394,7 @@ def p_boolean_operations(p):
                         | TRUE NOTEQUAL TRUE
     '''
     global resultado
+    #condicionales a cumplir para confirmar el uso de booleanos en las operaciones logicas
     if p[1] == "true" and p[3] == "true":
         p[1]=p[3]=True
     if p[1] == "false" and p[3] == "false":
@@ -436,7 +449,7 @@ def p_boolean_operations(p):
             p[0] = False
     resultado = "true" if p[0] else "false"
 
-
+#posibles de operaciones matematicas
 def p_expression_operations(p):
     '''expression_operations : opmate
                             | LPAREN opmate RPAREN
@@ -453,7 +466,7 @@ def p_opmate(p):
         
     global resultado
 
-
+    #se valida si los valores ingresados en p[1] y p[2] son instancias de enteros para realizar las operaciones respectivas
     if not isinstance(p[1], int) and not isinstance(p[3], int) :
         resultado = "error semantico"
     else:
@@ -528,6 +541,7 @@ import random
 
 class Aplicacion():
 
+    #array que contiene diferentes lineas de codigo fuente para probarlas aleatoramiente en la GUI
     array_randoms= [
         '3 + 3',
         'true and true',
@@ -649,6 +663,7 @@ class Aplicacion():
     def insertar(self):
         self.ctext1.insert("end","\n>> ")
 
+    #instrucciones a usarse en la GUI para mejor entendimiento del codigo
     def alert_help(self):
         self.help.showinfo("¿Cómo funciona?","Las instrucciones empiezan desde '>>' y se tomará cada línea como parte de la instrucción. Para agregar otra instrucción presione el botón 'Agregar código de prueba'. Puede presionar el botón 'Algoritmo aleatorio' para agregar instrucciones aleatorias. Presione 'Aceptar' para ver el resultado.")
 

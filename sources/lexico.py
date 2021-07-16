@@ -178,6 +178,7 @@ t_VAR_LOCAL =r'((_[a-z]+)|[a-z])\w*'
 t_VAR_CONSTANT = r'[A_Z]+'
 t_TERM= r';|\n'
 
+#identificador
 def t_IDENTIFIER(t):
     r'[a-zA-Z_][a-zA-Z0-9_]*'
     t.type = reserved.get(t.value, 'IDENTIFIER')  # Check for reserved words
@@ -186,11 +187,13 @@ def t_IDENTIFIER(t):
 # +Hector Rizzo
 # A regular expression rule with some action code
 
+#definicion para considerar que un numero es de tipo float
 def t_FLOAT(t):
     r'\d+\.\d+|\-\d+\.\d+'
     t.value = float(t.value)
     return t
 
+#definicion para considerar que un numero es de tipo entero
 def t_NUMBER(t):
     r'\d+|\-\d+'
     t.value = int(t.value)
